@@ -1,0 +1,113 @@
+// Phase 1 database migration — แทน in-memory store ทีละตัว (ดู PRODUCTION_ROADMAP.md
+// ส่วน "Production Roadmap แบ่งเป็นเฟส" Phase 1)
+//
+// เริ่มจาก ReviewQueueItem ก่อน เพราะไม่มี patient conversation content ที่ต้อง
+// encrypt เลย (metadata ล้วนๆ)
+//
+// ConversationMessage และ ScreeningResponse (9Q/8Q) เพิ่มในรอบนี้แล้ว — เดิม
+// รอเพราะต้องตกลงเรื่อง key management ของ hydra-crypto ก่อน (ตัดสินใจแล้ว: envelope
+// encryption ผ่าน PatientDataKey ด้านล่าง ดู lib/patient-encryption.ts และ
+// PRODUCTION_ROADMAP.md ส่วนคำถามเปิดที่ปิดไปแล้ว) ทั้งสอง model นี้เก็บ payload
+// เป็น encryptedShards (JSON string ของ HydraShard[]) เท่านั้น ไม่มี field ไหน
+// เป็น plaintext ของข้อมูลผู้ป่วยเลย
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model ReviewQueueItem {
+  id                String   @id @default(uuid())
+  patientId         String
+  // "chat_risk_engine" | "screening_8q" — ตรงกับ ReviewSource ใน human-review-queue.ts
+  source            String
+  reason            String
+  riskLevel         String
+  // "low" | "medium" | "high" | "critical" — ตรงกับ ReviewSeverity ใน types/policy.ts
+  severity          String
+  notifyImmediately Boolean
+  acknowledged      Boolean  @default(false)
+  createdAt         DateTime @default(now())
+
+  @@index([patientId])
+  @@index([notifyImmediately, createdAt])
+}
+
+// Envelope encryption สำหรับข้อมูลผู้ป่วย (ดู PRODUCTION_ROADMAP.md — เลือก "แบบ 3"
+// จากคำถามเปิดเรื่อง encryption key management แล้ว เพราะมีคนจริงใช้งานตั้งแต่ demo
+// และมี production จริงรออยู่แน่นอน)
+//
+// wrappedKeyJson เก็บ per-patient DEK (data encryption key) ที่ถูกห่อ (encrypt)
+// ด้วย master key จาก env แล้ว — ไม่เคยเก็บ DEK แบบ plaintext ใน DB เลย
+// ดู lib/patient-encryption.ts ว่า wrap/unwrap ยังไง
+model PatientDataKey {
+  patientId      String   @id
+  wrappedKeyJson String
+  createdAt      DateTime @default(now())
+}
+
+// เก็บบทสนทนาระหว่างผู้ป่วยกับ Companion agent — ทีละข้อความ (ไม่ใช่ blob รวม
+// ทั้ง conversation) เพื่อให้ append ข้อความใหม่ได้ตรงๆ โดยไม่ต้อง decrypt-all-
+// แล้ว-encrypt-ใหม่ทุกครั้ง (จะแพงขึ้นเรื่อยๆ ตามความยาวบทสนทนา) encryptedShards
+// มาจาก encryptForPatient() ใน lib/patient-encryption.ts เสมอ — content จริงไม่
+// เคยแตะ DB แบบ plaintext เลย ดู lib/clinical/conversation-store.ts ว่าอ่าน/เขียนยังไง
+model ConversationMessage {
+  id              String   @id @default(uuid())
+  patientId       String
+  role            String   // "user" | "assistant"
+  encryptedShards String
+  createdAt       DateTime @default(now())
+
+  @@index([patientId, createdAt])
+}
+
+// เก็บบัญชีผู้ใช้จริง (แทน demo-login ที่ไม่เช็ค credential ใดๆ) — passwordHash
+// มาจาก hashPassword() ใน lib/hydra-crypto.ts (PBKDF2-SHA512, 310,000 iterations,
+// สร้างไว้รอตั้งแต่ก่อนหน้านี้แต่ยังไม่มีจุดไหนเรียกใช้จริงจนถึงตอนนี้)
+//
+// ไม่มี self-registration endpoint โดยตั้งใจ — ระบบคัดกรองสุขภาพจิตต้องมีคนยืนยัน
+// ตัวตนก่อนสร้างบัญชี (HR/แอดมิน) ไม่ใช่ให้ใครก็สมัครเองได้ ดู scripts/seed-users.ts
+// สำหรับสร้างบัญชีทดสอบตอน dev เท่านั้น
+model User {
+  id           String   @id @default(uuid())
+  username     String   @unique
+  passwordHash String
+  role         String   // "patient" | "doctor" | "staff" | "security" | "admin"
+  displayName  String?
+  createdAt    DateTime @default(now())
+}
+
+// คิวสำหรับทีม security ตรวจ requiresAccountReview โดยเฉพาะ — แยกจาก
+// ReviewQueueItem ที่แพทย์เห็น เพราะคนละทีม คนละวัตถุประสงค์ (ดูรูปแบบ
+// pattern/ความพยายามโจมตี ไม่ใช่ความเสี่ยงทางคลินิก) ทีมนี้ไม่ควรเห็น/ไม่จำเป็น
+// ต้องเห็นข้อมูลคลินิกของผู้ป่วยเลย ดู lib/security/security-review-queue.ts
+model SecurityReviewItem {
+  id            String   @id @default(uuid())
+  patientId     String
+  correlationId String
+  riskLevel     String
+  threatReasons String   // JSON.stringify(string[])
+  acknowledged  Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  @@index([acknowledged, createdAt])
+}
+
+// เก็บผลตอบแบบสอบถาม 9Q/8Q — เก็บทั้ง QuestionnaireResponse (screening-schema.ts)
+// เป็น JSON ก้อนเดียวแล้วเข้ารหัสทั้งก้อน เพราะทุกจุดที่อ่านกลับใช้ทั้งก้อนเสมอ
+// ไม่มี query filter รายข้อย่อย totalScore ที่ใช้ตัดสิน urgent referral คำนวณจาก
+// plaintext ที่ API route ก่อนถึงจุดนี้เรียบร้อยแล้ว ไม่ต้องเก็บซ้ำเป็น plaintext
+// แยกใน DB (ลด attack surface) ดู lib/clinical/screening-store.ts
+model ScreeningResponse {
+  id              String   @id @default(uuid())
+  patientId       String
+  questionnaire   String   // "9Q" | "8Q"
+  encryptedShards String
+  createdAt       DateTime @default(now())
+
+  @@index([patientId, questionnaire, createdAt])
+}
