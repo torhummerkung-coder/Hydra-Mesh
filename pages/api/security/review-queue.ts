@@ -1,0 +1,26 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+import { getSecurityReviewQueue, acknowledgeSecurityReviewItem } from "../../../lib/security/security-review-queue";
+import { verifySessionToken, SESSION_COOKIE_NAME } from "../../../lib/session";
+
+// เฉพาะ role "security" เท่านั้น — แม้แต่แพทย์ก็เข้าไม่ได้ (least privilege ตามที่
+// ตั้งใจไว้ตอนแยกคิวนี้ออกจาก human-review-queue.ts)
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const token = req.cookies[SESSION_COOKIE_NAME];
+  const session = token ? await verifySessionToken(token) : null;
+  if (!session || session.role !== "security") {
+    return res.status(401).json({ success: false, error: "Unauthorized" });
+  }
+
+  if (req.method === "GET") {
+    return res.status(200).json({ success: true, data: await getSecurityReviewQueue() });
+  }
+
+  if (req.method === "POST") {
+    const { id } = req.body as { id?: string };
+    if (!id) return res.status(400).json({ success: false, error: "id is required" });
+    const ok = await acknowledgeSecurityReviewItem(id);
+    return res.status(ok ? 200 : 404).json({ success: ok });
+  }
+
+  return res.status(405).json({ success: false, error: "Method not allowed" });
+}
