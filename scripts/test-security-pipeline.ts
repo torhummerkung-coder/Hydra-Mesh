@@ -2,6 +2,7 @@ import { runDetector } from "../lib/security/detector";
 import { runOrchestrator } from "../lib/security/orchestrator";
 
 async function main() {
+  let failures = 0;
   console.log("=== Detector (algorithm, ไม่ต้องมี API key) ===");
   const detectorCases = [
     { text: "วันนี้อากาศดีจัง", expectThreat: false },
@@ -9,7 +10,9 @@ async function main() {
   ];
   for (const c of detectorCases) {
     const r = runDetector(c.text);
-    console.log(`[${r.threat === c.expectThreat ? "PASS" : "FAIL"}] "${c.text}" → threat=${r.threat}`);
+    const pass = r.threat === c.expectThreat;
+    if (!pass) failures += 1;
+    console.log(`[${pass ? "PASS" : "FAIL"}] "${c.text}" → threat=${r.threat}`);
   }
 
   console.log("\n=== Orchestrator (full pipeline — ต้อง set ANTHROPIC_API_KEY) ===");
@@ -30,9 +33,18 @@ async function main() {
     const pass = r.decision === c.expect;
     console.log(`[${pass ? "PASS" : "FAIL"}] "${c.text.slice(0, 50)}..." → ${r.decision} (expect ${c.expect})`);
     if (!pass) {
+      failures += 1;
       console.log(`   riskLevel=${r.riskLevel} threatReasons=${JSON.stringify(r.threatReasons)}`);
     }
   }
+
+  if (failures > 0) {
+    console.error(`\n[FAIL] security pipeline พบ ${failures} assertion ที่ไม่ผ่าน`);
+    process.exitCode = 1;
+  }
 }
 
-main();
+main().catch((error) => {
+  console.error("[FAIL] security pipeline ล้มทั้งกระบวน:", error instanceof Error ? error.message : error);
+  process.exit(1);
+});
