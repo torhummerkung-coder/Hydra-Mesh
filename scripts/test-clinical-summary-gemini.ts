@@ -1,4 +1,4 @@
-// ทดสอบ clinical-summary-agent.ts หลังย้าย Clinical Summary → Gemini 3.7 Flash
+// ทดสอบ clinical-summary-agent.ts หลังย้าย Clinical Summary → Gemini 3.8 Flash
 //
 // ⚠️ ต้องมี GEMINI_API_KEY จริงใน .env.local ก่อนรัน การ compile หรือ mock test
 // ไม่ถือเป็น live verification รันสคริปต์นี้เพื่อยืนยัน integration path จริง:
@@ -6,7 +6,7 @@
 //
 // ถ้า FAIL ที่ "เรียก Gemini API สำเร็จ" ให้เช็คตามลำดับนี้ก่อน:
 //   1. GEMINI_API_KEY ตั้งค่าถูกและเปิด Gemini API แล้วหรือไม่
-//   2. บัญชีมีสิทธิ์ใช้ GEMINI_MODEL (ค่าเริ่มต้น gemini-3.7-flash) หรือไม่
+//   2. บัญชีมีสิทธิ์ใช้ GEMINI_MODEL (ค่าเริ่มต้น gemini-3.8-flash) หรือไม่
 //   3. quota/rate limit ของ Google AI Studio ยังเหลือหรือไม่
 
 import { loadEnvConfig } from "@next/env";
@@ -19,7 +19,7 @@ loadEnvConfig(process.cwd());
 async function main() {
   const { generateClinicalSummary } = await import("../lib/agents/clinical-summary-agent");
 
-  console.log("=== Clinical Summary Agent (Gemini 3.7 Flash) ===");
+  console.log("=== Clinical Summary Agent (Gemini 3.8 Flash) ===");
 
   if (!process.env.GEMINI_API_KEY) {
     console.log("[FAIL] ไม่มี GEMINI_API_KEY ใน environment — ตั้งค่าใน .env.local ก่อนรันสคริปต์นี้");

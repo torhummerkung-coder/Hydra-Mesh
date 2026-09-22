@@ -51,7 +51,7 @@ export const AGENT_REGISTRY: Record<AgentId, AgentIdentity> = {
     kind: "llm",
     // v2: Gemini 3.7 Flash (เดิม Claude Sonnet 5 แล้วทดลอง Mistral Small 4)
     // แยก model/provider จาก Companion; ดู clinical-summary-agent.ts
-    model: "gemini-3.7-flash",
+    model: "gemini-3.8-flash",
     provider: "google",
   },
   fallback: { id: "fallback", displayName: "Fallback Reply", kind: "algorithm" },

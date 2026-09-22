@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 
 process.env.GEMINI_API_KEY = "contract-test-key";
-process.env.GEMINI_MODEL = "gemini-3.7-flash";
+process.env.GEMINI_MODEL = "gemini-3.8-flash";
 
 async function main() {
   const { generateClinicalSummary } = await import("../lib/agents/clinical-summary-agent");
@@ -28,7 +28,7 @@ async function main() {
       reviewFlagCount: 0,
     });
 
-    assert.match(capturedUrl, /gemini-3\.7-flash:generateContent$/);
+    assert.match(capturedUrl, /gemini-3\.8-flash:generateContent$/);
     assert.equal(new Headers(capturedHeaders).get("x-goog-api-key"), "contract-test-key");
     assert.equal(typeof capturedBody.systemInstruction?.parts?.[0]?.text, "string");
     assert.equal(capturedBody.contents?.[0]?.role, "user");

@@ -12,6 +12,7 @@ import { getReviewQueue } from "../../../lib/clinical/human-review-queue";
 import { verifySessionToken, SESSION_COOKIE_NAME } from "../../../lib/session";
 import { logEvent } from "../../../lib/audit/audit-log";
 import { callWithCircuitBreaker } from "../../../lib/security/circuit-breaker";
+const CLINICAL_DATA_READ_DEADLINE_MS = 15_000;
 
 // แก้จาก trust-boundary gap ที่เจอ: เดิม endpoint นี้รับ conversationHistory/
 // nineQHistory/eightQHistory จาก client (dashboard.tsx) ตรงๆ ซึ่งแปลว่าใครก็ตาม
@@ -67,16 +68,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const [conversationHistory, nineQHistory, eightQHistory, reviewQueue] = await Promise.all([
-      withDeadline(getConversationHistory(patientId)),
-      withDeadline(getScreeningHistory(patientId, "9Q")),
-      withDeadline(getScreeningHistory(patientId, "8Q")),
+      withDeadline(
+            getConversationHistory(patientId),
+                CLINICAL_DATA_READ_DEADLINE_MS
+                  ),
+                    withDeadline(
+                        getScreeningHistory(patientId, "9Q"),
+                            CLINICAL_DATA_READ_DEADLINE_MS
+                              ),
+                                withDeadline(
+                                    getScreeningHistory(patientId, "8Q"),
+                                        CLINICAL_DATA_READ_DEADLINE_MS
+                                          ),
       // แก้ bug เดิม: getReviewQueue() เปลี่ยนเป็น async ตอนย้ายจาก in-memory ไป
       // Prisma แล้ว (ดู lib/clinical/human-review-queue.ts) แต่จุดนี้ไม่ได้ตามไป
       // เติม await — เดิมเรียก .filter() บน Promise ตรงๆ ซึ่ง throw runtime error
       // ทุกครั้งที่ endpoint นี้ถูกเรียก (Promise ไม่มี .filter) แก้แล้วที่นี่
-      withDeadline(getReviewQueue([patientId])),
-    ]);
-
+    withDeadline(
+          getReviewQueue([patientId]),
+              CLINICAL_DATA_READ_DEADLINE_MS
+                ),
+                ]);
     // audited temporary-decrypt zone — แพทย์คนไหน เปิดดูผู้ป่วยคนไหน เมื่อไหร่
     logEvent("clinical_data_decrypted", "clinical-summary", correlationId, {
       patientId,

@@ -34,7 +34,7 @@ export interface ClinicalSummaryResult {
 //
 // ⚠️ ต้องรัน `npm run test:clinical-summary-gemini` ด้วย key จริงก่อนบันทึกว่า
 // integration path ผ่าน ห้ามตีความว่า compile ผ่าน = clinical safety ผ่าน
-const DEFAULT_GEMINI_MODEL = "gemini-3.7-flash";
+const DEFAULT_GEMINI_MODEL = "gemini-3.8-flash";
 const GEMINI_API_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models";
 
 function formatScoreHistory(points: ScoreHistoryPoint[], label: string): string {
@@ -70,7 +70,7 @@ export async function generateClinicalSummary(
   const apiUrl = `${GEMINI_API_BASE_URL}/${encodeURIComponent(model)}:generateContent`;
   const response = await fetch(apiUrl, {
     method: "POST",
-    signal: AbortSignal.timeout(8000),
+    signal: AbortSignal.timeout(30000),
     headers: {
       "Content-Type": "application/json",
       "x-goog-api-key": apiKey,

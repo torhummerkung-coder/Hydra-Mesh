@@ -36,6 +36,21 @@ interface ClinicalSummaryResult {
   eightQScores: ScorePoint[];
 }
 
+interface TraceSummary {
+  correlationId: string;
+  startedAt: number;
+  stepCount: number;
+  lastEventType: string;
+  patientId?: string;
+}
+
+interface EventTraceChain {
+  correlationId: string;
+  totalDurationMs: number;
+  patientId?: string;
+  steps: { agentId: string; type: string; atMs: number }[];
+}
+
 const RISK_DOT: Record<string, string> = {
   unknown: "bg-gray-400",
   low: "bg-green-500",
@@ -135,18 +150,24 @@ export default function DoctorDashboard() {
   const [summaryResult, setSummaryResult] = useState<ClinicalSummaryResult | null>(null);
   const [summaryLoading, setSummaryLoading] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
+  const [traces, setTraces] = useState<TraceSummary[]>([]);
+  const [selectedTrace, setSelectedTrace] = useState<EventTraceChain | null>(null);
+  const [traceLoading, setTraceLoading] = useState(false);
+  const [traceError, setTraceError] = useState<string | null>(null);
 
   const loadAll = useCallback(async () => {
-    const [patientsRes, queueRes, healthRes] = await Promise.all([
+    const [patientsRes, queueRes, healthRes, tracesRes] = await Promise.all([
       fetch("/api/doctor/patients", { signal: AbortSignal.timeout(5000) }).then((r) => r.json()).catch(() => ({ success: false })),
       fetch("/api/doctor/review-queue", { signal: AbortSignal.timeout(5000) }).then((r) => r.json()).catch(() => ({ success: false })),
       fetch("/api/doctor/system-health", { signal: AbortSignal.timeout(5000) }).then((r) => r.json()).catch(() => ({ success: false })),
+      fetch("/api/doctor/event-trace", { signal: AbortSignal.timeout(5000) }).then((r) => r.json()).catch(() => ({ success: false })),
     ]);
     if (patientsRes.success) setPatients(patientsRes.data);
     if (queueRes.success) setQueue(queueRes.data);
     if (healthRes.success) { setHealth(healthRes.data.status); setComponents(healthRes.data.components ?? {}); }
     else { setHealth("unknown"); setComponents({}); }
-    const allFresh = [patientsRes, queueRes, healthRes].every(r => r.success);
+    if (tracesRes.success) setTraces(tracesRes.data);
+    const allFresh = [patientsRes, queueRes, healthRes, tracesRes].every(r => r.success);
     setStale(!allFresh);
     if (allFresh) setUpdatedAt(new Date().toISOString());
     setLoading(false);
@@ -196,6 +217,28 @@ export default function DoctorDashboard() {
     if (json.success) setSummaryResult(json.data);
     } catch { /* show unavailable below */ }
     finally { setSummaryLoading(false); }
+  }
+
+  async function viewTrace(correlationId: string) {
+    setTraceLoading(true);
+    setTraceError(null);
+    setSelectedTrace(null);
+    try {
+      const response = await fetch(
+        `/api/doctor/event-trace?correlationId=${encodeURIComponent(correlationId)}`,
+        { signal: AbortSignal.timeout(5000) }
+      );
+      const json = await response.json();
+      if (!response.ok || !json.success) {
+        setTraceError("เปิด trace ไม่สำเร็จ หรือสิทธิ์ในการดูแลผู้ป่วยถูกเปลี่ยนแล้ว");
+        return;
+      }
+      setSelectedTrace(json.data);
+    } catch {
+      setTraceError("เชื่อมต่อเพื่ออ่าน trace ไม่สำเร็จ โปรดลองอีกครั้ง");
+    } finally {
+      setTraceLoading(false);
+    }
   }
 
   if (loading) {
@@ -315,6 +358,40 @@ export default function DoctorDashboard() {
           </div>
         </div>
 
+        <div className="mt-6 rounded-xl bg-white p-4 shadow-sm">
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="font-medium text-gray-900">Event trace ของผู้ป่วยในความดูแล</h2>
+            <span className="text-xs text-gray-400">แสดงเฉพาะ trace ที่ยืนยันสิทธิ์ได้</span>
+          </div>
+          {traceError && <p role="alert" className="mb-3 text-sm text-red-600">{traceError}</p>}
+          {traceLoading && <p className="mb-3 text-sm text-gray-500">กำลังโหลด trace...</p>}
+          <ul className="space-y-2">
+            {traces.map((trace) => (
+              <li key={trace.correlationId} className="rounded-lg border border-gray-100 p-3">
+                <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">
+                      {trace.lastEventType} · {trace.stepCount} ขั้นตอน
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      {new Date(trace.startedAt).toLocaleString("th-TH")} · {trace.correlationId.slice(0, 12)}…
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => viewTrace(trace.correlationId)}
+                    className="rounded-md border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50"
+                  >
+                    ดูลำดับเหตุการณ์
+                  </button>
+                </div>
+              </li>
+            ))}
+            {traces.length === 0 && (
+              <li className="text-sm text-gray-400">ยังไม่มี trace ที่อยู่ในขอบเขตสิทธิ์</li>
+            )}
+          </ul>
+        </div>
+
       </div>
 
       {/* Direct specialist modal */}
@@ -367,6 +444,41 @@ export default function DoctorDashboard() {
               </button>
             </div>
             {actionError && <p role="alert" className="mt-3 text-sm text-red-600">{actionError}</p>}
+          </div>
+        </div>
+      )}
+
+      {/* Event trace modal — intentionally omits raw payload for data minimization */}
+      {selectedTrace && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/30 p-4">
+          <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-lg">
+            <h3 className="text-lg font-semibold text-gray-900">ลำดับเหตุการณ์ของระบบ</h3>
+            <p className="mt-1 break-all text-xs text-gray-400">{selectedTrace.correlationId}</p>
+            <p className="mt-2 text-xs text-gray-500">
+              {selectedTrace.steps.length} ขั้นตอน · รวม {selectedTrace.totalDurationMs} ms
+            </p>
+            <ol className="mt-4 max-h-80 space-y-2 overflow-y-auto">
+              {selectedTrace.steps.map((step, index) => (
+                <li key={`${step.agentId}-${step.atMs}-${index}`} className="rounded-lg border border-gray-100 p-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{step.type}</p>
+                      <p className="text-xs text-gray-500">{step.agentId}</p>
+                    </div>
+                    <span className="text-xs text-gray-400">+{step.atMs} ms</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-3 text-xs text-gray-400">ไม่แสดง raw payload ตามหลัก data minimization</p>
+            <div className="mt-5 flex justify-end">
+              <button
+                onClick={() => setSelectedTrace(null)}
+                className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              >
+                ปิด
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -11,9 +11,8 @@ DATABASE_URL="file:./dev.db"
 PATIENT_DATA_MASTER_KEY=<base64 key 32 bytes>
 SESSION_SECRET=<random secret อย่างน้อย 32 ตัวอักษร>
 GEMINI_API_KEY=<Google Gemini API key จริง>
-GEMINI_MODEL=gemini-3.7-flash
+GEMINI_MODEL=gemini-3.8-flash
 DEMO_AUTH_ENABLED=true
-NODE_ENV=development
 ```
 
 ห้าม commit, zip, screenshot หรือส่ง `.env.local` และ API key ผ่านแชต
@@ -33,7 +32,7 @@ npm run test:fallback-storage
 npm run test:clinical-summary-contract
 npm run test:clinical-summary-gemini
 npm run typecheck
-npm run build
+DEMO_AUTH_ENABLED=false npm run build
 ```
 
 ## 3. เกณฑ์ปิด Phase 1

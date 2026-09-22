@@ -89,7 +89,7 @@ async function main() {
     const doctor=await createSessionToken({sub:'test-doctor',role:'doctor'});
     let summary:any;const sumRes:any={setHeader:()=>{},status:()=>sumRes,json:(data:any)=>{summary=data;return sumRes;}};
     await summaryHandler({method:'POST',cookies:{[SESSION_COOKIE_NAME]:doctor},body:{patientId:'test-patient'}} as any,sumRes);
-    assert(summary.success);assert.equal(summary.data.summaryStatus,'unavailable');assert(summary.data.sourceMessages.length>0);assert.equal(summary.data.eightQScores.length,1);
+    assert(summary.success, JSON.stringify(summary));assert.equal(summary.data.summaryStatus,'unavailable');assert(summary.data.sourceMessages.length>0);assert.equal(summary.data.eightQScores.length,1);
     console.log('PASS account-switch rejection, assessment early review/dedupe and doctor source-data fallback');
 
   } finally {globalThis.fetch=originalFetch;await prisma.$disconnect();await fs.rm(dir,{recursive:true,force:true});}
