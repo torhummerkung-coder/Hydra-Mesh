@@ -28,9 +28,14 @@ export interface ClinicalSummaryResult {
 
 // v2: แยก Clinical Summary ออกจาก Claude Sonnet 5 ที่ Companion ใช้ เพื่อคง
 // cognitive/provider diversity โดยย้าย provider ล่าสุดจาก Mistral มาเป็น
-// Gemini 3.7 Flash หลัง Mistral live verification ถูกบล็อกด้วย API 429
+// Gemini Flash หลัง Mistral live verification ถูกบล็อกด้วย API 429
 // (2026-09-16) การเปลี่ยนนี้ไม่เพิ่มอำนาจให้ agent: ยังทำได้เพียงจัดระเบียบ
 // ข้อมูลให้แพทย์อ่าน และผลลัพธ์ทุกครั้งยังอยู่ใต้ human clinical authority
+//
+// Legacy corrective RISK-005 (current RISK-001/RISK-007; EC-001): default อัปเดตเป็น gemini-3.8-flash ให้ตรงกับ
+// model ที่ live-verify จริงใน EC-000 — ก่อนหน้านี้ default ยังเป็น 3.7-flash
+// ทั้งที่ live test รันด้วย 3.8-flash (override) ทำให้ config ไม่ตรงกับ
+// evidence เดิม ดู docs/ID_MIGRATION.md and docs/RISK_REGISTER.md RISK-001/RISK-007
 //
 // ⚠️ ต้องรัน `npm run test:clinical-summary-gemini` ด้วย key จริงก่อนบันทึกว่า
 // integration path ผ่าน ห้ามตีความว่า compile ผ่าน = clinical safety ผ่าน
@@ -70,7 +75,7 @@ export async function generateClinicalSummary(
   const apiUrl = `${GEMINI_API_BASE_URL}/${encodeURIComponent(model)}:generateContent`;
   const response = await fetch(apiUrl, {
     method: "POST",
-    signal: AbortSignal.timeout(30000),
+    signal: AbortSignal.timeout(8000),
     headers: {
       "Content-Type": "application/json",
       "x-goog-api-key": apiKey,

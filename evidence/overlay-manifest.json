@@ -1,0 +1,130 @@
+[
+  {
+    "path": ".env.example",
+    "sha256": "e3aa5849ca390aa72e6d753d65da9f4f869156587c8fbf3f05d6e334b47d0ffe"
+  },
+  {
+    "path": "CHANGELOG_W0.md",
+    "sha256": "db460d7376ca3d8ebdaaddca16c2db3d53e2e90603fbbfc6c2a8f96bde9765a5"
+  },
+  {
+    "path": "GEMINI_LIVE_VERIFICATION.md",
+    "sha256": "ac869182b59c00de2343c5a46e4877952d6fb8d1d00d7b481bf7b6cb737d81f3"
+  },
+  {
+    "path": "PHASE1_FREEZE_RUNBOOK.md",
+    "sha256": "0acd5809977443c7b5f5954b2fdedf3442a58fd673979ac4d2b8245e032c3059"
+  },
+  {
+    "path": "PRODUCTION_ROADMAP.md",
+    "sha256": "74d6c9d73ea277f963894bfe5cc29574060ec3b74401fd37b486401b836561e9"
+  },
+  {
+    "path": "README.md",
+    "sha256": "5c59cff2a22437b6672132443496ae5c08417e937bad56ed6c006f84d2a0cb9a"
+  },
+  {
+    "path": "W0_CORRECTIVE_VERIFICATION.md",
+    "sha256": "0ec9a8e94077ad216d05970f8736ab342e30feec0be48f0e3dfead389e8d3b9b"
+  },
+  {
+    "path": "docs/EVIDENCE_CHAIN.md",
+    "sha256": "4439cdce62827f5accf89a8f55e451ee7165fa3e5ed9a8fb501e20dfcf5b87c0"
+  },
+  {
+    "path": "docs/ID_MIGRATION.md",
+    "sha256": "5a22b01b629d20867032aab3088fadadd53d66a7529dc4e3d7108e4eb071f33e"
+  },
+  {
+    "path": "docs/PHASE_2_KICKOFF_CHECKLIST.md",
+    "sha256": "bda7afc462297e1c11b352030d3154616ffc8bf296dca746cadaa218f6093863"
+  },
+  {
+    "path": "docs/PHASE_2_PLAN.md",
+    "sha256": "346bae12f333213954c0baff71d0ec161b2d44dd6bd7640de07464ffbc7d1418"
+  },
+  {
+    "path": "docs/RISK_REGISTER.md",
+    "sha256": "7b80d7c63ba53762380744cf5c1c57acf4d6ac32a8f45b8d64fd4be6b7c77a1b"
+  },
+  {
+    "path": "docs/W0_CLOSEOUT_WORKSHEET.md",
+    "sha256": "584ddd676ac136c2f3649750125a935a8088c9a27c72885a9e03b38a6496ea23"
+  },
+  {
+    "path": "docs/history/corrective-source/EVIDENCE_CHAIN.md",
+    "sha256": "d9d20c725537a6ead72b10da1f99e678935ced3773b6791a7e5c1291327a9efb"
+  },
+  {
+    "path": "docs/history/corrective-source/PHASE_2_PLAN.md",
+    "sha256": "a12cf1931fac855029aaea0922cfe320c39fa4c150306cdc03ffcc9f1d8ca494"
+  },
+  {
+    "path": "docs/history/corrective-source/RISK_REGISTER.md",
+    "sha256": "cccb06a9d2b7ccaa9e8c015ee90c2b905cfd428cf3dbe6ae66b253ed62b0f752"
+  },
+  {
+    "path": "evidence/collector-provenance.json",
+    "sha256": "08b6a32f9b177dbd7a019d872f91c76e5f1a71939b1a9982a81c730b7a4b5d01"
+  },
+  {
+    "path": "evidence/collector-verification.json",
+    "sha256": "15d8918f2441c9884eaa5f54e0842eef3da0fadfa36af9b77bf39e3d38313053"
+  },
+  {
+    "path": "evidence/contract-before.log",
+    "sha256": "47a975f241b27dd9d4a72d23ca9b894f4dd8596c41b098683ea9f9d5c07cdf12"
+  },
+  {
+    "path": "evidence/input-provenance.json",
+    "sha256": "af584825000720315fec18c82578cd65c11fc1b4a7a386ebdf9a372e1249d8ae"
+  },
+  {
+    "path": "evidence/reconstructed-source-manifest.json",
+    "sha256": "6900c3bff793638585c7974652c603e00e2f25c900c38ef7d40f59835ea06a1f"
+  },
+  {
+    "path": "evidence/results.json",
+    "sha256": "c5c391459fdd059d281e490da327b66e5b162638b8f2bd6fdc18a3f010ccf96a"
+  },
+  {
+    "path": "evidence/scoring-negative.log",
+    "sha256": "a151fc85a309f025810fa092ec42ad84c9582030cb33cf1a4030481c4f1cfdc0"
+  },
+  {
+    "path": "lib/agents/clinical-summary-agent.ts",
+    "sha256": "c07d8d9d6376a1fd81063d4efb155e587c14ede15de8534395bc85e1bf3837d0"
+  },
+  {
+    "path": "lib/security/identity.ts",
+    "sha256": "6417d896b46d0c9e48ce43c514cbf834c7896c9af19832d5ecdd08a0125e7e4c"
+  },
+  {
+    "path": "pages/api/doctor/patient-summary.ts",
+    "sha256": "50b1167646ba57a728780851b730e8ccb8d1d06bba6f924b5736f2d637bfab16"
+  },
+  {
+    "path": "pages/dashboard.tsx",
+    "sha256": "f3fcf12128d33f51d6466657e9505b7532aafdc1ee5ef0a3d5c966417affbef9"
+  },
+  {
+    "path": "scripts/collect-w0-evidence.mjs",
+    "sha256": "d43628e8c64b84958b4fcbe506f249fce8c49954f00bc1d4593a087a2898983d"
+  },
+  {
+    "path": "scripts/run-w0-local.mjs",
+    "sha256": "650ce2034c30b1d2cdf49243a4c7ee1c88cdc6d4defa86e1b3a170bd4c1fed9d"
+  },
+  {
+    "path": "scripts/test-clinical-scoring.ts",
+    "sha256": "91b479903f0eadee1808d213bc8771a54d5aa26a32395c98ca61747f5ea82457"
+  },
+  {
+    "path": "scripts/test-clinical-summary-gemini-contract.ts",
+    "sha256": "2bafe8c5a0318144dd0017ec8263c82deaadc04ee8482e69c9fa37d250855bff"
+  },
+  {
+    "path": "scripts/test-clinical-summary-gemini.ts",
+    "sha256": "495b2e0d96ce7f6a798abd21860e9503dca7f2ee4a93968918ba31d65c0df75f"
+  }
+]

@@ -1,0 +1,454 @@
+[
+  {
+    "path": ".gitignore",
+    "sha256": "2ee88e0d64cd0e030e667dc271e658f50d3ddb4e4426135860858901407fd7c0"
+  },
+  {
+    "path": "GEMINI_LIVE_VERIFICATION.md",
+    "sha256": "ac869182b59c00de2343c5a46e4877952d6fb8d1d00d7b481bf7b6cb737d81f3"
+  },
+  {
+    "path": "PHASE1_FREEZE_RUNBOOK.md",
+    "sha256": "685b26e4686a6622be2a59d50e5b86b100e88dc808d35139daf2d6477ceb64dc"
+  },
+  {
+    "path": "PRODUCTION_ROADMAP.md",
+    "sha256": "74d6c9d73ea277f963894bfe5cc29574060ec3b74401fd37b486401b836561e9"
+  },
+  {
+    "path": "README.md",
+    "sha256": "5c59cff2a22437b6672132443496ae5c08417e937bad56ed6c006f84d2a0cb9a"
+  },
+  {
+    "path": "docs/CLINICIAN_AUTHORIZATION.md",
+    "sha256": "278a13f51c50a9ab01cef7952b7ceb1b9938a6214207e4b77be97cfd86432c18"
+  },
+  {
+    "path": "docs/EVIDENCE_CHAIN.md",
+    "sha256": "4439cdce62827f5accf89a8f55e451ee7165fa3e5ed9a8fb501e20dfcf5b87c0"
+  },
+  {
+    "path": "docs/FALLBACK_MESH.md",
+    "sha256": "054d9b085e09277ced6782822c587d54a00bb6917edc5dee4049010725953bff"
+  },
+  {
+    "path": "docs/ID_MIGRATION.md",
+    "sha256": "5a22b01b629d20867032aab3088fadadd53d66a7529dc4e3d7108e4eb071f33e"
+  },
+  {
+    "path": "docs/PHASE_2_KICKOFF_CHECKLIST.md",
+    "sha256": "bda7afc462297e1c11b352030d3154616ffc8bf296dca746cadaa218f6093863"
+  },
+  {
+    "path": "docs/PHASE_2_PLAN.md",
+    "sha256": "346bae12f333213954c0baff71d0ec161b2d44dd6bd7640de07464ffbc7d1418"
+  },
+  {
+    "path": "docs/RISK_REGISTER.md",
+    "sha256": "7b80d7c63ba53762380744cf5c1c57acf4d6ac32a8f45b8d64fd4be6b7c77a1b"
+  },
+  {
+    "path": "docs/history/corrective-source/EVIDENCE_CHAIN.md",
+    "sha256": "d9d20c725537a6ead72b10da1f99e678935ced3773b6791a7e5c1291327a9efb"
+  },
+  {
+    "path": "docs/history/corrective-source/PHASE_2_PLAN.md",
+    "sha256": "a12cf1931fac855029aaea0922cfe320c39fa4c150306cdc03ffcc9f1d8ca494"
+  },
+  {
+    "path": "docs/history/corrective-source/RISK_REGISTER.md",
+    "sha256": "cccb06a9d2b7ccaa9e8c015ee90c2b905cfd428cf3dbe6ae66b253ed62b0f752"
+  },
+  {
+    "path": "lib/agents/clinical-summary-agent.ts",
+    "sha256": "c07d8d9d6376a1fd81063d4efb155e587c14ede15de8534395bc85e1bf3837d0"
+  },
+  {
+    "path": "lib/agents/clinical-summary-prompt.ts",
+    "sha256": "f8be98be6aac0a98e23988bd773aa7a3b06f8553941d91439006e9539950b1b5"
+  },
+  {
+    "path": "lib/agents/companion-agent.ts",
+    "sha256": "46cfa23f1af5247044018a4d5d9bb6c7a668429342a3508d1817318e6b87d8dd"
+  },
+  {
+    "path": "lib/agents/companion-prompt.ts",
+    "sha256": "97ea9dc90fd6c0802df8e1c726ec8720b61ab5660481678dbc3155cc431f2fc5"
+  },
+  {
+    "path": "lib/agents/fallback-reply.ts",
+    "sha256": "d561e2f2e24fcfeb51fdabd14471e9d3f2cfe5164f6e6424c21fa9e1193cc2dc"
+  },
+  {
+    "path": "lib/audit/audit-log.ts",
+    "sha256": "0d70604c107c87324ca65ff283c7a1e29c67a9ef6c3a4f5a4b845be750443d27"
+  },
+  {
+    "path": "lib/audit/event-chain.ts",
+    "sha256": "944808f04ccde6a9f1eaa6aa66a3b9f904bc46adb1dfe31ba68f3378ee6c7784"
+  },
+  {
+    "path": "lib/auth/clinical-authorization.ts",
+    "sha256": "e95df7cc94ec4e9324f9ac4d8feb1d2ec84935fc8f0c90a3cc6e55e7d0b59e71"
+  },
+  {
+    "path": "lib/auth/credential-login.ts",
+    "sha256": "2d73afd89a04e4689f803dd8d1e8f7ad665499ca9c357331edd8d6b58f3a40ed"
+  },
+  {
+    "path": "lib/client/outbox.ts",
+    "sha256": "b061b82a574a5693d64625fc6c56481d78617b203c48b6770535c5f0ef3d3d46"
+  },
+  {
+    "path": "lib/clinical/conversation-store.ts",
+    "sha256": "67567679e30d814b417fa249f1d143eaf06d01460e8a2bc635b088a42850cdfb"
+  },
+  {
+    "path": "lib/clinical/human-review-queue.ts",
+    "sha256": "98d9289fdb34786a97dfa2cc8dd28022b6afb11b6cdc9104de43d3cb4b5e36dd"
+  },
+  {
+    "path": "lib/clinical/screening-8q.ts",
+    "sha256": "24d4094a43fbea448b0701771fb9c8e1bdf18aae7af31753cfadbb436b6b4659"
+  },
+  {
+    "path": "lib/clinical/screening-9q.ts",
+    "sha256": "fb3999549263a865fc72489d35e8a2d33e297259e3fa92eb3c34bf534b753470"
+  },
+  {
+    "path": "lib/clinical/screening-schema.ts",
+    "sha256": "afc9185e15e32b8032f3f3a69b366ae42d6070aec0afb5a11173601e5a0f64b1"
+  },
+  {
+    "path": "lib/clinical/screening-store.ts",
+    "sha256": "852e4351b81ac5cdc18c30b036e9d432afa66e0921085d387889db5743a948ed"
+  },
+  {
+    "path": "lib/clinical/system-health.ts",
+    "sha256": "af9cc874256338d0e5dd13beeb78c4b2a55845cfabf9d426532ee0ca1a43a137"
+  },
+  {
+    "path": "lib/db.ts",
+    "sha256": "9364ea9bb680ffc5448896e3b8de8ffc9ef393632feb0fd0fdccd2e11f4c3dc0"
+  },
+  {
+    "path": "lib/fallback/composer.ts",
+    "sha256": "2e5c98398ca71d8173f0093d331e88d72687f9d72e01144e9abb0d213180e0db"
+  },
+  {
+    "path": "lib/fallback/coordinator.ts",
+    "sha256": "e3003c5f25b48e77b1dc3b8951bd0d00d15db767ff52101154d124aae229b870"
+  },
+  {
+    "path": "lib/fallback/deadline.ts",
+    "sha256": "6d88771309c5b5112153b0d00aa8404781ccf9e235fb5adf2486a692c80acfb8"
+  },
+  {
+    "path": "lib/fallback/delivery.ts",
+    "sha256": "016b5b5efb95012e77fcbb2727d346ffb70c1062d5b971796b3d095f42a72dde"
+  },
+  {
+    "path": "lib/fallback/message-lock.ts",
+    "sha256": "7a4bd15407c14463925fed9a02c3fab1e2511da1b93ec704e5104226fc3cf343"
+  },
+  {
+    "path": "lib/fallback/outbox.ts",
+    "sha256": "ce0b27ddb52ad05bf4f5c23fc4cec705c91835ce7112b6b15bf90f3bbf50ba2b"
+  },
+  {
+    "path": "lib/fallback/safety.ts",
+    "sha256": "0183a37a4acef837d16482aa00b1733f50880d9e185eded3ff61e142ece7630a"
+  },
+  {
+    "path": "lib/fallback/secondary.ts",
+    "sha256": "e106b2374accf922cef2658a12fa4642ab5aa84be29a08f68cabc54393781180"
+  },
+  {
+    "path": "lib/hydra-crypto.ts",
+    "sha256": "c9d00248c635b86e5346c617fd4e813ec7fc900f3c648b26326a73f4323578b0"
+  },
+  {
+    "path": "lib/patient-encryption.ts",
+    "sha256": "836a46068d7dfef92e7fd4988bfa6ef184d9652f9f259b9e65f9c711cd8233ec"
+  },
+  {
+    "path": "lib/security/capabilities.ts",
+    "sha256": "5630c7781816a307c4e1295a80fca360f1c86bf250c3cfd83907bfd39d8d7832"
+  },
+  {
+    "path": "lib/security/circuit-breaker.ts",
+    "sha256": "0de16ef5cb1ab98e6f3842b46319aa55aabd705a2dd83f66434975a0ddc37ac8"
+  },
+  {
+    "path": "lib/security/detector.ts",
+    "sha256": "830d50fdad730dc410433687cdcbf04d0638e41d3d4ebb8495681cb6e749d6df"
+  },
+  {
+    "path": "lib/security/identity.ts",
+    "sha256": "6417d896b46d0c9e48ce43c514cbf834c7896c9af19832d5ecdd08a0125e7e4c"
+  },
+  {
+    "path": "lib/security/orchestrator.ts",
+    "sha256": "ca1d5006a0bdddd2a3af5b8c68b4c396221dd844d8ecb2895ddba2b5643271a9"
+  },
+  {
+    "path": "lib/security/output-auditor.ts",
+    "sha256": "a329bf1aec0107503069a7f91ed531d66649d5e5a5ba411d54f3c3960f963440"
+  },
+  {
+    "path": "lib/security/policy-engine.ts",
+    "sha256": "5df4b6f59def4b39ef2aed0816d5372778293fb08de85790a29572cba10b8610"
+  },
+  {
+    "path": "lib/security/risk-engine.ts",
+    "sha256": "abd70af9f3b12539e79d798041fbf6a5e5f02c22ab3756fb6f74c7ab3efa3bf2"
+  },
+  {
+    "path": "lib/security/security-review-queue.ts",
+    "sha256": "0b53b595b996351b22a2b1b6ac811be4b3e6cd2bfea47e36afb8cc283ed4966a"
+  },
+  {
+    "path": "lib/sentinel/sentinel.ts",
+    "sha256": "9ccee07d18449a2fdee2f501235b6d297df0106cec924d531f7d4aa8e7941bef"
+  },
+  {
+    "path": "lib/session.ts",
+    "sha256": "4251a28ff94afa4f1ea5e195f73c9e5b6603811587b700f3eff63950cf779197"
+  },
+  {
+    "path": "lib/types/agent.ts",
+    "sha256": "27e9173bee6c899848433d94a90074285d9b5572d3648d9f83c5f57f9cbddcf2"
+  },
+  {
+    "path": "lib/types/capability.ts",
+    "sha256": "dc706c2ebf9194ce0e93a5aef59440535ab7c0903ee9b02ffece864f7a601c26"
+  },
+  {
+    "path": "lib/types/event.ts",
+    "sha256": "988a6e8b6e0c94cc3dbd6281b050d25f02be3db1c0d3962c1e01ab0e22c0fec8"
+  },
+  {
+    "path": "lib/types/incident.ts",
+    "sha256": "f012f367fc7b41cf35744112663d0f0ac99a4c40c816e4c4f3ee8d8003fa6d32"
+  },
+  {
+    "path": "lib/types/policy.ts",
+    "sha256": "de21a5273f6accdfe612dd68056036831810f0bed0d7c8eb34e03a1fe9babeb3"
+  },
+  {
+    "path": "lib/useCompanion.ts",
+    "sha256": "da2425f0bfc9a471b356f0297318ac30df4cdbad310eed8894da4b04205523fb"
+  },
+  {
+    "path": "lib/useHydra.ts",
+    "sha256": "d7e3ef028e3e9479d5393c99d37966cc0a03209b3759a14a1589382d55897e81"
+  },
+  {
+    "path": "middleware.ts",
+    "sha256": "6e9857d37d887ee253d23c7d1695fe3f743b5aff4682a563d62a68d234d897e9"
+  },
+  {
+    "path": "next-env.d.ts",
+    "sha256": "95c5e6b31f13db907e9fe5d7cd72edd186321a0c7a8fb2d89129029fb289c276"
+  },
+  {
+    "path": "package-lock.json",
+    "sha256": "c32c1a002c53f6a4b9cfc9c426a47aeb5d142b8eed43d2fc1377c011171ff794"
+  },
+  {
+    "path": "package.json",
+    "sha256": "7b2211c0418b5b8ad4ef011d3ec1bb4eef2101f8931342067cb6bcb952d08f3c"
+  },
+  {
+    "path": "pages/_app.tsx",
+    "sha256": "8de0326c07b14ea9a00024edcaf8ea767c8b443ab62d8edcd4e16be057a3fee3"
+  },
+  {
+    "path": "pages/api/admin/care-assignments.ts",
+    "sha256": "df559d07a11620901f47a178462b71b53b0841021d8864c5a66f37d885e3a5f8"
+  },
+  {
+    "path": "pages/api/auth/demo-login.ts",
+    "sha256": "bfc576a22eab74830bc0f6ee86269e70618ec24b13477f6ba69933d358c9d5ef"
+  },
+  {
+    "path": "pages/api/auth/login.ts",
+    "sha256": "764f654e8a5adc8546d8282ae699d87c17240cb27aaa9fcb8ef50936033cae86"
+  },
+  {
+    "path": "pages/api/auth/logout.ts",
+    "sha256": "fbc86ffc7f5da83485decd1393b100f9be519f4db8243a9f131a438d82a231d8"
+  },
+  {
+    "path": "pages/api/companion/chat.ts",
+    "sha256": "caa08ae477af44e0d1293296c8dfe0cd0b3b6c495ec46653c411bc79ffc2ddab"
+  },
+  {
+    "path": "pages/api/companion/history.ts",
+    "sha256": "64e6707f14839b277f987560a43527d716619beeb9bf349892c89223b6e4198e"
+  },
+  {
+    "path": "pages/api/companion/identity.ts",
+    "sha256": "95fe5c7e542aadf87144e503f4594a40f6f16b56b875f88fb64cd248c4a9cb6b"
+  },
+  {
+    "path": "pages/api/doctor/event-trace.ts",
+    "sha256": "aea3a4cdc059689a003aa05afff40e0511de3f6d89f6341603df364e182a2928"
+  },
+  {
+    "path": "pages/api/doctor/patient-summary.ts",
+    "sha256": "50b1167646ba57a728780851b730e8ccb8d1d06bba6f924b5736f2d637bfab16"
+  },
+  {
+    "path": "pages/api/doctor/patients.ts",
+    "sha256": "c813558b1afb3e5385799608925aeaedbcc3bc044952cbb100566cc24d8b8f23"
+  },
+  {
+    "path": "pages/api/doctor/review-queue.ts",
+    "sha256": "c75314558f37c0a184194895963e98cc50762b1ed44849efd19d09b3fa4dab3a"
+  },
+  {
+    "path": "pages/api/doctor/system-health.ts",
+    "sha256": "47b9872c2198cdae69abc190ff0ffed0f0cf0d6e0d3dd57afaf4406875f4cffd"
+  },
+  {
+    "path": "pages/api/hydra.ts",
+    "sha256": "4d45dbfd97ae57b9bfd038acfc677403409cb3507471eeb6f4bf9fa628e3dcac"
+  },
+  {
+    "path": "pages/api/screening/8q.ts",
+    "sha256": "c14f333c589b6aa9110b60031dee664129e418056e6bcfabfe47c18afdab7e18"
+  },
+  {
+    "path": "pages/api/screening/9q.ts",
+    "sha256": "f00a36a5c72aca224f9d08cf1dea12718ad05eced644214c5e7214332acfcff4"
+  },
+  {
+    "path": "pages/api/security/review-queue.ts",
+    "sha256": "0f94c557ddb40298a4c5b8aa192b2652d02fae4e4cd7779ea8da80c403bfade3"
+  },
+  {
+    "path": "pages/companion.tsx",
+    "sha256": "ee8b6050fa8d97529b63e8545e24e0f12f66031e76b4b48c56af081ca2f420f2"
+  },
+  {
+    "path": "pages/dashboard.tsx",
+    "sha256": "f3fcf12128d33f51d6466657e9505b7532aafdc1ee5ef0a3d5c966417affbef9"
+  },
+  {
+    "path": "pages/index.tsx",
+    "sha256": "62837714e4a299efc6bbd1ac8aff190b00cf6ea3cb62d95d268bf39d8c94d27d"
+  },
+  {
+    "path": "pages/screening.tsx",
+    "sha256": "f6ae34540d7be18fe51aec54f2f4513800724fbc460032e66248b2dc9cab27e2"
+  },
+  {
+    "path": "pages/security.tsx",
+    "sha256": "c29cddca03c5a79607d29d3f801e40bbadad0e04355a11306450eac39c05829d"
+  },
+  {
+    "path": "postcss.config.js",
+    "sha256": "512e33e48a667299168ffdb362e559da95d86e06dd73b20a941f52aed93e69e9"
+  },
+  {
+    "path": "prisma/migrations/20260921090000_phase1_baseline/migration.sql",
+    "sha256": "9cf03e47d2a36548641aced961a383ce73a49ce124ac853eaf23b6b2602c02f2"
+  },
+  {
+    "path": "prisma/schema.prisma",
+    "sha256": "248dabbb5f99f18e40754ea6a15bfa4d945a63e0f8b96e47a1e70203cf61305f"
+  },
+  {
+    "path": "prisma/upgrade-clinician-authorization.sql",
+    "sha256": "1a32f46859a3f9d0c5a076affdcafd7bb3563bed911c327cd2f743bb3b9de1bd"
+  },
+  {
+    "path": "prisma/upgrade-fallback.sql",
+    "sha256": "8c7a336d5ca6ec9fa641096f0caef0ca517acdb6e9b66563a0c36370c0356758"
+  },
+  {
+    "path": "scripts/demo-tier1-walkthrough.ts",
+    "sha256": "081e607e0c6e27b66f3140e6f76603596d740f49b709d418c6f367582a8a6e8b"
+  },
+  {
+    "path": "scripts/ensure-sqlite-db.mjs",
+    "sha256": "b63f192fe3b1a7da3a48543e0e119e66351ec4c610f093ae059c5365435c104f"
+  },
+  {
+    "path": "scripts/retry-outbox.ts",
+    "sha256": "8f8e828d34573b8ba43b16507651a8dfa37671c4dfe80714db6f3a5aab5e53d6"
+  },
+  {
+    "path": "scripts/run-w0-local.mjs",
+    "sha256": "650ce2034c30b1d2cdf49243a4c7ee1c88cdc6d4defa86e1b3a170bd4c1fed9d"
+  },
+  {
+    "path": "scripts/seed-users.ts",
+    "sha256": "52a9c3b0206d2c8251e224f7863b84a43cf52796817df50b7eb21babc3b83a90"
+  },
+  {
+    "path": "scripts/test-audit-and-resilience.ts",
+    "sha256": "68bb5d8c5186aaf05bbd1dffc9265d51fac05038bbbdb27d843aa07371d1760c"
+  },
+  {
+    "path": "scripts/test-auth-and-security-queue.ts",
+    "sha256": "898b2e0170dbd6411424f0c0682d3aa7d60b52bb48ab15cd095cd130ddb5dcf7"
+  },
+  {
+    "path": "scripts/test-clinical-data-encryption.ts",
+    "sha256": "7f4b2d163e1b10f7107e68d32dc73e5cb2a445d81e26c3c6f807665c784595e3"
+  },
+  {
+    "path": "scripts/test-clinical-scoring.ts",
+    "sha256": "91b479903f0eadee1808d213bc8771a54d5aa26a32395c98ca61747f5ea82457"
+  },
+  {
+    "path": "scripts/test-clinical-summary-gemini-contract.ts",
+    "sha256": "2bafe8c5a0318144dd0017ec8263c82deaadc04ee8482e69c9fa37d250855bff"
+  },
+  {
+    "path": "scripts/test-clinical-summary-gemini.ts",
+    "sha256": "495b2e0d96ce7f6a798abd21860e9503dca7f2ee4a93968918ba31d65c0df75f"
+  },
+  {
+    "path": "scripts/test-clinician-authorization.ts",
+    "sha256": "28b5699eb36931a665a66bf9367b4a965287f7db22187126e23e47cd4d6107db"
+  },
+  {
+    "path": "scripts/test-db-integration.ts",
+    "sha256": "52599991a5c48482b3746a520a0de3050454cb226066679b95a9d5e1a80f1cf3"
+  },
+  {
+    "path": "scripts/test-fallback-integration.ts",
+    "sha256": "ad0653d8124f99ed7a8b73754712d8aea85f8ca6553f83ff817fb79b0945507b"
+  },
+  {
+    "path": "scripts/test-fallback-storage.ts",
+    "sha256": "4737fa394e36b30c3558578d605c2209cc272fa946d4e2c6280dc54b4d8d9867"
+  },
+  {
+    "path": "scripts/test-fallback.ts",
+    "sha256": "8fc8af350c5dda8797e74b7def9ebbdbde390723d1a72437a606c054de0f1d61"
+  },
+  {
+    "path": "scripts/test-patient-encryption.ts",
+    "sha256": "b9aa0defcd96f980d590e69cdb14b758e5d9555f7ba7fe4433d27be82e144f75"
+  },
+  {
+    "path": "scripts/test-security-pipeline.ts",
+    "sha256": "17adfad382021f06203ae90da0b6f07a9bfafe84230af50b6ecdd43bd77a20bc"
+  },
+  {
+    "path": "styles/globals.css",
+    "sha256": "cc1a7ad0d019ddb1d32d0ecb588ba0ac26ce41d8625dd6c366348b25f83a28ec"
+  },
+  {
+    "path": "tailwind.config.js",
+    "sha256": "8017ea8f4704a294277dff87fb83a48d6d5995991069669d318367fa0f7db7f7"
+  },
+  {
+    "path": "tsconfig.json",
+    "sha256": "067c8eb17bee627ab8ce4eee180ab665dba1ac0b6d11c8b7fc3c125fcbddc178"
+  }
+]

@@ -1,79 +1,152 @@
 # HYDRA Mesh — Evidence Chain
 
-> ทุก decision สำคัญต้องย้อนตอบได้ว่า "ทำไม HYDRA ถึงทำแบบนี้"
-> ไม่ใช่แค่ "เราออกแบบกันว่าแบบนี้น่าจะดี"
+> ทุก decision สำคัญต้องย้อนตอบได้ว่า “ทำไม HYDRA ถึงทำแบบนี้”
+> ไม่ใช่แค่ “เราออกแบบกันว่าแบบนี้น่าจะดี”
 
-**รูปแบบ:** `Clinical Finding → Source/Rationale → Required Change → Safety Impact → Implementation → Test → Version`
+**รูปแบบ v0.2:**
+`Finding/Trigger → Source/Rationale → Related Risk → Required Change → Safety Impact → Implementation → Test → Evidence Artifact → Version → Reviewer/Human Decision`
 
 | | |
 |---|---|
-| สถานะเอกสาร | SKELETON v0.1 |
-| อ้างอิง | `PHASE_2_PLAN.md` (W2) |
+| สถานะเอกสาร | SKELETON v0.2 (2026-09-24) |
+| อ้างอิง | `PHASE_2_PLAN.md` (W0/W2/W3) |
 | Owner | Tor |
 
 ---
 
 ## กติกา
 
-1. **Append-only** — ไม่ลบหรือเขียนทับ entry เก่า ถ้าต้องแก้ ให้เพิ่ม entry ใหม่ที่ระบุ `Supersedes: EC-XXX`
-2. **ทุก entry ต้องมี Test** — ถ้ายังไม่มี ให้ Status เป็น `open` และห้ามปิดจนกว่าจะมี test ID + ผลรัน
-3. **ห้ามปล่อยช่องว่างเงียบๆ** — ช่องไหนไม่เกี่ยวให้เขียน `N/A` พร้อมเหตุผลสั้นๆ
-4. **การแก้ clinical threshold** (เช่น 8Q `>= 17`, 9Q item 9 flag) ต้องมี entry ที่มี Source อ้างอิงเวอร์ชันทางการก่อนแก้โค้ดเสมอ
-5. **Version** ใช้ commit hash หรือ tag ที่ตรวจสอบย้อนกลับได้จริง
-6. ข้อมูลตัวอย่างใน entry ใช้ synthetic / de-identified เท่านั้น
+1. **Append-only** — ไม่ลบ/เขียนทับ entry เก่า; แก้ด้วย entry ใหม่ + `Supersedes: EC-XXX`
+2. **ทุก entry ต้องมี Test** — ไม่มี test/evidence = ห้าม `verified`
+3. **ห้าม silent blank** — ไม่เกี่ยวให้เขียน `N/A` + เหตุผล
+4. Clinical threshold change ต้องมี official source/version ก่อนแก้ code
+5. Model/provider/version change ต้องมี entry ของตัวเอง + contract test + live verification ใหม่
+6. `Version` ต้องย้อนกลับได้: commit/tag + model/provider version เมื่อเกี่ยวข้อง
+7. ทุก entry ที่กระทบ safety/privacy/authority ต้องใส่ `Related Risk(s)`
+8. ต้องระบุ `Evidence Artifact / Log Path` เพื่อให้คนอื่นตรวจซ้ำได้
+9. `Reviewer / Decision Authority / Decision Date` ต้องเป็นมนุษย์เมื่อ entry ต้องการ judgment
+10. ใช้ synthetic / de-identified data เท่านั้นใน artifact ที่แชร์เพื่อ review
 
 ## Status
 
-`open` → `implemented` → `verified` | `rejected (เหตุผล)` | `deferred (เหตุผล)`
+`open → implemented → verified | rejected(reason) | deferred(reason)`
 
 ---
 
 ## Traceability Index
 
-| Entry | ชื่อ | ที่มา | Test ID | Version | Status |
+| Entry | ชื่อ | Related Risk | Test ID | Version | Status |
 |---|---|---|---|---|---|
-| EC-000 | Phase 1 baseline freeze | W0 | Phase 1 baseline suite | `phase1-freeze-v0.1.0` (planned) | verified |
+| EC-000 | Phase 1 baseline freeze | RISK-001, RISK-002, RISK-003 | TBD | TBD | open |
+| EC-001 | Clinical Summary model/version migration | RISK-001, RISK-007 | TBD | TBD | open |
 
 ---
 
 ## Entries
 
 ### EC-000: Phase 1 baseline freeze
-- **Clinical Finding:** N/A — เป็น entry จุดอ้างอิงเริ่มต้นของ evidence trail
-- **Source / Rationale:** `PHASE_2_PLAN.md` W0 — "Phase 1 CLOSED" ต้องมีหลักฐาน ไม่ใช่แค่ประกาศ
-- **Required Change:** N/A
-- **Safety Impact:** กำหนดจุดอ้างอิงที่ทุกการเปลี่ยนแปลงใน Phase 2 เทียบย้อนกลับได้
-- **Implementation:** Freeze commit/tag `phase1-freeze-v0.1.0`
-- **Test:** ผลรันจริงวันที่ 2026-09-22
+- **Finding / Trigger:** ต้องมี baseline ที่พิสูจน์แล้วก่อนใช้เป็นจุดอ้างอิง Phase 2
+- **Source / Rationale:** Phase 2 W0
+- **Related Risk(s):** RISK-001, RISK-002, RISK-003
+- **Required Change:** ปิด BLOCKER, classify known gaps, freeze commit/tag
+- **Safety Impact:** ป้องกันการอ้างว่า “ผ่านแล้ว” ทั้งที่ test/build/security boundary ยังไม่ยืนยัน
+- **Implementation:** baseline commit/tag: _TBD_
+- **Test:** ผลรันจริง
 
-  | Script | ผล | วันที่รัน |
-  |---|---|---|
-  | `npm install && npm run db:migrate && npm run db:seed` | PASS | 2026-09-22 |
-  | `test-db-integration` | PASS | 2026-09-22 |
-  | `test-clinical-data-encryption` | PASS | 2026-09-22 |
-  | `test-auth-and-security-queue` | PASS | 2026-09-22 |
-  | `test-clinician-authorization` (รวม trace scoping) | PASS | 2026-09-22 |
-  | `test-fallback-integration` | PASS — หลังเพิ่ม deadline อ่านข้อมูลเฉพาะ Clinical Summary เป็น 15 วินาที | 2026-09-22 |
-  | `test-fallback-storage` | PASS | 2026-09-22 |
-  | `test:clinical-summary-contract` | PASS — request contract, multi-part parsing และ empty-response fail-closed | 2026-09-22 |
-  | `test:clinical-summary-gemini` (live) | PASS — Gemini 3.8 Flash, summary ไม่ว่าง, disclaimer คงเดิม และ timestamp ถูกต้อง | 2026-09-22 |
-  | `npm run typecheck` | PASS | 2026-09-22 |
-  | `DEMO_AUTH_ENABLED=false npm run build` | PASS | 2026-09-22 |
+  | Gate | ผล | Evidence | วันที่ |
+  |---|---|---|---|
+  | install + migrate + seed | _TBD_ | _TBD_ | _TBD_ |
+  | DB integration | _TBD_ | _TBD_ | _TBD_ |
+  | clinical data encryption | _TBD_ | _TBD_ | _TBD_ |
+  | auth + security queue | _TBD_ | _TBD_ | _TBD_ |
+  | clinician authorization + trace scoping | _TBD_ | _TBD_ | _TBD_ |
+  | fallback integration | _TBD_ | _TBD_ | _TBD_ |
+  | fallback storage | _TBD_ | _TBD_ | _TBD_ |
+  | clinical-summary contract | _TBD_ | _TBD_ | _TBD_ |
+  | clinical-summary live | _TBD_ | _TBD_ | _TBD_ |
+  | typecheck | _TBD_ | _TBD_ | _TBD_ |
+  | production build | _TBD_ | _TBD_ | _TBD_ |
+  | environment sanity | _TBD_ | _TBD_ | _TBD_ |
 
-- **Version:** `phase1-freeze-v0.1.0`
-- **Known gaps ที่ Tor ยอมรับ:** Anthropic live path ไม่ได้ใช้หรือกล่าวอ้างว่า verified ใน Phase 1; Gemini summary ยังไม่ใช่ clinical validation; deadline อ่านข้อมูล 15 วินาทีเป็น Phase 1 mitigation และต้อง optimize ใน Phase 2
-- **Status:** verified — baseline ผ่านและ known gaps ได้รับ Human Decision แล้ว
+- **Known Gaps:** แยก `BLOCKER / ACCEPTED GAP / DEFERRED`
+- **Evidence Artifact / Log Path:** _TBD_
+- **Version:** _TBD_
+- **Reviewer / Decision Authority:** Tor
+- **Decision Date:** _TBD_
+- **Supersedes:** none
+- **Status:** open
 
-<!-- Template สำหรับ entry ถัดไป: คัดลอกบล็อกด้านล่าง
+### EC-001: Clinical Summary model/version migration
+- **Finding / Trigger:** มีการเปลี่ยน model/version ของ Clinical Summary หลัง live verification เดิม; ต้อง reconcile runtime ปัจจุบันกับ evidence เดิม
+- **Source / Rationale:** รายงาน live เดิมผูกกับ model/version เดิม; Phase 2 กำหนด model/provider change control
+- **Related Risk(s):** RISK-001, RISK-007
+- **Required Change:** ระบุ current runtime model → rerun contract test → rerun live verification → update identity/config docs
+- **Safety Impact:** model drift อาจเปลี่ยน format, refusal, empty-output, hallucination profile หรือ disclaimer behavior
+- **Implementation:** _TBD_
+- **Test:** _TBD_
+- **Evidence Artifact / Log Path:** _TBD_
+- **Version:** runtime model/provider + commit/tag _TBD_
+- **Reviewer / Decision Authority:** Tor
+- **Decision Date:** _TBD_
+- **Supersedes:** none
+- **Status:** open
 
+---
+
+## Template
+
+```markdown
 ### EC-XXX: <ชื่อสั้น>
-- **Clinical Finding:** <ผู้เชี่ยวชาญ/แหล่งพบอะไร>
-- **Source / Rationale:** <อ้างอิง เวอร์ชัน ปี / เหตุผล>
-- **Required Change:** <ต้องแก้อะไร หรือ "ไม่แก้" พร้อมเหตุผล>
-- **Safety Impact:** <กระทบความปลอดภัยอย่างไร ทิศทางไหน>
-- **Implementation:** <ไฟล์ / commit>
-- **Test:** <test ID + ผลรัน>
-- **Version:** <เวอร์ชันระบบที่มีผล>
+- **Finding / Trigger:** <พบอะไร / dependency อะไรเปลี่ยน>
+- **Source / Rationale:** <source/version/reason>
+- **Related Risk(s):** <RISK-XXX หรือ none>
+- **Required Change:** <ทำอะไร / ไม่ทำพร้อมเหตุผล>
+- **Safety Impact:** <safety/privacy/authority impact>
+- **Implementation:** <file/commit>
+- **Test:** <test ID + result>
+- **Evidence Artifact / Log Path:** <report/log/trace>
+- **Version:** <commit/tag/model/provider>
+- **Reviewer / Decision Authority:** <human>
+- **Decision Date:** <YYYY-MM-DD>
 - **Supersedes:** <EC-XXX หรือ none>
-- **Status:** open | implemented | verified | rejected | deferred
--->
+- **Status:** open | implemented | verified | rejected(reason) | deferred(reason)
+```
+
+## Reconciliation additions — 2026-10-04
+
+| Added Entry | Related Risk | Status |
+|---|---|---|
+| EC-002 | Clinical instrument risk review pending | open |
+| EC-003 | RISK-001, RISK-007, RISK-008, RISK-009 | implemented, engineering only |
+
+Original EC-000/EC-001 remain open; their TBD fields are not silently overwritten. See `ID_MIGRATION.md` for historical identities.
+
+### EC-002: Historical clinical instrument cross-check
+- **Finding / Trigger:** Legacy corrective EC-001 has a different meaning from canonical EC-001.
+- **Source / Rationale:** `history/corrective-source/EVIDENCE_CHAIN.md` legacy EC-001.
+- **Related Risk(s):** none in current register for clinical instrument validity; requires clinician risk review (not implied closed).
+- **Required Change:** Preserve cross-check evidence; verify official instrument/version and clinical interpretation with clinician.
+- **Safety Impact:** AI cross-check and arithmetic tests do not establish clinical validity.
+- **Implementation:** Historical source; no clinical thresholds changed in this patch.
+- **Test:** Existing scoring regression; clinical verification pending.
+- **Evidence Artifact / Log Path:** Historical source; `../W0_CORRECTIVE_VERIFICATION.md`.
+- **Version:** Source ZIP SHA in ID_MIGRATION; actual baseline commit/tag unknown.
+- **Reviewer / Decision Authority:** Tor / clinician review pending.
+- **Decision Date:** TBD.
+- **Supersedes:** none; remaps source-qualified legacy EC-001.
+- **Status:** open.
+
+### EC-003: Corrective gate reconciliation
+- **Finding / Trigger:** Contract pins 3.8 but expects 3.7; scoring failures previously did not propagate nonzero status; source docs conflict.
+- **Source / Rationale:** Supplied corrective ZIP plus Phase2 v0.2; ID_MIGRATION.md.
+- **Related Risk(s):** RISK-001, RISK-007, RISK-008, RISK-009.
+- **Required Change:** Fix contract assertion, preserve scoring failure counter, use canonical docs with history/mapping, record effective model in live log.
+- **Safety Impact:** Avoid false test pass and invalid freeze/model claims.
+- **Implementation:** This overlay; 15s clinical data-read deadline is present in supplied corrective code; auth retains 3s.
+- **Test:** Local reconstructed-source regression and deliberate scoring failure; see report. Live and real-repository gates pending.
+- **Evidence Artifact / Log Path:** `../W0_CORRECTIVE_VERIFICATION.md`, `../evidence/results.json`.
+- **Version:** Patched source manifest; actual commit/tag TBD.
+- **Reviewer / Decision Authority:** Tor.
+- **Decision Date:** TBD.
+- **Supersedes:** none; adds implementation evidence to EC-000/EC-001 without changing their status.
+- **Status:** implemented (engineering only; not verified/frozen).

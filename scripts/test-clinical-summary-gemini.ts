@@ -19,7 +19,8 @@ loadEnvConfig(process.cwd());
 async function main() {
   const { generateClinicalSummary } = await import("../lib/agents/clinical-summary-agent");
 
-  console.log("=== Clinical Summary Agent (Gemini 3.8 Flash) ===");
+  console.log(`=== Clinical Summary Agent (Google / ${process.env.GEMINI_MODEL || "gemini-3.8-flash"}) ===`);
+  console.log(`Verification time: ${new Date().toISOString()}`);
 
   if (!process.env.GEMINI_API_KEY) {
     console.log("[FAIL] ไม่มี GEMINI_API_KEY ใน environment — ตั้งค่าใน .env.local ก่อนรันสคริปต์นี้");

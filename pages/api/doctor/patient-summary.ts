@@ -12,7 +12,6 @@ import { getReviewQueue } from "../../../lib/clinical/human-review-queue";
 import { verifySessionToken, SESSION_COOKIE_NAME } from "../../../lib/session";
 import { logEvent } from "../../../lib/audit/audit-log";
 import { callWithCircuitBreaker } from "../../../lib/security/circuit-breaker";
-const CLINICAL_DATA_READ_DEADLINE_MS = 15_000;
 
 // แก้จาก trust-boundary gap ที่เจอ: เดิม endpoint นี้รับ conversationHistory/
 // nineQHistory/eightQHistory จาก client (dashboard.tsx) ตรงๆ ซึ่งแปลว่าใครก็ตาม
@@ -27,6 +26,14 @@ const CLINICAL_DATA_READ_DEADLINE_MS = 15_000;
 //
 // Phase 1 access boundary: role/capability เพียงอย่างเดียวไม่พอ ต้องมี CareAssignment
 // ที่ active และยังไม่หมดอายุก่อนแตะ temporary-decrypt zone ทุกครั้ง
+
+// RISK-008 (legacy corrective RISK-004) fix: การเช็คสิทธิ์ (auth) ด้านบนยังใช้ withDeadline() default (3000ms)
+// เหมือนเดิมโดยตั้งใจ — ไม่ขยายตาม เพราะเป็นแค่ lookup สั้นๆ ส่วนการอ่าน/ถอดรหัส
+// ข้อมูลทางคลินิก 4 ก้อนด้านล่าง (conversation, 9Q, 8Q, review queue) เป็น envelope
+// decrypt จริงที่ช้ากว่า auth check และมีแนวโน้มช้าขึ้นเรื่อยๆ ตามประวัติผู้ป่วยที่
+// สะสม จึงแยก deadline เฉพาะจุดนี้ให้กว้างกว่า; 15s เป็นค่า config ที่ส่งมา ยังไม่มี latency benchmark — scope เฉพาะ
+// data-read เท่านั้น ไม่แตะ auth deadline (ดู docs/RISK_REGISTER.md RISK-008)
+const CLINICAL_DATA_READ_DEADLINE_MS = 15_000;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Cache-Control", "no-store");
@@ -68,27 +75,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const [conversationHistory, nineQHistory, eightQHistory, reviewQueue] = await Promise.all([
-      withDeadline(
-            getConversationHistory(patientId),
-                CLINICAL_DATA_READ_DEADLINE_MS
-                  ),
-                    withDeadline(
-                        getScreeningHistory(patientId, "9Q"),
-                            CLINICAL_DATA_READ_DEADLINE_MS
-                              ),
-                                withDeadline(
-                                    getScreeningHistory(patientId, "8Q"),
-                                        CLINICAL_DATA_READ_DEADLINE_MS
-                                          ),
+      withDeadline(getConversationHistory(patientId), CLINICAL_DATA_READ_DEADLINE_MS),
+      withDeadline(getScreeningHistory(patientId, "9Q"), CLINICAL_DATA_READ_DEADLINE_MS),
+      withDeadline(getScreeningHistory(patientId, "8Q"), CLINICAL_DATA_READ_DEADLINE_MS),
       // แก้ bug เดิม: getReviewQueue() เปลี่ยนเป็น async ตอนย้ายจาก in-memory ไป
       // Prisma แล้ว (ดู lib/clinical/human-review-queue.ts) แต่จุดนี้ไม่ได้ตามไป
       // เติม await — เดิมเรียก .filter() บน Promise ตรงๆ ซึ่ง throw runtime error
       // ทุกครั้งที่ endpoint นี้ถูกเรียก (Promise ไม่มี .filter) แก้แล้วที่นี่
-    withDeadline(
-          getReviewQueue([patientId]),
-              CLINICAL_DATA_READ_DEADLINE_MS
-                ),
-                ]);
+      withDeadline(getReviewQueue([patientId]), CLINICAL_DATA_READ_DEADLINE_MS),
+    ]);
+
     // audited temporary-decrypt zone — แพทย์คนไหน เปิดดูผู้ป่วยคนไหน เมื่อไหร่
     logEvent("clinical_data_decrypted", "clinical-summary", correlationId, {
       patientId,

@@ -6,7 +6,8 @@
 ## สิ่งที่ระบบตรวจ
 
 - โหลด `GEMINI_API_KEY` และ `GEMINI_MODEL` จาก `.env.local` โดยอัตโนมัติ
-- เรียก `gemini-3.7-flash` ผ่าน Gemini `generateContent`
+- เรียก effective `GEMINI_MODEL` ผ่าน Gemini `generateContent` (default `gemini-3.8-flash`); ชื่อ config ไม่ใช่หลักฐานว่า provider เปิดรุ่นนี้แล้ว
+- บันทึก effective model และ UTC timestamp ก่อนรัน
 - ส่ง system prompt ผ่าน `systemInstruction`
 - รวมข้อความจากทุก `candidates[0].content.parts[].text`
 - ตรวจว่า summary ไม่ว่าง
@@ -21,13 +22,13 @@
 
    ```env
    GEMINI_API_KEY=ใส่_api_key_จริงที่นี่
-   GEMINI_MODEL=gemini-3.7-flash
+   GEMINI_MODEL=gemini-3.8-flash
    ```
 
 2. ติดตั้ง dependencies และรัน:
 
    ```bash
-   npm install
+   npm ci
    npm run test:clinical-summary-contract
    npm run test:clinical-summary-gemini
    ```

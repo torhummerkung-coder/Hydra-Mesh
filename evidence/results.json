@@ -1,0 +1,125 @@
+{
+  "at": "2026-10-03T18:42:28.754Z",
+  "liveRequested": false,
+  "results": [
+    {
+      "gate": "db:migrate",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 441
+    },
+    {
+      "gate": "db:seed",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1188
+    },
+    {
+      "gate": "test:db",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1229
+    },
+    {
+      "gate": "test:patient-encryption",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1746
+    },
+    {
+      "gate": "test:clinical-data-encryption",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 5229
+    },
+    {
+      "gate": "test:auth-and-security-queue",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1221
+    },
+    {
+      "gate": "test:clinician-authorization",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 733
+    },
+    {
+      "gate": "test:fallback",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 256
+    },
+    {
+      "gate": "test:clinical",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 237
+    },
+    {
+      "gate": "test:audit",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 251
+    },
+    {
+      "gate": "test:fallback-integration",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 8365
+    },
+    {
+      "gate": "test:fallback-storage",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 281
+    },
+    {
+      "gate": "test:clinical-summary-contract",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 279
+    },
+    {
+      "gate": "typecheck",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1224
+    },
+    {
+      "gate": "build",
+      "exitCode": 0,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 13078
+    }
+  ],
+  "scope": "Local command gates only. Git, manual UI, model selection and human risk decisions are separate.",
+  "sourceScope": "Earlier reconstructed candidate with supplied corrective overlay; no actual Git checkout metadata supplied.",
+  "controls": [
+    {
+      "gate": "original-contract",
+      "exitCode": 1,
+      "expected": "FAIL: 3.8 request did not match stale 3.7 URL assertion"
+    },
+    {
+      "gate": "deliberate-scoring-negative",
+      "exitCode": 1,
+      "expected": "FAIL: zero-answer total deliberately expected as 1; production scoring unchanged"
+    }
+  ]
+}

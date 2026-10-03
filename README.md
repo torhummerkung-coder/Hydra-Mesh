@@ -42,7 +42,7 @@ hydra-mesh/
 │   │   ├── companion-agent.ts    # เรียก Claude Sonnet 5 + เชื่อม output-auditor อัตโนมัติ
 │   │   ├── fallback-reply.ts     # fallback สุดท้าย ไม่พึ่ง service ภายนอกใดๆ เลย
 │   │   ├── clinical-summary-prompt.ts  # สรุปเชิงสังเกต ห้ามวินิจฉัย/แนะนำการรักษา
-│   │   └── clinical-summary-agent.ts   # เรียก Gemini 3.7 Flash สรุปก่อนนัด
+│   │   └── clinical-summary-agent.ts   # เรียก Gemini 3.8 Flash สรุปก่อนนัด
 │   │
 │   └── clinical/                 # === FHIR-aligned data + validated instruments ===
 │       ├── screening-schema.ts   # FHIR-aligned types (QuestionnaireResponse, Observation)
@@ -132,3 +132,7 @@ npm run dev                  # เปิด http://localhost:3000 เลือ�
 **ไม่ได้รับมาโดยไม่ตรวจสอบ**: diagram ที่แนบมาแสดง Human Review Gate คั่นกลางทุกข้อความก่อนถึง Companion agent ซึ่งขัดกับกติกาข้อ 4 — ไม่มีการเปลี่ยน orchestrator/companion-agent logic ตามนั้น
 
 เพิ่ม `scripts/test-clinical-scoring.ts` ครอบคลุมทั้ง 9Q และ 8Q โดยเฉพาะเคส boundary total=17 ที่เป็นจุดสำคัญที่สุดของการแก้ครั้งนี้
+
+## W0 reconciliation — 2026-10-04
+
+Current Phase2 documents are under `docs/`; ID collisions and preserved historical decisions are mapped in `docs/ID_MIGRATION.md`. Use `PHASE1_FREEZE_RUNBOOK.md` for the current gate. The supplied Gemini3.8 configuration remains a candidate pending current live evidence and human decision. No W0 freeze is claimed.

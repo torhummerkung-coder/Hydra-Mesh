@@ -1,0 +1,21 @@
+{
+  "scope": "Collector controls only, synthetic Git/npm fixtures; not actual HYDRA baseline verification",
+  "checks": [
+    {
+      "case": "clean synthetic Git inspect",
+      "exitCode": 0,
+      "result": "PASS; commit and hashes captured; W0 remains OPEN"
+    },
+    {
+      "case": "dirty checkout",
+      "exitCode": 1,
+      "result": "PASS; rejected before running commands"
+    },
+    {
+      "case": "synthetic npm exits0 but prints FAIL",
+      "exitCode": 1,
+      "result": "PASS; installer gate fails, later tests never run, no closure claim"
+    }
+  ],
+  "fullCollectorRunOnActualRepo": "NOT RUN"
+}

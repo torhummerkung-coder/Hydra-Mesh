@@ -1,7 +1,9 @@
+// Regression against existing expectations only; clinician/source-version validation is pending.
 import { scoreNineQ } from "../lib/clinical/screening-9q";
 import { scoreEightQ, type EightQAnswers } from "../lib/clinical/screening-8q";
 
 function main() {
+  let failures = 0;
   console.log("=== 9Q scoring ===");
   const nineQCases: {
     answers: number[];
@@ -37,9 +39,10 @@ function main() {
     console.log(
       `[${pass ? "PASS" : "FAIL"}] answers=${JSON.stringify(c.answers)} → total=${r.total}, item9Flag=${r.item9Flag}, psychReferral=${r.requiresPsychiatristReferral}`
     );
+    if (!pass) failures++;
   }
 
-  console.log("\n=== 8Q scoring (weighted, verified against official source 2026-09-14) ===");
+  console.log("\n=== 8Q scoring (existing weighted regression; clinical verification pending) ===");
   const eightQCases: { name: string; answers: EightQAnswers; expectTotal: number; expectUrgent: boolean }[] = [
     {
       name: "ไม่มีความเสี่ยงเลย",
@@ -75,7 +78,9 @@ function main() {
     console.log(
       `[${pass ? "PASS" : "FAIL"}] ${c.name} → total=${r.total} (expect ${c.expectTotal}), urgent=${r.requiresUrgentReferral} (expect ${c.expectUrgent})`
     );
+    if (!pass) failures++;
   }
+  if (failures > 0) throw new Error(`${failures} clinical scoring assertion(s) failed`);
 }
 
 main();

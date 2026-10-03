@@ -49,8 +49,10 @@ export const AGENT_REGISTRY: Record<AgentId, AgentIdentity> = {
     id: "clinical-summary",
     displayName: "Clinical Summary Agent",
     kind: "llm",
-    // v2: Gemini 3.7 Flash (เดิม Claude Sonnet 5 แล้วทดลอง Mistral Small 4)
+    // v2: Gemini Flash (เดิม Claude Sonnet 5 แล้วทดลอง Mistral Small 4)
     // แยก model/provider จาก Companion; ดู clinical-summary-agent.ts
+    // RISK-005 fix (2026-09-22): registry เคยอ้าง 3.7-flash ทั้งที่ default จริง
+    // อัปเดตเป็น 3.8-flash แล้ว — ต้องไม่ให้ registry โกหกเกี่ยวกับ model ที่ใช้จริง
     model: "gemini-3.8-flash",
     provider: "google",
   },
