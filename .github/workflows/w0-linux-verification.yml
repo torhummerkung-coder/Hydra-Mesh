@@ -1,0 +1,39 @@
+name: W0 Linux Verification
+
+on:
+  push:
+    branches:
+      - fix/w0-reconciliation
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24.18.0'
+
+      - name: Inspect baseline
+        run: node scripts/collect-w0-evidence.mjs --inspect
+
+      - name: Run W0 non-live gates
+        env:
+          TMPDIR: ${{ runner.temp }}
+        run: node scripts/collect-w0-evidence.mjs
+
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: w0-evidence
+          path: ${{ runner.temp }}/hydra-w0-*/w0-evidence.json
+          if-no-files-found: warn
+          retention-days: 14
