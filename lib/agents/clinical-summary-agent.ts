@@ -75,7 +75,9 @@ export async function generateClinicalSummary(
   const apiUrl = `${GEMINI_API_BASE_URL}/${encodeURIComponent(model)}:generateContent`;
   const response = await fetch(apiUrl, {
     method: "POST",
-    signal: AbortSignal.timeout(8000),
+    // Clinical Summary is outside the patient reply critical path.
+    // Bound provider waiting; a phone diagnostic returned HTTP 200 at 10,545 ms.
+    signal: AbortSignal.timeout(30000),
     headers: {
       "Content-Type": "application/json",
       "x-goog-api-key": apiKey,

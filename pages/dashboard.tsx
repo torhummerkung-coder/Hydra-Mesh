@@ -208,7 +208,9 @@ export default function DoctorDashboard() {
     // (เดิม client ส่งข้อมูลดิบมาด้วย ซึ่งเป็นช่องโหว่ trust-boundary ที่แก้แล้ว)
     try {
     const res = await fetch("/api/doctor/patient-summary", {
-      signal: AbortSignal.timeout(15000),
+      // Budget: two 3s auth checks + parallel 15s reads + 30s provider + margin.
+      // Keep this request bounded while allowing the API to return source-data fallback.
+      signal: AbortSignal.timeout(60000),
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ patientId: patient.id }),
