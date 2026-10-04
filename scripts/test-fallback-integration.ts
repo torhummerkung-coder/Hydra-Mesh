@@ -86,7 +86,15 @@ async function main() {
     assert(replay.replayed);assert.equal(calls,callCount);assert.equal(await prisma.conversationMessage.count(),2);
     assert.equal((await request('different','normal-message-0001')).status,409);
     const concurrent=await Promise.all([request('hello','concurrent-message-01'),request('hello','concurrent-message-01')]);
-    for(const response of concurrent) await verifyPersistedTurn(response,'hello','concurrent-message-01');
+    for(const response of concurrent) {
+      assert.equal(response.success,true);
+      assert(['saved','pending'].includes(response.data.persistenceState));
+      assert.equal(response.data.reply,concurrent[0].data.reply);
+      assert.equal(response.data.messageId,'concurrent-message-01');
+    }
+    // Duplicate requests share one durable job; verify and drain it once.
+    const concurrentTurn=concurrent.find(response=>response.data.persistenceState==='pending') ?? concurrent[0];
+    await verifyPersistedTurn(concurrentTurn,'hello','concurrent-message-01');
     assert.equal(await prisma.conversationMessage.count(),4);
     console.log('PASS API auth, audited response, persistent replay, conflict, concurrent dedupe');
     mode='primary_down';const secondary=await request('hello','secondary-message-01');assert.equal(secondary.data.origin,'secondary');
