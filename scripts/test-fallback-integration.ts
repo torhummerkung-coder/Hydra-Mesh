@@ -19,6 +19,7 @@ async function main() {
   const {createSessionToken,SESSION_COOKIE_NAME}=await import('../lib/session');
   const {drainOutbox,eventKey}=await import('../lib/fallback/outbox');
   const {deliverJob}=await import('../lib/fallback/delivery');
+  const {getReceipt}=await import('../lib/clinical/conversation-store');
   const {getRecentEvents}=await import('../lib/audit/audit-log');
   await prisma.user.createMany({data:[
     {id:'test-patient',username:'test-patient',passwordHash:'test-only',role:'patient'},
@@ -48,15 +49,44 @@ async function main() {
     await handler({method:'POST',cookies:{[SESSION_COOKIE_NAME]:cookie},body:{message,messageId,...extra}} as any,res);
     return {status,...result};
   }
+  async function verifyPersistedTurn(response:any,message:string,messageId:string) {
+    assert.equal(response.success,true);
+    assert(['saved','pending'].includes(response.data.persistenceState),'persistence must be saved or durably pending');
+    if(response.data.persistenceState==='pending') {
+      const filename=path.join(dir,'spool',`${eventKey('test-patient',messageId,'turn')}.json`);
+      const bytes=await fs.readFile(filename,'utf8');
+      const envelope=JSON.parse(bytes);
+      assert.equal(envelope.v,1);
+      assert.match(envelope.iv,/^[a-f\d]{24}$/i);
+      assert.match(envelope.tag,/^[a-f\d]{32}$/i);
+      assert.equal(typeof envelope.body,'string');
+      assert(!bytes.includes(message));assert(!bytes.includes(response.data.reply));
+      let recovered=false;
+      const result=await drainOutbox(async job=>{
+        assert.equal(job.kind,'turn');
+        if(job.kind!=='turn') throw new Error('unexpected job kind');
+        assert.equal(job.patientId,'test-patient');assert.equal(job.messageId,messageId);
+        assert.equal(job.message,message);assert.equal(job.reply,response.data.reply);
+        await deliverJob(job);recovered=true;
+      });
+      assert(recovered);assert.equal(result.failed,0);assert.equal(result.delivered,1);assert.equal(result.remaining,0);
+      console.log('PASS pending turn has encrypted outbox evidence and confirmed recovery');
+    }
+    const ids=['user','assistant'].map(role=>eventKey('test-patient',messageId,role));
+    assert.equal(await prisma.conversationMessage.count({where:{patientId:'test-patient',id:{in:ids}}}),2);
+    const receipt=await getReceipt('test-patient',messageId);
+    assert(receipt);assert.equal(receipt.message,message);assert.equal(receipt.metadata.reply,response.data.reply);
+  }
   try {
     assert.equal((await request('hello','unauthorized-0001','')).status,401);
     assert.equal((await request('hello','wrong-account-0001',token,{accountScope:'different-account'})).status,409);
     const first=await request('งานวันนี้เหนื่อย','normal-message-0001');
-    assert.equal(first.data.reply,'PRIMARY_VALIDATED');assert.equal(first.data.persistenceState,'saved');
+    assert.equal(first.data.reply,'PRIMARY_VALIDATED');await verifyPersistedTurn(first,'งานวันนี้เหนื่อย','normal-message-0001');
     const callCount=calls; const replay=await request('งานวันนี้เหนื่อย','normal-message-0001');
     assert(replay.replayed);assert.equal(calls,callCount);assert.equal(await prisma.conversationMessage.count(),2);
     assert.equal((await request('different','normal-message-0001')).status,409);
-    await Promise.all([request('hello','concurrent-message-01'),request('hello','concurrent-message-01')]);
+    const concurrent=await Promise.all([request('hello','concurrent-message-01'),request('hello','concurrent-message-01')]);
+    for(const response of concurrent) await verifyPersistedTurn(response,'hello','concurrent-message-01');
     assert.equal(await prisma.conversationMessage.count(),4);
     console.log('PASS API auth, audited response, persistent replay, conflict, concurrent dedupe');
     mode='primary_down';const secondary=await request('hello','secondary-message-01');assert.equal(secondary.data.origin,'secondary');
