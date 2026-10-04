@@ -117,9 +117,13 @@ async function main() {
     return { status, body };
   }
 
+  const { saveMessage } = await import("../lib/clinical/conversation-store");
+  await saveMessage("patient-a", "user", "synthetic source A");
+  await saveMessage("patient-b", "user", "synthetic source B");
   const originalFetch = globalThis.fetch;
+  let summaryFinishReason = "STOP";
   globalThis.fetch = async () =>
-    Response.json({ candidates: [{ content: { parts: [{ text: "สรุปทดสอบที่ไม่ใช้ข้อมูลจริง" }] } }] });
+    Response.json({ candidates: [{ finishReason: summaryFinishReason, content: { parts: [{ text: "สรุปทดสอบที่ไม่ใช้ข้อมูลจริง" }] } }] });
 
   try {
     const patientsA = await call(patientsHandler, { method: "GET", token: tokens.doctorA });
@@ -146,6 +150,19 @@ async function main() {
     });
     assert.equal(assignedSummary.status, 200);
     assert.equal(assignedSummary.body.success, true);
+    assert.equal(assignedSummary.body.data.summaryStatus, "available");
+
+    summaryFinishReason = "MAX_TOKENS";
+    const truncatedSummary = await call(summaryHandler, {
+      method: "POST", token: tokens.doctorA, body: { patientId: "patient-a" },
+    });
+    assert.equal(truncatedSummary.status, 200);
+    assert.equal(truncatedSummary.body.success, true);
+    assert.equal(truncatedSummary.body.data.summaryStatus, "unavailable");
+    assert.deepEqual(truncatedSummary.body.data.sourceMessages.map((m: any) => m.content), ["synthetic source A"]);
+    assert(!JSON.stringify(truncatedSummary.body).includes("สรุปทดสอบที่ไม่ใช้ข้อมูลจริง"));
+    summaryFinishReason = "STOP";
+    console.log("PASS truncated summary returns only authorized source data without partial AI text");
 
     const crossCaseSummary = await call(summaryHandler, {
       method: "POST",

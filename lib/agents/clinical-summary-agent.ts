@@ -89,7 +89,8 @@ export async function generateClinicalSummary(
       contents: [
         { role: "user", parts: [{ text: userContent }] },
       ],
-      generationConfig: { maxOutputTokens: 800 },
+      // Keep generation bounded while allowing room for the Thai summary.
+      generationConfig: { maxOutputTokens: 4096 },
     }),
   });
 
@@ -98,8 +99,14 @@ export async function generateClinicalSummary(
   }
 
   const data = await response.json();
+  const candidate = data.candidates?.[0];
+  // HTTP 200 and nonempty text can still be a truncated or blocked response.
+  // The endpoint catches this failure and returns its authorized source-data fallback.
+  if (candidate?.finishReason !== "STOP") {
+    throw new Error("Gemini clinical summary did not finish normally");
+  }
   // รวม text ทุก part เพราะ Gemini อาจแบ่งคำตอบหนึ่ง candidate เป็นหลาย part
-  const parts = data.candidates?.[0]?.content?.parts;
+  const parts = candidate.content?.parts;
   const text = Array.isArray(parts)
     ? parts
         .map((part: unknown) =>

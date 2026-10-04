@@ -16,7 +16,7 @@ async function main() {
       capturedHeaders = init?.headers;
       capturedBody = JSON.parse(String(init?.body));
       return Response.json({
-        candidates: [{ content: { parts: [{ text: "สรุปส่วนที่หนึ่ง " }, { text: "และส่วนที่สอง" }] } }],
+        candidates: [{ finishReason: "STOP", content: { parts: [{ text: "สรุปส่วนที่หนึ่ง " }, { text: "และส่วนที่สอง" }] } }],
       });
     };
 
@@ -32,13 +32,13 @@ async function main() {
     assert.equal(new Headers(capturedHeaders).get("x-goog-api-key"), "contract-test-key");
     assert.equal(typeof capturedBody.systemInstruction?.parts?.[0]?.text, "string");
     assert.equal(capturedBody.contents?.[0]?.role, "user");
-    assert.equal(capturedBody.generationConfig?.maxOutputTokens, 800);
+    assert.equal(capturedBody.generationConfig?.maxOutputTokens, 4096);
     assert.equal(result.summary, "สรุปส่วนที่หนึ่ง และส่วนที่สอง");
     assert.match(result.disclaimer, /ไม่ใช่การวินิจฉัยทางการแพทย์/);
     assert(!Number.isNaN(new Date(result.generatedAt).getTime()));
     console.log("PASS Gemini request contract and multi-part response parsing");
 
-    globalThis.fetch = async () => Response.json({ candidates: [{ content: { parts: [] } }] });
+    globalThis.fetch = async () => Response.json({ candidates: [{ finishReason: "STOP", content: { parts: [] } }] });
     await assert.rejects(
       () =>
         generateClinicalSummary({
@@ -51,6 +51,29 @@ async function main() {
       /empty clinical summary/
     );
     console.log("PASS empty Gemini response fails closed");
+
+    // HTTP success and partial text must not be accepted as a completed summary.
+    for (const finishReason of ["MAX_TOKENS", "SAFETY", "OTHER", undefined]) {
+      globalThis.fetch = async () => Response.json({
+        candidates: [{ finishReason, content: { parts: [{ text: "partial summary" }] } }],
+      });
+      await assert.rejects(
+        () => generateClinicalSummary({
+          patientId: "unfinished-response-test",
+          conversationHistory: [], nineQHistory: [], eightQHistory: [], reviewFlagCount: 0,
+        }),
+        /did not finish normally/
+      );
+    }
+    globalThis.fetch = async () => Response.json({ candidates: [] });
+    await assert.rejects(
+      () => generateClinicalSummary({
+        patientId: "missing-candidate-test",
+        conversationHistory: [], nineQHistory: [], eightQHistory: [], reviewFlagCount: 0,
+      }),
+      /did not finish normally/
+    );
+    console.log("PASS truncated, blocked and unconfirmed Gemini generations fail closed");
   } finally {
     globalThis.fetch = originalFetch;
   }
