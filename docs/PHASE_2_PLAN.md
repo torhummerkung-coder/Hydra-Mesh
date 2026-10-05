@@ -463,3 +463,12 @@ Gemini model `gemini-3.8-flash`: live collector failed at its live gate (exit 1;
 JSON evidence binds the tested code candidate above. This documentation-only patch creates a different tracked-source hash/commit; do not relabel the JSON as evidence collected on the later documentation commit. Review Git diff to establish unchanged executable source/config/lockfile. Tag/push and baseline decision still require actual evidence.
 
 W0 remains OPEN. Stage A documentation can proceed under the existing Kickoff Guard. No W1–W9 exit criteria or Phase 2 scope changed. See EC-004/EC-005, Risk Register evidence supplement and W0 Closeout worksheet for the pending human/UI/Git decisions.
+
+
+## W0 follow-up and scoped G-06 approval — 2026-10-05
+
+Normal production startup in the synthetic local demo was observed (Ready 3.6s). The targeted unowned-trace authorization test and typecheck passed on Ubuntu (AUTH_CHECKS_EXIT=0); current observed HEAD is `0ed5f52ab45daca58a9998d0abe38f82d2c852af`. Production-subset audit: 0 / exit0; full audit including dev: 5 high / exit1. Tailwind 3.4.19 uses static checked content globs; known braces risk remains.
+
+At 2026-10-05 13:04:20 Asia/Bangkok, นายศุภกร โคตะมา, เจ้าของโครงการและผู้ออกแบบระบบ — Project Owner & System Architect, explicitly accepted **G-06 only within the current work context**. Keep the current Tailwind3 baseline for trusted local builds and synthetic MVP/Portfolio Demo on 127.0.0.1; no public/real-patient/untrusted-build expansion. Review by 2026-10-19 or earlier on scope/config/input/advisory change. The full scope, residual risk and selected signature are in `docs/decisions/W0_G06_ACCEPTANCE_2026-10-05.md`; observed evidence is in `evidence/w0/2026-10-05/HYDRA_W0_FOLLOWUP_EVIDENCE.md` (paths from repository root).
+
+This supplements historical pending startup/trace/dependency statements without deleting failure history. Accepted is not closed: full audit remains 5 high. Existing RISK-001–009 and other gap/baseline decisions are not approved by this decision. **W0 OPEN**; no code/config/dependency change, new full collector/build/live run, tag/main merge or remote push is claimed.

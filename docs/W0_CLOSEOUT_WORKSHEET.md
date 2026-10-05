@@ -115,3 +115,12 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 | Google / effective model for the synthetic MVP/Portfolio Demo baseline | Tor selects gemini-3.8-flash instead of 3.7 on 2026-10-05; owner reports 3.7 could not run in his environment | Separate synthetic-content review, residual-risk/gap decisions and baseline approval remain pending |
 
 See EC-006 and `decisions/W0_MODEL_DECISION_2026-10-05.md`. The model-choice portion of human review queue item 1 is now resolved. Do not interpret this as an approval of real-patient use, all agent live coverage, risk acceptance or a freeze. W0 OPEN.
+
+
+## W0 follow-up and scoped G-06 approval — 2026-10-05
+
+Normal production startup in the synthetic local demo was observed (Ready 3.6s). The targeted unowned-trace authorization test and typecheck passed on Ubuntu (AUTH_CHECKS_EXIT=0); current observed HEAD is `0ed5f52ab45daca58a9998d0abe38f82d2c852af`. Production-subset audit: 0 / exit0; full audit including dev: 5 high / exit1. Tailwind 3.4.19 uses static checked content globs; known braces risk remains.
+
+At 2026-10-05 13:04:20 Asia/Bangkok, นายศุภกร โคตะมา, เจ้าของโครงการและผู้ออกแบบระบบ — Project Owner & System Architect, explicitly accepted **G-06 only within the current work context**. Keep the current Tailwind3 baseline for trusted local builds and synthetic MVP/Portfolio Demo on 127.0.0.1; no public/real-patient/untrusted-build expansion. Review by 2026-10-19 or earlier on scope/config/input/advisory change. The full scope, residual risk and selected signature are in `docs/decisions/W0_G06_ACCEPTANCE_2026-10-05.md`; observed evidence is in `evidence/w0/2026-10-05/HYDRA_W0_FOLLOWUP_EVIDENCE.md` (paths from repository root).
+
+This supplements historical pending startup/trace/dependency statements without deleting failure history. Accepted is not closed: full audit remains 5 high. Existing RISK-001–009 and other gap/baseline decisions are not approved by this decision. **W0 OPEN**; no code/config/dependency change, new full collector/build/live run, tag/main merge or remote push is claimed.

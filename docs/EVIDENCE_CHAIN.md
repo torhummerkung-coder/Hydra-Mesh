@@ -209,3 +209,27 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 - **Decision Date:** 2026-10-05 (Asia/Bangkok).
 - **Supersedes:** Model-selection-pending statements in EC-001/EC-004/EC-005 only. Existing open baseline/risk statuses and remaining review requirements persist.
 - **Status:** implemented (model selection recorded; engineering evidence as bounded above; W0 remains OPEN).
+
+
+## Follow-up Evidence Chain — 2026-10-05
+
+### EC-007: Normal startup of the synthetic local demo
+- Change: no source change; configuration/startup evidence reconciliation.
+- Evidence: 1000018412 Ready 3.6s with preceding same-shell preflight/exported-key metadata; executable candidate 3f6d45b.
+- Boundary: Ready does not establish provider health/clinical validity. Details in evidence/w0/2026-10-05/HYDRA_W0_FOLLOWUP_EVIDENCE.md.
+- Status: implemented (bounded startup evidence); W0 OPEN.
+
+### EC-008: Explicit unowned-trace authorization regression
+- Change: only scripts/test-clinician-authorization.ts, +29 lines; no runtime authorization change.
+- Test/Evidence: 1000018414 single-file apply/diff check; 1000018415 all seven authorization PASS messages, typecheck, AUTH_CHECKS_EXIT=0; HEAD 0ed5f52ab45daca58a9998d0abe38f82d2c852af recorded in 1000018416.
+- Behavior: doctor/staff cannot list/read existing unowned trace, generic 404 matches missing trace; security can inspect the same fixture.
+- Boundary: targeted evidence, not exhaustive authorization certification/full collector rerun. RISK-002 remains open pending its own human assessment.
+- Status: implemented (test and Ubuntu verification); W0 OPEN.
+
+### EC-009: Development-toolchain audit and scoped G-06 acceptance
+- Change: documentation/owner decision only; dependencies remain unchanged.
+- Evidence: 1000018416 production-subset audit 0/exit0; 1000018417 full audit 5 high/exit1; 1000018418 graph/config; GHSA-vfj7-8cjw-p6xm advisory.
+- Human Decision: นายศุภกร โคตะมา accepts G-06 per proposed section17 only in current work context, 2026-10-05 13:04:20 Asia/Bangkok. See docs/decisions/W0_G06_ACCEPTANCE_2026-10-05.md.
+- Scope: trusted local builds, synthetic MVP/Portfolio Demo, built next start on 127.0.0.1. Review by 2026-10-19 or earlier triggers in the decision.
+- Residual: nested untrusted patterns may still crash tooling; severity/full audit findings remain. Not a code remediation or clinical/baseline approval.
+- Status: implemented (evidence/decision record); G-06 accepted; W0 OPEN.

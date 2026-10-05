@@ -226,3 +226,31 @@ Additional findings for human classification (not automatically accepted): npm c
 Human Decision supplement for RISK-001/RISK-007: Tor selects Google `gemini-3.8-flash` instead of `gemini-3.7-flash` for the MVP/Portfolio Demo baseline using synthetic data, on 2026-10-05 07:57:53 Asia/Bangkok. Reason: Tor reports that 3.7 had problems and could not run in his environment. See EC-006 and `decisions/W0_MODEL_DECISION_2026-10-05.md`.
 
 This supersedes only the earlier pending model-selection item. It is not residual-risk acceptance or risk closure: RISK-001/RISK-007 remain **open**, and existing Residual Risk fields remain pending. Other risks and decisions are unchanged. No claim about 3.7 failing globally is made. W0 OPEN.
+
+
+## Current scoped acceptance supplement — G-06 / RISK-010
+
+| Added Risk | Related Evidence | Current status |
+|---|---|---|
+| RISK-010: braces availability risk in Tailwind development toolchain | EC-009 / HD-W0-DEPS-2026-10-05 | accepted within current work context; residual risk remains |
+
+### RISK-010: Development/build toolchain stack exhaustion
+- Possible Outcome: untrusted nested brace patterns reach vulnerable tooling and crash its Node process.
+- Risk/Impact: development/build availability loss; high advisory severity retained.
+- Fail-safe Direction: stop affected build/watch work; review source/config inputs before rerunning. Do not widen demo scope on the strength of this acceptance.
+- Boundary: trusted local source/config/build and synthetic MVP/Portfolio Demo on 127.0.0.1 only. No public deployment, real-patient use or shared build service accepting untrusted input/PRs.
+- Mitigation: fixed checked globs; owner-controlled inputs; no request/untrusted-automation-supplied patterns; no public development/watch server. Operational conditions, not a claim that code enforcement is complete.
+- Related Evidence/Test: EC-009; production-subset audit0/exit0, full audit5high/exit1; dependency graph/config in 1000018418. Known findings were not fixed or removed.
+- Residual Risk (accepted by owner per section17): nested untrusted patterns may still crash build/development tooling; audit is not comprehensive and future findings may differ. No comprehensive data-flow proof or claim exploit is impossible.
+- Human Decision: นายศุภกร โคตะมา — Project Owner & System Architect — “อนุมัติ G-06 ตามส่วน 17 ตามขอบเขตบริบทของหน้างานเท่านั้น”, 2026-10-05 13:04:20 Asia/Bangkok. Full signed-image record: docs/decisions/W0_G06_ACCEPTANCE_2026-10-05.md.
+- Re-review: by 2026-10-19 or before scope/config/build-input change, external PR/CI input, public/real-patient use, patched release/advisory update, whichever comes first.
+- Status: **accepted**, not closed. RISK-001–009 remain as previously recorded. W0 OPEN.
+
+
+## W0 follow-up and scoped G-06 approval — 2026-10-05
+
+Normal production startup in the synthetic local demo was observed (Ready 3.6s). The targeted unowned-trace authorization test and typecheck passed on Ubuntu (AUTH_CHECKS_EXIT=0); current observed HEAD is `0ed5f52ab45daca58a9998d0abe38f82d2c852af`. Production-subset audit: 0 / exit0; full audit including dev: 5 high / exit1. Tailwind 3.4.19 uses static checked content globs; known braces risk remains.
+
+At 2026-10-05 13:04:20 Asia/Bangkok, นายศุภกร โคตะมา, เจ้าของโครงการและผู้ออกแบบระบบ — Project Owner & System Architect, explicitly accepted **G-06 only within the current work context**. Keep the current Tailwind3 baseline for trusted local builds and synthetic MVP/Portfolio Demo on 127.0.0.1; no public/real-patient/untrusted-build expansion. Review by 2026-10-19 or earlier on scope/config/input/advisory change. The full scope, residual risk and selected signature are in `docs/decisions/W0_G06_ACCEPTANCE_2026-10-05.md`; observed evidence is in `evidence/w0/2026-10-05/HYDRA_W0_FOLLOWUP_EVIDENCE.md` (paths from repository root).
+
+This supplements historical pending startup/trace/dependency statements without deleting failure history. Accepted is not closed: full audit remains 5 high. Existing RISK-001–009 and other gap/baseline decisions are not approved by this decision. **W0 OPEN**; no code/config/dependency change, new full collector/build/live run, tag/main merge or remote push is claimed.
