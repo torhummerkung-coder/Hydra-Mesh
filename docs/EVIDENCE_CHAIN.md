@@ -247,3 +247,11 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 - Evidence: 1000018439–8445, Hydra-Mesh01 / wif-oidc-smoke. OIDC/exchange steps successful by job status; API smoke HTTP400 / low-credit / exit1. Historical other-repo results do not replace current live verification.
 - Human Decision: นายศุภกร โคตะมา, Project Owner & System Architect, 2026-10-05 15:01:39 Asia/Bangkok, HD-W0-ANTHROPIC-2026-10-05.
 - Intended use: local synthetic-data demo only. G-01/RISK-003 and W0 remain OPEN; existing W3 follow-up remains. No clinical/baseline approval.
+
+
+### EC-011: G-02 investigation and safe live-gate evidence capture — 2026-10-05
+- Original phone JSON at HEAD 0ed5f52: collector-env 200/STOP, 3 checks PASS; direct-env 503/UNAVAILABLE/exit1, identical request-body hashes. Targeted hashes stable; not a full-suite result.
+- Earlier key-format/header rejection is a distinct failure, documented by screenshots; it does not establish historical collector cause.
+- Evidence: evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md and byte-preserved g02-diagnostic-after-key-fix.json. Historical FAIL remains; exact cause unavailable from retained historical metadata.
+- Change: collector preflight/metadata observer and targeted offline regressions; agent/endpoint/auth/model/dependencies unchanged. Phone execution of new tests and new collector results remain pending.
+- Human Decision: no G-02 acceptance; owner chose investigation. G-02, RISK-001/007 and W0 OPEN; no baseline/tag/freeze approval.

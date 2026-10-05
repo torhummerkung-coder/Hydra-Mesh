@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { createHash, randomBytes } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
+import {validGeminiCredential} from './observe-gemini-evidence.mjs';
 const args = process.argv.slice(2);
 if (args.some(x => !['--inspect', '--live'].includes(x))) {
   console.error('Usage: node scripts/collect-w0-evidence.mjs [--inspect] [--live]');
@@ -46,11 +47,19 @@ async function main() {
   if(inspect) {console.log(JSON.stringify(metadata,null,2));return;}
   const out=mkdtempSync(join(tmpdir(),'hydra-w0-'));
   function gate(name,cmd,argv,env) {
-    const start=Date.now(),r=run(cmd,argv,env);
+    const observed=name==='test:clinical-summary-gemini';
+    const diagnosticPath=join(out,'gemini-live-metadata.json');
+    const observerUrl=pathToFileURL(resolve(cwd,'scripts/observe-gemini-evidence.mjs')).href;
+    const childEnv=observed?{...env,HYDRA_G02_MODE:'full-collector-live-gate',HYDRA_G02_REPORT:diagnosticPath,
+      NODE_OPTIONS:[env.NODE_OPTIONS||'',`--import=${observerUrl}`].filter(Boolean).join(' ')}:env;
+    const start=Date.now(),r=run(cmd,argv,childEnv);
     const output=(r.stdout||'')+(r.stderr||'');
-    const failMarkers=(output.match(/\[FAIL\]|^FAIL\b/gm)||[]).length;
-    const pass=r.status===0 && !r.error && failMarkers===0;
-    metadata.gates.push({name,exitCode:r.status,errorCode:r.error?.code??null,failMarkers,pass,durationMs:Date.now()-start});
+    let providerDiagnostics;
+    if(observed){try{providerDiagnostics=JSON.parse(readFileSync(diagnosticPath,'utf8'));}catch{providerDiagnostics={reportMissing:true};}}
+    const failMarkers=Math.max((output.match(/\[FAIL\]|^FAIL\b/gm)||[]).length,providerDiagnostics?.checks?.fail||0);
+    const pass=r.status===0 && !r.error && failMarkers===0 && !providerDiagnostics?.reportMissing;
+    metadata.gates.push({name,exitCode:r.status,errorCode:r.error?.code??null,failMarkers,pass,durationMs:Date.now()-start,
+      ...(observed?{providerDiagnostics}:{})});
     writeFileSync(join(out,'w0-evidence.json'),JSON.stringify(metadata,null,2));
     console.log(`${pass?'PASS':'FAIL'} ${name}`);
     if(!pass) throw new Error(`Gate failed: ${name}. Raw process output intentionally not retained.`);
@@ -71,7 +80,9 @@ async function main() {
       effectiveGeminiModel:model,geminiKeyPresent:Boolean(env.GEMINI_API_KEY),
       buildNodeEnv:'production',buildDemoAuthEnabled:false,
       deploymentEnvironmentVerified:false};
-    if(live && !env.GEMINI_API_KEY) throw new Error('Gemini live requested but API key is missing.');
+    metadata.environment.geminiKeyFormatValid=validGeminiCredential(env.GEMINI_API_KEY);
+    if(live && !env.GEMINI_API_KEY){metadata.preflightFailure='KEY_MISSING';throw new Error('Gemini live requested but API key is missing.');}
+    if(live && !metadata.environment.geminiKeyFormatValid){metadata.preflightFailure='KEY_FORMAT_INVALID';throw new Error('Gemini credential format is invalid; enter the key separately before running live verification.');}
     const gates=['db:migrate','db:seed','test:db','test:patient-encryption',
       'test:clinical-data-encryption','test:auth-and-security-queue','test:clinician-authorization',
       'test:fallback','test:clinical','test:audit','test:fallback-integration','test:fallback-storage',

@@ -122,8 +122,13 @@ async function main() {
   await saveMessage("patient-b", "user", "synthetic source B");
   const originalFetch = globalThis.fetch;
   let summaryFinishReason = "STOP";
-  globalThis.fetch = async () =>
-    Response.json({ candidates: [{ finishReason: summaryFinishReason, content: { parts: [{ text: "สรุปทดสอบที่ไม่ใช้ข้อมูลจริง" }] } }] });
+  let providerStatus = 200;
+  let providerCalls = 0;
+  globalThis.fetch = async () => {
+    providerCalls++;
+    if (providerStatus === 503) return Response.json({ error: { code: 503, status: "UNAVAILABLE", message: "SYNTHETIC_PROVIDER_ERROR_CANARY" } }, { status: 503 });
+    return Response.json({ candidates: [{ finishReason: summaryFinishReason, content: { parts: [{ text: "สรุปทดสอบที่ไม่ใช้ข้อมูลจริง" }] } }] });
+  };
 
   try {
     const patientsA = await call(patientsHandler, { method: "GET", token: tokens.doctorA });
@@ -164,12 +169,31 @@ async function main() {
     summaryFinishReason = "STOP";
     console.log("PASS truncated summary returns only authorized source data without partial AI text");
 
+    providerStatus = 503;
+    const callsBefore503 = providerCalls;
+    const unavailable = await call(summaryHandler, {
+      method: "POST", token: tokens.doctorA, body: { patientId: "patient-a" },
+    });
+    assert.equal(providerCalls, callsBefore503 + 1);
+    assert.equal(unavailable.status, 200);
+    assert.equal(unavailable.body.success, true);
+    assert.equal(unavailable.body.data.summaryStatus, "unavailable");
+    assert.deepEqual(unavailable.body.data.sourceMessages.map((m: any) => m.content), ["synthetic source A"]);
+    assert.deepEqual(unavailable.body.data.nineQScores, []);
+    assert.deepEqual(unavailable.body.data.eightQScores, []);
+    for (const forbidden of ["synthetic source B", "SYNTHETIC_PROVIDER_ERROR_CANARY", "สรุปทดสอบที่ไม่ใช้ข้อมูลจริง"]) {
+      assert(!JSON.stringify(unavailable.body).includes(forbidden));
+    }
+    console.log("PASS HTTP 503 returns only authorized source data without AI text or raw provider error");
+    const callsBeforeDenied = providerCalls;
     const crossCaseSummary = await call(summaryHandler, {
       method: "POST",
       token: tokens.doctorA,
       body: { patientId: "patient-b" },
     });
     assert.equal(crossCaseSummary.status, 404);
+    assert.equal(providerCalls, callsBeforeDenied);
+    providerStatus = 200;
     console.log("PASS clinician can decrypt assigned case and cannot probe an unassigned patient");
 
     const queueA = await call(reviewHandler, { method: "GET", token: tokens.doctorA });

@@ -268,3 +268,10 @@ This supplements historical pending startup/trace/dependency statements without 
 - Human Decision: นายศุภกร โคตะมา — Project Owner & System Architect — approved this limitation for local synthetic demo only at 2026-10-05 15:01:39 Asia/Bangkok. HD-W0-ANTHROPIC-2026-10-05.
 - Status: **OPEN**, expressly retained by owner for both G-01 and RISK-003; approval of a demo limitation does not close the risk or change the original requirements.
 - Follow-up: existing W3 live/behavior verification; reassess before intended-use expansion. Verify the current repo/commit/model/runtime when API access becomes available. Actual safety-critical defects still require correction.
+
+
+### RISK-001 / RISK-007 — G-02 investigation update, 2026-10-05
+- Evidence EC-011: unchanged synthetic test with matching request bodies got 200/STOP in collector-env and 503/UNAVAILABLE in direct-env; provider availability failure observed, environment causality unproven. Separate earlier malformed-key/header failure corrected privately.
+- Residual Risk: live provider may be unavailable; historical failed collector exact cause remains unrecoverable from its retained metadata. New success does not guarantee availability or clinical validity.
+- Mitigation verification: existing assignment-scoped fallback passed local injected-503 probe; permanent targeted tests and safe collector evidence capture added for verification on Ubuntu. No automatic retries or runtime policy changes.
+- Human Decision / Status: no new acceptance or closure. Owner requested deeper investigation; G-02 / RISK-001 / RISK-007 OPEN. Existing G-01/G-06 decisions and other risks remain as previously recorded.

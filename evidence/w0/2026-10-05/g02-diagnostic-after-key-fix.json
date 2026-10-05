@@ -1,0 +1,100 @@
+{
+  "at": "2026-10-05T09:36:42.649Z",
+  "commit": "0ed5f52ab45daca58a9998d0abe38f82d2c852af",
+  "hashesBefore": {
+    "lib/agents/clinical-summary-agent.ts": "8b7d3ff84e26837ee5e846dd7113b099aed2c2c9b7e4703e04a1f2a6f88bdcdf",
+    "lib/agents/clinical-summary-prompt.ts": "f8be98be6aac0a98e23988bd773aa7a3b06f8553941d91439006e9539950b1b5",
+    "scripts/test-clinical-summary-gemini.ts": "495b2e0d96ce7f6a798abd21860e9503dca7f2ee4a93968918ba31d65c0df75f",
+    "scripts/collect-w0-evidence.mjs": "d43628e8c64b84958b4fcbe506f249fce8c49954f00bc1d4593a087a2898983d",
+    "package-lock.json": "83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0"
+  },
+  "runs": [
+    {
+      "mode": "collector-env",
+      "at": "2026-10-05T09:36:43.155Z",
+      "checks": {
+        "pass": 3,
+        "fail": 0
+      },
+      "requests": [
+        {
+          "http": 200,
+          "elapsedMs": 10342,
+          "jsonParsed": true,
+          "maxOutputTokens": 4096,
+          "requestBodySha256": "db0ada67fb9c972f8fe2f4f209707860c6a6c1405f1ba0178c15db21a9d6250f",
+          "bodyElapsedMs": 10375,
+          "candidateCount": 1,
+          "finishReason": "STOP",
+          "promptBlockReason": null,
+          "textCharacters": 553,
+          "safetyBlocked": false,
+          "usage": {
+            "promptTokenCount": 482,
+            "candidatesTokenCount": 205,
+            "thoughtsTokenCount": 755,
+            "totalTokenCount": 1442
+          }
+        }
+      ],
+      "errors": [],
+      "exitCode": 0,
+      "finishedAt": "2026-10-05T09:36:53.810Z",
+      "environment": {
+        "node": "v22.23.2",
+        "nodeEnv": "test",
+        "geminiKeyPresent": true,
+        "modelMatches": true,
+        "demoDisabled": true
+      },
+      "processExit": 0,
+      "processSignal": null,
+      "spawnError": null
+    },
+    {
+      "mode": "direct-env",
+      "at": "2026-10-05T09:36:54.137Z",
+      "checks": {
+        "pass": 0,
+        "fail": 0
+      },
+      "requests": [
+        {
+          "http": 503,
+          "elapsedMs": 7183,
+          "jsonParsed": null,
+          "maxOutputTokens": 4096,
+          "requestBodySha256": "db0ada67fb9c972f8fe2f4f209707860c6a6c1405f1ba0178c15db21a9d6250f",
+          "apiErrorStatus": "UNAVAILABLE",
+          "apiErrorCode": 503,
+          "apiErrorReasons": []
+        }
+      ],
+      "errors": [
+        "HTTP_503"
+      ],
+      "exitCode": 1,
+      "finishedAt": "2026-10-05T09:37:01.416Z",
+      "environment": {
+        "node": "v22.23.2",
+        "nodeEnv": "OTHER",
+        "geminiKeyPresent": true,
+        "modelMatches": true,
+        "demoDisabled": false
+      },
+      "processExit": 1,
+      "processSignal": null,
+      "spawnError": null
+    }
+  ],
+  "w0Status": "OPEN",
+  "scope": "Diagnostic of existing synthetic Gemini test only; no historical-cause or full-suite claim",
+  "hashesAfter": {
+    "lib/agents/clinical-summary-agent.ts": "8b7d3ff84e26837ee5e846dd7113b099aed2c2c9b7e4703e04a1f2a6f88bdcdf",
+    "lib/agents/clinical-summary-prompt.ts": "f8be98be6aac0a98e23988bd773aa7a3b06f8553941d91439006e9539950b1b5",
+    "scripts/test-clinical-summary-gemini.ts": "495b2e0d96ce7f6a798abd21860e9503dca7f2ee4a93968918ba31d65c0df75f",
+    "scripts/collect-w0-evidence.mjs": "d43628e8c64b84958b4fcbe506f249fce8c49954f00bc1d4593a087a2898983d",
+    "package-lock.json": "83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0"
+  },
+  "sourceStable": true
+}

@@ -74,6 +74,18 @@ async function main() {
       /did not finish normally/
     );
     console.log("PASS truncated, blocked and unconfirmed Gemini generations fail closed");
+
+    let unavailableAttempts = 0;
+    globalThis.fetch = async () => {
+      unavailableAttempts++;
+      return Response.json({ error: { code: 503, status: "UNAVAILABLE", message: "synthetic provider error" } }, { status: 503 });
+    };
+    await assert.rejects(
+      () => generateClinicalSummary({ patientId: "unavailable-response-test", conversationHistory: [], nineQHistory: [], eightQHistory: [], reviewFlagCount: 0 }),
+      /^Error: Clinical summary agent call failed: 503$/
+    );
+    assert.equal(unavailableAttempts, 1);
+    console.log("PASS Gemini HTTP 503 remains a failure with one provider attempt");
   } finally {
     globalThis.fetch = originalFetch;
   }
