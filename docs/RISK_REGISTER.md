@@ -254,3 +254,17 @@ Normal production startup in the synthetic local demo was observed (Ready 3.6s).
 At 2026-10-05 13:04:20 Asia/Bangkok, นายศุภกร โคตะมา, เจ้าของโครงการและผู้ออกแบบระบบ — Project Owner & System Architect, explicitly accepted **G-06 only within the current work context**. Keep the current Tailwind3 baseline for trusted local builds and synthetic MVP/Portfolio Demo on 127.0.0.1; no public/real-patient/untrusted-build expansion. Review by 2026-10-19 or earlier on scope/config/input/advisory change. The full scope, residual risk and selected signature are in `docs/decisions/W0_G06_ACCEPTANCE_2026-10-05.md`; observed evidence is in `evidence/w0/2026-10-05/HYDRA_W0_FOLLOWUP_EVIDENCE.md` (paths from repository root).
 
 This supplements historical pending startup/trace/dependency statements without deleting failure history. Accepted is not closed: full audit remains 5 high. Existing RISK-001–009 and other gap/baseline decisions are not approved by this decision. **W0 OPEN**; no code/config/dependency change, new full collector/build/live run, tag/main merge or remote push is claimed.
+
+
+## G-01 local synthetic demo limitation — 2026-10-05
+
+นายศุภกร โคตะมา — เจ้าของโครงการและผู้ออกแบบระบบ / Project Owner & System Architect — explicitly approved the live-Anthropic verification limitation for local synthetic-data demo only, 2026-10-05 15:01:39 Asia/Bangkok. Decision: HD-W0-ANTHROPIC-2026-10-05. Signed-image record: `docs/decisions/W0_G01_LOCAL_DEMO_ACCEPTANCE_2026-10-05.md`; historical access evidence: `evidence/w0/2026-10-05/HYDRA_W0_ANTHROPIC_ACCESS_EVIDENCE.md` (paths from repo root).
+
+**G-01 / RISK-003 remain OPEN under the original HydraMesh requirements**; W3 live/behavior follow-up remains. Historical Hydra-Mesh01 WIF exchange success followed by Messages API HTTP400 / low-credit / exit1 is not current Hydra-Mesh agent verification. No new PASS, clinical/public/real-patient approval, other-gap acceptance, final baseline/tag/freeze/main merge is implied. **W0 OPEN**.
+
+
+### RISK-003 follow-up — scoped G-01 human decision
+- Residual Risk: current live Anthropic agent coverage remains incomplete; access/model/tool-use/integrated behavior in untested scenarios remains unverified.
+- Human Decision: นายศุภกร โคตะมา — Project Owner & System Architect — approved this limitation for local synthetic demo only at 2026-10-05 15:01:39 Asia/Bangkok. HD-W0-ANTHROPIC-2026-10-05.
+- Status: **OPEN**, expressly retained by owner for both G-01 and RISK-003; approval of a demo limitation does not close the risk or change the original requirements.
+- Follow-up: existing W3 live/behavior verification; reassess before intended-use expansion. Verify the current repo/commit/model/runtime when API access becomes available. Actual safety-critical defects still require correction.

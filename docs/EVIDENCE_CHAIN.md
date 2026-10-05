@@ -233,3 +233,17 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 - Scope: trusted local builds, synthetic MVP/Portfolio Demo, built next start on 127.0.0.1. Review by 2026-10-19 or earlier triggers in the decision.
 - Residual: nested untrusted patterns may still crash tooling; severity/full audit findings remain. Not a code remediation or clinical/baseline approval.
 - Status: implemented (evidence/decision record); G-06 accepted; W0 OPEN.
+
+
+## G-01 local synthetic demo limitation — 2026-10-05
+
+นายศุภกร โคตะมา — เจ้าของโครงการและผู้ออกแบบระบบ / Project Owner & System Architect — explicitly approved the live-Anthropic verification limitation for local synthetic-data demo only, 2026-10-05 15:01:39 Asia/Bangkok. Decision: HD-W0-ANTHROPIC-2026-10-05. Signed-image record: `docs/decisions/W0_G01_LOCAL_DEMO_ACCEPTANCE_2026-10-05.md`; historical access evidence: `evidence/w0/2026-10-05/HYDRA_W0_ANTHROPIC_ACCESS_EVIDENCE.md` (paths from repo root).
+
+**G-01 / RISK-003 remain OPEN under the original HydraMesh requirements**; W3 live/behavior follow-up remains. Historical Hydra-Mesh01 WIF exchange success followed by Messages API HTTP400 / low-credit / exit1 is not current Hydra-Mesh agent verification. No new PASS, clinical/public/real-patient approval, other-gap acceptance, final baseline/tag/freeze/main merge is implied. **W0 OPEN**.
+
+
+### EC-010: Historical Anthropic access limitation and scoped G-01 decision
+- Change: documentation and human decision only; no agent/provider/auth/runtime/config/dependency/workflow changes.
+- Evidence: 1000018439–8445, Hydra-Mesh01 / wif-oidc-smoke. OIDC/exchange steps successful by job status; API smoke HTTP400 / low-credit / exit1. Historical other-repo results do not replace current live verification.
+- Human Decision: นายศุภกร โคตะมา, Project Owner & System Architect, 2026-10-05 15:01:39 Asia/Bangkok, HD-W0-ANTHROPIC-2026-10-05.
+- Intended use: local synthetic-data demo only. G-01/RISK-003 and W0 remain OPEN; existing W3 follow-up remains. No clinical/baseline approval.
