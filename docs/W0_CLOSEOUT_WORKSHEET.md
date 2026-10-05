@@ -106,3 +106,12 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 5. Record baseline approval only after criteria are reconciled, then create/check/push actual tag and record remote hashes.
 
 **Human Decision / Residual Risk / decision dates remain pending.** This queue does not populate them or assert BLOCKER=0. Do not rerun the entire non-live suite solely for this append-only docs patch; inspect that code/config/lockfile diff is empty, retain candidate provenance, and run additional checks only for actual changes or unresolved failures.
+
+
+## Human model-selection decision — 2026-10-05
+
+| Decision item | Human decision now received | Remaining review |
+|---|---|---|
+| Google / effective model for the synthetic MVP/Portfolio Demo baseline | Tor selects gemini-3.8-flash instead of 3.7 on 2026-10-05; owner reports 3.7 could not run in his environment | Separate synthetic-content review, residual-risk/gap decisions and baseline approval remain pending |
+
+See EC-006 and `decisions/W0_MODEL_DECISION_2026-10-05.md`. The model-choice portion of human review queue item 1 is now resolved. Do not interpret this as an approval of real-patient use, all agent live coverage, risk acceptance or a freeze. W0 OPEN.

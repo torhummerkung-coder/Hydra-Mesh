@@ -459,3 +459,10 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 Clinical Summary is configured and observed live with Google `gemini-3.8-flash`; generic earlier “live evidence pending” wording is historical. This does not confirm Tor locked-model selection, benchmark quality, clinical safety or Anthropic live coverage. The earlier LOCK badge is not a new human decision. Current code enforces STOP and 4096 output cap, provider 30s / browser 60s. Latest automated integration/typecheck/build evidence is available; earlier sandbox dependency limits are historical. Doctor source-data fallback and AI-summary UI have been observed with synthetic data. General UI completeness, deployment readiness, clinical sign-off and baseline freeze remain unproven.
 
 Current W0 evidence and human queue: `docs/EVIDENCE_CHAIN.md` EC-004/EC-005, `docs/RISK_REGISTER.md` evidence supplement, `docs/W0_CLOSEOUT_WORKSHEET.md`, `evidence/w0/2026-10-05/`. Canonical Phase 2 verification scope remains `docs/PHASE_2_PLAN.md`; older roadmap scaling phases are vision, not replacement W0 exit criteria.
+
+
+## Human model-selection decision — 2026-10-05
+
+Tor confirms Google `gemini-3.8-flash` instead of `gemini-3.7-flash` as Clinical Summary for this MVP/Portfolio Demo baseline with synthetic data. Decision received 2026-10-05 07:57:53 Asia/Bangkok. Reason: 3.7 had problems and could not run in Tor's environment (human report; not independently verified global provider behavior).
+
+This supersedes historical uncertainty about Tor's model selection, including the preceding current-status override. Runtime already uses 3.8; this record does not change source/config. EC-006 and `docs/decisions/W0_MODEL_DECISION_2026-10-05.md` record the authority and exact scope. Quality/clinical review, risk acceptance, baseline tag/push and W0 closeout remain pending. W0 OPEN.

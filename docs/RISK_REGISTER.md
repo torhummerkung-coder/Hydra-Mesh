@@ -219,3 +219,10 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 All RISK-001 through RISK-009 remain **open**. Existing Residual Risk/Human Decision fields remain exactly as supplied. Engineering observations above are inputs for review, not official residual-risk acceptance.
 
 Additional findings for human classification (not automatically accepted): npm ci output reports 5 high vulnerabilities; no remediation or current production audit result is claimed. Local HTTP/auth deployment limits and unknown/degraded health badges remain distinct from successful build. Intended use, owner, reason, scope and re-review date must be supplied by the authorized human if any gap is accepted. BLOCKER=0 is not asserted.
+
+
+## Human model-selection decision — 2026-10-05
+
+Human Decision supplement for RISK-001/RISK-007: Tor selects Google `gemini-3.8-flash` instead of `gemini-3.7-flash` for the MVP/Portfolio Demo baseline using synthetic data, on 2026-10-05 07:57:53 Asia/Bangkok. Reason: Tor reports that 3.7 had problems and could not run in his environment. See EC-006 and `decisions/W0_MODEL_DECISION_2026-10-05.md`.
+
+This supersedes only the earlier pending model-selection item. It is not residual-risk acceptance or risk closure: RISK-001/RISK-007 remain **open**, and existing Residual Risk fields remain pending. Other risks and decisions are unchanged. No claim about 3.7 failing globally is made. W0 OPEN.

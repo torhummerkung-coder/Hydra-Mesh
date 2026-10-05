@@ -191,3 +191,21 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 - **Decision Date:** Pending; technical compilation 2026-10-05.
 - **Supersedes:** EC-000 and EC-001 pending-evidence statements only. Their open status, human decisions and freeze criteria remain unchanged.
 - **Status:** open (evidence recorded; W0 not closed).
+
+
+## Human model-selection decision — 2026-10-05
+
+### EC-006: Human selection of Gemini 3.8 for the W0 demo baseline
+- **Finding / Trigger:** Configured 3.8 candidate had current contract/live evidence; explicit human model selection was still pending.
+- **Source / Rationale:** Tor explicitly selected 3.8 instead of 3.7 on 2026-10-05 07:57:53 Asia/Bangkok because 3.7 had problems and could not run in his environment (owner report, not a global provider diagnosis).
+- **Related Risk(s):** RISK-001, RISK-007.
+- **Required Change:** Record the confirmed model selection and reason; retain current Google/gemini-3.8-flash configuration and evidence provenance.
+- **Safety Impact:** Remove ambiguity about the selected behavioral dependency without widening clinical authority or accepting unrelated gaps.
+- **Implementation:** Append-only docs; `decisions/W0_MODEL_DECISION_2026-10-05.md`. No runtime source/config change.
+- **Test:** Existing 3.8 contract/non-live PASS and separate live/UI observations in EC-004/EC-005. Earlier failed live collector remains FAIL; no test repeated for this docs record. Installer guard verification is packaged separately.
+- **Evidence Artifact / Log Path:** `decisions/W0_MODEL_DECISION_2026-10-05.md`; `../evidence/w0/2026-10-05/`.
+- **Version:** Tested code 3f6d45ba7b28cee703d16c2eba6143cea7d5197d; evidence docs c18dd26; Google/gemini-3.8-flash; this later decision commit to be recorded after application, not invented here.
+- **Reviewer / Decision Authority:** Tor (human model choice); Codex transcribes the decision.
+- **Decision Date:** 2026-10-05 (Asia/Bangkok).
+- **Supersedes:** Model-selection-pending statements in EC-001/EC-004/EC-005 only. Existing open baseline/risk statuses and remaining review requirements persist.
+- **Status:** implemented (model selection recorded; engineering evidence as bounded above; W0 remains OPEN).
