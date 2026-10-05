@@ -45,3 +45,31 @@ Google primary GenerateContent error reference describes503UNAVAILABLE as possib
 Delivery continuity: owner reported all four targeted offline checks passed with G02_OFFLINE_CHECKS_EXIT=0 on Ubuntu, with visible 503 authorized-source fallback/typecheck output. Subsequent push at 3f4b5cf confirmed local/remote identity. These outcomes resolve the prior pending patch-execution note within their scope; they do not substitute for missing current full-suite/build or live UI evidence.
 
 Historical 3f6d45b failed collector remains FAIL with unrecoverable exact cause from retained metadata. No new API call, runtime/code/config/dependency change or automatic retry is introduced by this documentation-only update. **G-02 / RISK-001 / RISK-007 and W0 OPEN**; no new human acceptance/signature, risk closure, baseline/tag/freeze/main merge.
+
+
+## EC-013 — Current non-live verification and bounded investigation conclusion
+
+Current non-live collector at HEAD b51d55d54b8d4f4430762ea0204cb68aa5febe16 ran 2026-10-05T11:38:47.072Z through 11:46:23.131Z (18:38:47–18:46:23 Asia/Bangkok). All 16 gates PASS, including typecheck/build; commandGatesPassed=true, liveRequested=false, sourceStable=true. Before/after both clean=true and identical commit/tracked-source SHA256 f0249dd42b24dc916fd3c657219d7e4f61b787f5ef6758488904086fde0cd0ef / lock SHA256 83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0. Nodev22.23.2/npm10.9.8. Original JSON received2026-10-05 18:55:03 Asia/Bangkok: 3967 bytes, SHA256 6c1104c884414f2800cf3751a2b29e444e486ab55ca89e07c0cb293a88d38130; original bytes preserved.
+
+Original record: hydra-w0-nonlive-b51d55d-2026-10-05.json, originally /tmp/hydra-w0-PW61N5/w0-evidence.json. All16gates exit0/errorCode=null/failMarkers0/pass=true, including current modified clinician-authorization/contract suites, typecheck and production build. Synthetic DB/temporary keys; production build with demo auth disabled. Key absent is intentional non-live scope. Tags empty and deploymentEnvironmentVerified=false; verification does not start/certify the normal server.
+
+| Question | Evidence-supported conclusion | Remaining limit |
+|---|---|---|
+| Earlier key/header failure | Control characters/whitespace made header construction fail; private re-entry corrected format | Source of those characters not proven; this does not identify the old collector cause |
+| Current live collector failure | One actual request returned503UNAVAILABLE with accepted key format/correct effective model; observer preserved reason and exit1 | Internal Google cause/global outage not independently verified |
+| Collector observability | Real live gate produced safe providerDiagnostics and truthful FAIL | Historical discarded error metadata cannot be recovered by new runs |
+| Runtime handling | Existing mocked503 endpoint regression retains assigned source data and omits AI/raw error/unassigned data | Not live UI503 evidence or complete clinical safety validation |
+| Current offline/source integrity | All16non-live gates PASS, clean/stable source-before-after atb51d55d | Does not convert failed live run or separate generations into17-live-gate PASS |
+
+Evidence accessible for this bounded investigation has identified separate key-format and latest provider503 failure modes and repaired the capture gap. It does not establish that all possible code/network/provider defects are absent. No further repeat API or full non-live calls are required just to obtain green output; investigate again for a new failure/change/defined unanswered question.
+
+Proposed residual-risk review is documented at docs/decisions/W0_G02_LOCAL_DEMO_PROPOSAL_2026-10-05.md; it is not owner approval. Preserve all failure records and existing unavailable/source-data fallback. G-02/RISK-001/RISK-007 and W0 OPEN, prior G-01/G-06 decisions unchanged. No runtime/config/dependency/retry change, signature, clinical/public/baseline approval.
+
+
+## G-02 temporary human acceptance — 2026-10-05 19:35:51 Asia/Bangkok
+
+Human Decision **HD-W0-G02-TEMP-2026-10-05**: นายศุภกร โคตะมา — Project Owner & System Architect — explicitly approved the explained G-02 proposal within its existing local synthetic MVP/Portfolio demo scope, **temporarily and revocably**. Accepted limitations: intermittent Gemini summary availability and insufficient historical failure metadata. Full chat-authorized record: `docs/decisions/W0_G02_TEMPORARY_ACCEPTANCE_2026-10-05.md` (repository-root path).
+
+The owner may reconsider the model, provider/affiliation or API-key access readiness and withdraw this temporary approval at that review to continue according to the Roadmap. No new model/provider choice or API-credit purchase/access request is authorized by this record. Record any withdrawal/superseding decision against HD-W0-G02-TEMP-2026-10-05; retain prior history and re-verify the actual model/provider/source before claiming verified behavior.
+
+**G-02 / RISK-001 / RISK-007 and W0 OPEN.** Acceptance applies only to these demo limitations; existing risks and required follow-up stay open. Preserve live/historical FAIL, unavailable/assigned-source fallback, disclaimer and human review. No 17-live-gate PASS, uptime/clinical correctness guarantee or acceptance of actual privacy/auth/safety defects. G-01/G-06 decisions and other gaps unchanged; no W0 closure/baseline/tag/freeze/main merge. Re-review on recurring failures, source/model/intended-use change, boundary failure or before real-data/public use. Earlier PENDING statements remain historical and are supplemented by this explicit decision; no new test run is claimed.

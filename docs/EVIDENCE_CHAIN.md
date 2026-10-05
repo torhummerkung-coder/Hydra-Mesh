@@ -268,3 +268,23 @@ Original JSON received from owner on 2026-10-05 18:18:21 Asia/Bangkok: 4490 byte
 - Continuity: owner-reported observer/contract/clinician-authorization/typecheck checks passed, G02_OFFLINE_CHECKS_EXIT=0; patch commit/push local and remote SHA matched 3f4b5cf. This append-only evidence update does not relabel older source results.
 - Limits: latest request unavailable; no specific Google internal cause/global outage proof, no historical-cause proof, no generated-summary/clinical review result. Failed evidence retained. Collector pending[] is generic and does not revoke separately recorded startup/UI/Git evidence.
 - Human Decision: none for G-02. RISK-001/007 and W0 OPEN; prior G-01/G-06 decisions unchanged. No baseline/tag/freeze/main merge.
+
+
+### EC-013: Current non-live regression/build completion and G-02 review proposal — 2026-10-05
+
+Current non-live collector at HEAD b51d55d54b8d4f4430762ea0204cb68aa5febe16 ran 2026-10-05T11:38:47.072Z through 11:46:23.131Z (18:38:47–18:46:23 Asia/Bangkok). All 16 gates PASS, including typecheck/build; commandGatesPassed=true, liveRequested=false, sourceStable=true. Before/after both clean=true and identical commit/tracked-source SHA256 f0249dd42b24dc916fd3c657219d7e4f61b787f5ef6758488904086fde0cd0ef / lock SHA256 83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0. Nodev22.23.2/npm10.9.8. Original JSON received2026-10-05 18:55:03 Asia/Bangkok: 3967 bytes, SHA256 6c1104c884414f2800cf3751a2b29e444e486ab55ca89e07c0cb293a88d38130; original bytes preserved.
+
+- Gates: install, db:migrate, db:seed, test:db, test:patient-encryption, test:clinical-data-encryption, test:auth-and-security-queue, test:clinician-authorization, test:fallback, test:clinical, test:audit, test:fallback-integration, test:fallback-storage, test:clinical-summary-contract, typecheck, build; all exit0/errorCode=null/failMarkers0/pass=true.
+- Environment: synthetic DB/temporary keys; build production/demoAuth=false; Gemini key absent and formatValid=false is expected without --live, not a new credential failure. deploymentEnvironmentVerified=false; tagsAtHead empty, W0 OPEN.
+- Evidence: evidence/w0/2026-10-05/hydra-w0-nonlive-b51d55d-2026-10-05.json and evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md. Earlier source/results retain their original commits and timestamps. Actual fast-forward 3f4b5cf→b51d55d changed five docs/evidence paths only.
+- EC-012 live503FAIL and historical collector FAIL remain unchanged; EC-011 standalone200/STOP remains separate. This non-live result is not a17-live-gate PASS or provider availability/clinical certificate.
+- Human Decision: none for G-02; proposed bounded review text at docs/decisions/W0_G02_LOCAL_DEMO_PROPOSAL_2026-10-05.md. G-02/RISK-001/RISK-007 and W0 OPEN; no baseline/tag/freeze/main merge.
+
+
+## EC-014 — G-02 temporary human acceptance — 2026-10-05 19:35:51 Asia/Bangkok
+
+Human Decision **HD-W0-G02-TEMP-2026-10-05**: นายศุภกร โคตะมา — Project Owner & System Architect — explicitly approved the explained G-02 proposal within its existing local synthetic MVP/Portfolio demo scope, **temporarily and revocably**. Accepted limitations: intermittent Gemini summary availability and insufficient historical failure metadata. Full chat-authorized record: `docs/decisions/W0_G02_TEMPORARY_ACCEPTANCE_2026-10-05.md` (repository-root path).
+
+The owner may reconsider the model, provider/affiliation or API-key access readiness and withdraw this temporary approval at that review to continue according to the Roadmap. No new model/provider choice or API-credit purchase/access request is authorized by this record. Record any withdrawal/superseding decision against HD-W0-G02-TEMP-2026-10-05; retain prior history and re-verify the actual model/provider/source before claiming verified behavior.
+
+**G-02 / RISK-001 / RISK-007 and W0 OPEN.** Acceptance applies only to these demo limitations; existing risks and required follow-up stay open. Preserve live/historical FAIL, unavailable/assigned-source fallback, disclaimer and human review. No 17-live-gate PASS, uptime/clinical correctness guarantee or acceptance of actual privacy/auth/safety defects. G-01/G-06 decisions and other gaps unchanged; no W0 closure/baseline/tag/freeze/main merge. Re-review on recurring failures, source/model/intended-use change, boundary failure or before real-data/public use. Earlier PENDING statements remain historical and are supplemented by this explicit decision; no new test run is claimed.

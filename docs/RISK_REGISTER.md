@@ -284,3 +284,19 @@ Current clean-source collector at 3f4b5cf retained a real live failure: 14 gates
 RISK-001 / RISK-007 and G-02 remain OPEN. Historical exact failure cause remains unknown; latest503 cannot establish it retroactively. Provider internal cause is unverified. No new generated-summary correctness/availability guarantee, automatic retries or human risk acceptance. Remaining typecheck/build were not reached in this collector run; prior targeted typecheck is separate.
 
 Evidence: evidence/w0/2026-10-05/hydra-w0-live-503-3f4b5cf-2026-10-05.json (4490 bytes, SHA256 7a931f0d1732b1222a964b78a97271873f3c43bdcd9cffc1d756fd224ffb3d05) and evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md. Review before expanding beyond local synthetic demo, on repeated provider failure, or on source/model changes. Preserve the unavailable/source-data fallback and existing human authority. All preceding risk statuses and G-01/G-06 decisions unchanged; W0 OPEN, no baseline/tag/freeze approval.
+
+
+## G-02 non-live verification completed; human review pending — 2026-10-05 (EC-013)
+
+Current b51d55d non-live collector passed all16gates including typecheck/build with source-before/after clean and identical. Live current collector at3f4b5cf still records HTTP503/UNAVAILABLE/exit1, and historical exact cause remains unrecoverable from retained metadata. Existing assigned-only unavailable fallback and unassigned denial are covered by mocked endpoint regression; not live UI fault injection or generalized clinical validation.
+
+Original3967-byte JSON SHA256 6c1104c884414f2800cf3751a2b29e444e486ab55ca89e07c0cb293a88d38130 at evidence/w0/2026-10-05/hydra-w0-nonlive-b51d55d-2026-10-05.json. Proposed human review: docs/decisions/W0_G02_LOCAL_DEMO_PROPOSAL_2026-10-05.md. Proposed scope only local synthetic-demo provider-availability/history-evidence limitations; do not waive actual safety/privacy/authorization defects or change earlier human decisions. **No acceptance recorded: G-02/RISK-001/RISK-007 and W0 OPEN**. No new signature, risk closure or baseline/tag/freeze/main merge.
+
+
+## G-02 temporary human acceptance — 2026-10-05 19:35:51 Asia/Bangkok
+
+Human Decision **HD-W0-G02-TEMP-2026-10-05**: นายศุภกร โคตะมา — Project Owner & System Architect — explicitly approved the explained G-02 proposal within its existing local synthetic MVP/Portfolio demo scope, **temporarily and revocably**. Accepted limitations: intermittent Gemini summary availability and insufficient historical failure metadata. Full chat-authorized record: `docs/decisions/W0_G02_TEMPORARY_ACCEPTANCE_2026-10-05.md` (repository-root path).
+
+The owner may reconsider the model, provider/affiliation or API-key access readiness and withdraw this temporary approval at that review to continue according to the Roadmap. No new model/provider choice or API-credit purchase/access request is authorized by this record. Record any withdrawal/superseding decision against HD-W0-G02-TEMP-2026-10-05; retain prior history and re-verify the actual model/provider/source before claiming verified behavior.
+
+**G-02 / RISK-001 / RISK-007 and W0 OPEN.** Acceptance applies only to these demo limitations; existing risks and required follow-up stay open. Preserve live/historical FAIL, unavailable/assigned-source fallback, disclaimer and human review. No 17-live-gate PASS, uptime/clinical correctness guarantee or acceptance of actual privacy/auth/safety defects. G-01/G-06 decisions and other gaps unchanged; no W0 closure/baseline/tag/freeze/main merge. Re-review on recurring failures, source/model/intended-use change, boundary failure or before real-data/public use. Earlier PENDING statements remain historical and are supplemented by this explicit decision; no new test run is claimed.

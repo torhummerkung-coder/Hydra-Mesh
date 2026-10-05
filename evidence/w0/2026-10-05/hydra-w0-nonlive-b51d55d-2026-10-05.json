@@ -1,0 +1,172 @@
+{
+  "at": "2026-10-05T11:38:47.072Z",
+  "mode": "verification",
+  "node": "v22.23.2",
+  "npm": "10.9.8",
+  "sourceBefore": {
+    "commit": "b51d55d54b8d4f4430762ea0204cb68aa5febe16",
+    "trackedSourceSha256": "f0249dd42b24dc916fd3c657219d7e4f61b787f5ef6758488904086fde0cd0ef",
+    "lockfileSha256": "83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0",
+    "clean": true
+  },
+  "tagsAtHead": [],
+  "liveRequested": false,
+  "w0Status": "OPEN",
+  "gates": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 113616
+    },
+    {
+      "name": "db:migrate",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 5247
+    },
+    {
+      "name": "db:seed",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 10666
+    },
+    {
+      "name": "test:db",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 13099
+    },
+    {
+      "name": "test:patient-encryption",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 13140
+    },
+    {
+      "name": "test:clinical-data-encryption",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 36574
+    },
+    {
+      "name": "test:auth-and-security-queue",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 10003
+    },
+    {
+      "name": "test:clinician-authorization",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 15478
+    },
+    {
+      "name": "test:fallback",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1874
+    },
+    {
+      "name": "test:clinical",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1656
+    },
+    {
+      "name": "test:audit",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 2753
+    },
+    {
+      "name": "test:fallback-integration",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 45179
+    },
+    {
+      "name": "test:fallback-storage",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1632
+    },
+    {
+      "name": "test:clinical-summary-contract",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1154
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 23314
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 160242
+    }
+  ],
+  "pending": [
+    "production startup environment",
+    "Doctor UI / accepted gap",
+    "human risk decisions",
+    "tag/push evidence",
+    "Gemini live"
+  ],
+  "environment": {
+    "syntheticDatabase": true,
+    "temporaryKeys": true,
+    "provider": "Google",
+    "effectiveGeminiModel": "gemini-3.8-flash",
+    "geminiKeyPresent": false,
+    "buildNodeEnv": "production",
+    "buildDemoAuthEnabled": false,
+    "deploymentEnvironmentVerified": false,
+    "geminiKeyFormatValid": false
+  },
+  "sourceAfter": {
+    "commit": "b51d55d54b8d4f4430762ea0204cb68aa5febe16",
+    "trackedSourceSha256": "f0249dd42b24dc916fd3c657219d7e4f61b787f5ef6758488904086fde0cd0ef",
+    "lockfileSha256": "83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0",
+    "clean": true
+  },
+  "sourceStable": true,
+  "commandGatesPassed": true,
+  "finishedAt": "2026-10-05T11:46:23.131Z"
+}
