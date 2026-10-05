@@ -232,6 +232,35 @@ async function main() {
     assert(securityTrace.body.data.some((t: any) => t.correlationId === patientBTraceId));
     console.log("PASS event trace is patient-scoped for clinicians (least privilege) and unrestricted for security");
 
+    const unownedTraceId = crypto.randomUUID();
+    const unownedMarker = "synthetic unowned trace payload";
+    logEvent("message_received", "orchestrator", unownedTraceId, { marker: unownedMarker });
+    logEvent("companion_reply", "orchestrator", unownedTraceId, { mode: "normal" });
+
+    const missingTraceId = crypto.randomUUID();
+    for (const token of [tokens.doctorA, tokens.staffA]) {
+      const list = await call(traceHandler, { method: "GET", token });
+      assert.equal(list.status, 200);
+      assert(!list.body.data.some((t: any) => t.correlationId === unownedTraceId));
+      const unowned = await call(traceHandler, {
+        method: "GET", token, query: { correlationId: unownedTraceId },
+      });
+      const missing = await call(traceHandler, {
+        method: "GET", token, query: { correlationId: missingTraceId },
+      });
+      assert.equal(unowned.status, 404);
+      assert.equal(missing.status, 404);
+      assert.deepEqual(unowned.body, missing.body);
+      assert(!JSON.stringify(unowned.body).includes(unownedMarker));
+    }
+    const securityUnowned = await call(traceHandler, {
+      method: "GET", token: tokens.securityA, query: { correlationId: unownedTraceId },
+    });
+    assert.equal(securityUnowned.status, 200);
+    assert.equal(securityUnowned.body.data.patientId, undefined);
+    assert(securityUnowned.body.data.steps.some((step: any) => step.payload?.marker === unownedMarker));
+    console.log("PASS unowned trace is hidden from doctor/staff; security can inspect the existing trace");
+
     const doctorCannotAssign = await call(assignmentHandler, {
       method: "POST",
       token: tokens.doctorA,
