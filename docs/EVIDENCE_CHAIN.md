@@ -150,3 +150,44 @@ Original EC-000/EC-001 remain open; their TBD fields are not silently overwritte
 - **Decision Date:** TBD.
 - **Supersedes:** none; adds implementation evidence to EC-000/EC-001 without changing their status.
 - **Status:** implemented (engineering only; not verified/frozen).
+
+
+## Current-repository evidence update — 2026-10-05 (Asia/Bangkok)
+
+**W0 OPEN — engineering evidence only; no freeze or Human Decision.** This appended update supersedes earlier statements that actual-repository non-live collection and all Gemini live verification are still pending. Earlier results remain historical and are not overwritten.
+
+Candidate: `3f6d45ba7b28cee703d16c2eba6143cea7d5197d`, branch `fix/w0-reconciliation`. Non-live collector on Ubuntu Node v22.23.2/npm 10.9.8 passed 16 gates, with clean/stable tracked source. Tracked-source SHA-256 `5301d431d7704efaabbdf75d89fa49cc47a16b1a1016a00a77c15eb2f48a27f6`; lockfile SHA-256 `83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0`.
+
+Gemini model `gemini-3.8-flash`: live collector failed at its live gate (exit 1; whole test-process duration 14.428s; cause unknown). Subsequent ordinary live test passed (`GEMINI_EXIT=0`, verification time 2026-10-04T21:27:45.291Z). These are separate runs, not one 17-gate live suite PASS. Diagnostic server separately observed HTTP 200 / STOP / 9.936s. UI showed source-data fallback and later available AI summary; screenshot 1000018374 shows generation 2026-10-05 06:12:32 Bangkok, disclaimer and complete section 4 displaying human-review count 0. That screenshot does not bind its request to the earlier diagnostic metadata or independently prove normal startup.
+
+JSON evidence binds the tested code candidate above. This documentation-only patch creates a different tracked-source hash/commit; do not relabel the JSON as evidence collected on the later documentation commit. Review Git diff to establish unchanged executable source/config/lockfile. Tag/push and baseline decision still require actual evidence.
+
+### EC-004: Summary deadlines and unfinished-generation containment
+- **Finding / Trigger:** Browser could abort before the provider response/fallback; nonempty MAX_TOKENS output previously passed the live script despite incomplete text.
+- **Source / Rationale:** Actual patch commits and synthetic contract/authorization tests; generation metadata from separate earlier diagnostic run. No clinical thresholds changed.
+- **Related Risk(s):** RISK-001, RISK-007, RISK-008, RISK-009.
+- **Required Change:** Bound provider at 30s/browser at 60s; require first candidate finishReason STOP; reject unfinished/blocked/unconfirmed generations into existing authorized source-data fallback.
+- **Safety Impact:** Prevent partial AI text being presented as an available summary; preserve authorization and source-data continuity. STOP does not certify content or clinical accuracy.
+- **Implementation:** `0b59ec5` changes agent/dashboard deadlines; `3f6d45b` raises maxOutputTokens 800→4096 and checks STOP; adds contract and clinician authorization regressions. Auth checks remain 3s and four clinical reads 15s. No automatic retry/model/prompt/critical-path changes.
+- **Test:** `test:clinical-summary-contract` PASS for multi-part/empty/truncated/blocked/missing finish reason; `test:clinician-authorization` PASS including MAX_TOKENS fallback restricted to authorized source without partial AI text; typecheck/build and remaining collector gates PASS on candidate 3f6d45b.
+- **Evidence Artifact / Log Path:** `../evidence/w0/2026-10-05/hydra-w0-nonlive-2026-10-05.json`; supplemental evidence report in the same directory, including screenshot references 1000018354/8355. Screenshot binaries are not included in this package.
+- **Version:** Candidate commit 3f6d45ba7b28cee703d16c2eba6143cea7d5197d; Google / gemini-3.8-flash; no baseline tag evidenced.
+- **Reviewer / Decision Authority:** Codex technical review; Tor human decision pending.
+- **Decision Date:** Pending human decision; technical compilation 2026-10-05.
+- **Supersedes:** none; supplements EC-001/EC-003 with distinct fixes, without closing them.
+- **Status:** implemented (engineering only).
+
+### EC-005: Actual-repository baseline evidence reconciliation
+- **Finding / Trigger:** Earlier docs describe real-checkout/live gates as pending; new evidence must retain both failure and success history.
+- **Source / Rationale:** Uploaded collector JSONs and synthetic phone screenshots; W0 reconciliation exit criteria.
+- **Related Risk(s):** RISK-001, RISK-002, RISK-003, RISK-004, RISK-005, RISK-007, RISK-008, RISK-009.
+- **Required Change:** Record current evidence with exact provenance and bounds; reconcile remaining UI/human/Git gaps before freeze.
+- **Safety Impact:** Avoid false-green promotion, clinical validation claims and mixing incompatible runs.
+- **Implementation:** Append-only documentation plus two byte-preserved JSONs and supplemental report; no executable source/config changes.
+- **Test:** Non-live collector 16 ordered gates PASS (install, migrate, seed, 11 suites, typecheck, build). Separate live collector FAIL and subsequent ordinary Gemini live PASS retained. Automated clinician authorization PASS; paired manual allow/deny trace evidence is older and is not claimed as rerun on the latest build. UI fallback/available states observed separately.
+- **Evidence Artifact / Log Path:** `../evidence/w0/2026-10-05/` and `W0_CLOSEOUT_WORKSHEET.md` appended update; report records both JSON hashes and exact image references.
+- **Version:** Tested code candidate 3f6d45ba7b28cee703d16c2eba6143cea7d5197d; source/lock hashes above; documentation commit/tag to be recorded after review, not invented here.
+- **Reviewer / Decision Authority:** Codex technical review; Tor baseline/risk decisions pending.
+- **Decision Date:** Pending; technical compilation 2026-10-05.
+- **Supersedes:** EC-000 and EC-001 pending-evidence statements only. Their open status, human decisions and freeze criteria remain unchanged.
+- **Status:** open (evidence recorded; W0 not closed).

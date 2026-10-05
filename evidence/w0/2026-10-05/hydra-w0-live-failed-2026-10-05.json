@@ -1,0 +1,156 @@
+{
+  "at": "2026-10-04T21:23:34.985Z",
+  "mode": "verification",
+  "node": "v22.23.2",
+  "npm": "10.9.8",
+  "sourceBefore": {
+    "commit": "3f6d45ba7b28cee703d16c2eba6143cea7d5197d",
+    "trackedSourceSha256": "5301d431d7704efaabbdf75d89fa49cc47a16b1a1016a00a77c15eb2f48a27f6",
+    "lockfileSha256": "83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0",
+    "clean": true
+  },
+  "tagsAtHead": [],
+  "liveRequested": true,
+  "w0Status": "OPEN",
+  "gates": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 93779
+    },
+    {
+      "name": "db:migrate",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 2471
+    },
+    {
+      "name": "db:seed",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 3941
+    },
+    {
+      "name": "test:db",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 3811
+    },
+    {
+      "name": "test:patient-encryption",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 4904
+    },
+    {
+      "name": "test:clinical-data-encryption",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 14628
+    },
+    {
+      "name": "test:auth-and-security-queue",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 3861
+    },
+    {
+      "name": "test:clinician-authorization",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 8372
+    },
+    {
+      "name": "test:fallback",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1096
+    },
+    {
+      "name": "test:clinical",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1085
+    },
+    {
+      "name": "test:audit",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1198
+    },
+    {
+      "name": "test:fallback-integration",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 25620
+    },
+    {
+      "name": "test:fallback-storage",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1452
+    },
+    {
+      "name": "test:clinical-summary-contract",
+      "exitCode": 0,
+      "errorCode": null,
+      "failMarkers": 0,
+      "pass": true,
+      "durationMs": 1112
+    },
+    {
+      "name": "test:clinical-summary-gemini",
+      "exitCode": 1,
+      "errorCode": null,
+      "failMarkers": 1,
+      "pass": false,
+      "durationMs": 14428
+    }
+  ],
+  "pending": [
+    "production startup environment",
+    "Doctor UI / accepted gap",
+    "human risk decisions",
+    "tag/push evidence",
+    "human synthetic summary review"
+  ],
+  "environment": {
+    "syntheticDatabase": true,
+    "temporaryKeys": true,
+    "provider": "Google",
+    "effectiveGeminiModel": "gemini-3.8-flash",
+    "geminiKeyPresent": true,
+    "buildNodeEnv": "production",
+    "buildDemoAuthEnabled": false,
+    "deploymentEnvironmentVerified": false
+  },
+  "commandGatesPassed": false,
+  "finishedAt": "2026-10-04T21:26:36.918Z"
+}

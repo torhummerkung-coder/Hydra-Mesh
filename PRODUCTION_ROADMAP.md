@@ -1,3 +1,4 @@
+
 # Hydra Mesh — Production Roadmap
 
 เอกสารนี้คือวิสัยทัศน์ระยะยาวของ Hydra Mesh แนบคู่กับ demo ที่ใช้งานได้จริงใน repo นี้ ไม่ใช่ spec ที่ต้อง build ให้ครบก่อน — MVP ที่อยู่ใน repo คือ vertical slice แรกที่ยึดหลักการเดียวกับที่นี่ทุกข้อ แค่ตัด infra ระดับ enterprise ออกเพื่อให้ทันเวลา bootcamp
@@ -441,3 +442,20 @@ Engineering fallback เชื่อมกับ Safe Composer ที่ตอ�
 ## Engineering reconciliation — 2026-10-04
 
 Current code defaults to `gemini-3.8-flash`; this is the supplied corrective configuration, not a new human model-selection decision. Contract URL expectation is now consistent. Live availability and integration for the effective runtime model still require provider evidence. Historical decision rows above remain unchanged; old RISK-004/RISK-005 references are source-qualified in `docs/ID_MIGRATION.md`. No clinical thresholds were changed. W0 remains open pending current-repo regression, environment, live, UI and Git evidence.
+
+
+## Current-repository evidence update — 2026-10-05 (Asia/Bangkok)
+
+**W0 OPEN — engineering evidence only; no freeze or Human Decision.** This appended update supersedes earlier statements that actual-repository non-live collection and all Gemini live verification are still pending. Earlier results remain historical and are not overwritten.
+
+Candidate: `3f6d45ba7b28cee703d16c2eba6143cea7d5197d`, branch `fix/w0-reconciliation`. Non-live collector on Ubuntu Node v22.23.2/npm 10.9.8 passed 16 gates, with clean/stable tracked source. Tracked-source SHA-256 `5301d431d7704efaabbdf75d89fa49cc47a16b1a1016a00a77c15eb2f48a27f6`; lockfile SHA-256 `83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0`.
+
+Gemini model `gemini-3.8-flash`: live collector failed at its live gate (exit 1; whole test-process duration 14.428s; cause unknown). Subsequent ordinary live test passed (`GEMINI_EXIT=0`, verification time 2026-10-04T21:27:45.291Z). These are separate runs, not one 17-gate live suite PASS. Diagnostic server separately observed HTTP 200 / STOP / 9.936s. UI showed source-data fallback and later available AI summary; screenshot 1000018374 shows generation 2026-10-05 06:12:32 Bangkok, disclaimer and complete section 4 displaying human-review count 0. That screenshot does not bind its request to the earlier diagnostic metadata or independently prove normal startup.
+
+JSON evidence binds the tested code candidate above. This documentation-only patch creates a different tracked-source hash/commit; do not relabel the JSON as evidence collected on the later documentation commit. Review Git diff to establish unchanged executable source/config/lockfile. Tag/push and baseline decision still require actual evidence.
+
+### Current status overrides for earlier tables (history preserved)
+
+Clinical Summary is configured and observed live with Google `gemini-3.8-flash`; generic earlier “live evidence pending” wording is historical. This does not confirm Tor locked-model selection, benchmark quality, clinical safety or Anthropic live coverage. The earlier LOCK badge is not a new human decision. Current code enforces STOP and 4096 output cap, provider 30s / browser 60s. Latest automated integration/typecheck/build evidence is available; earlier sandbox dependency limits are historical. Doctor source-data fallback and AI-summary UI have been observed with synthetic data. General UI completeness, deployment readiness, clinical sign-off and baseline freeze remain unproven.
+
+Current W0 evidence and human queue: `docs/EVIDENCE_CHAIN.md` EC-004/EC-005, `docs/RISK_REGISTER.md` evidence supplement, `docs/W0_CLOSEOUT_WORKSHEET.md`, `evidence/w0/2026-10-05/`. Canonical Phase 2 verification scope remains `docs/PHASE_2_PLAN.md`; older roadmap scaling phases are vision, not replacement W0 exit criteria.

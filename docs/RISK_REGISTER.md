@@ -191,3 +191,31 @@ Historical MVP/Portfolio Demo acceptance of legacy RISK-003 is preserved in `his
 - **Residual Risk:** Human assessment pending.
 - **Human Decision:** Pending.
 - **Status:** open.
+
+
+## Current-repository evidence update — 2026-10-05 (Asia/Bangkok)
+
+**W0 OPEN — engineering evidence only; no freeze or Human Decision.** This appended update supersedes earlier statements that actual-repository non-live collection and all Gemini live verification are still pending. Earlier results remain historical and are not overwritten.
+
+Candidate: `3f6d45ba7b28cee703d16c2eba6143cea7d5197d`, branch `fix/w0-reconciliation`. Non-live collector on Ubuntu Node v22.23.2/npm 10.9.8 passed 16 gates, with clean/stable tracked source. Tracked-source SHA-256 `5301d431d7704efaabbdf75d89fa49cc47a16b1a1016a00a77c15eb2f48a27f6`; lockfile SHA-256 `83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0`.
+
+Gemini model `gemini-3.8-flash`: live collector failed at its live gate (exit 1; whole test-process duration 14.428s; cause unknown). Subsequent ordinary live test passed (`GEMINI_EXIT=0`, verification time 2026-10-04T21:27:45.291Z). These are separate runs, not one 17-gate live suite PASS. Diagnostic server separately observed HTTP 200 / STOP / 9.936s. UI showed source-data fallback and later available AI summary; screenshot 1000018374 shows generation 2026-10-05 06:12:32 Bangkok, disclaimer and complete section 4 displaying human-review count 0. That screenshot does not bind its request to the earlier diagnostic metadata or independently prove normal startup.
+
+JSON evidence binds the tested code candidate above. This documentation-only patch creates a different tracked-source hash/commit; do not relabel the JSON as evidence collected on the later documentation commit. Review Git diff to establish unchanged executable source/config/lockfile. Tag/push and baseline decision still require actual evidence.
+
+### Evidence supplement to existing risks (no human fields overwritten)
+
+| Risk | New engineering evidence | Remaining evidence or judgment |
+|---|---|---|
+| RISK-001 / RISK-007 | EC-004/EC-005: 3.8 contract PASS, ordinary live PASS, diagnostic 200/STOP, UI available; failed collector retained | Model selection/acceptance by Tor; semantic/clinical review; availability is not proven for every request |
+| RISK-002 | Latest automated authorization suite PASS; earlier paired Doctor allow/deny trace screenshots | Reconcile manual evidence scope/current UI and revocation/ownership cases; no waiver of authorization failure |
+| RISK-003 | Gemini summary evidence only | Anthropic Risk/Companion/Auditor live coverage remains unevidenced here; legacy acceptance requires current intended-use confirmation |
+| RISK-004 | Fallback integration/storage suites PASS; prior manual outbox retry delivered=1/failed=0/remaining=0 | One delivery recovery is not proof of clinician acknowledgement or all recovery modes |
+| RISK-005 | Diagnostic observer logged only provider metadata; no text/key in that observer output | Not a system-wide log privacy/retention audit |
+| RISK-006 | No additional general role-projection evidence | Existing risk remains open |
+| RISK-008 | Provider/browser deadline alignment; normal diagnostic request returned in 9.936s | Normal latency is not controlled slow-read evidence; timed-out work may continue |
+| RISK-009 | STOP guard plus negative contract cases; failed collector preserved | Existing scoring/gate controls remain necessary; passing tests do not establish clinical validity |
+
+All RISK-001 through RISK-009 remain **open**. Existing Residual Risk/Human Decision fields remain exactly as supplied. Engineering observations above are inputs for review, not official residual-risk acceptance.
+
+Additional findings for human classification (not automatically accepted): npm ci output reports 5 high vulnerabilities; no remediation or current production audit result is claimed. Local HTTP/auth deployment limits and unknown/degraded health badges remain distinct from successful build. Intended use, owner, reason, scope and re-review date must be supplied by the authorized human if any gap is accepted. BLOCKER=0 is not asserted.
