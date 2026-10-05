@@ -107,3 +107,12 @@ This supplements historical pending startup/trace/dependency statements without 
 Original phone JSON g02-diagnostic-after-key-fix.json (HEAD 0ed5f52, SHA-256 e6080ad3bc7aa4f8e80ee1d91fc1ab5e1b3c3c3a9e47d0bcb0dd0a82addc3b50) shows collector-env HTTP200/STOP/3 checks PASS and direct-env HTTP503/UNAVAILABLE/exit1 with matching request bodies and five unchanged target hashes. A separate earlier malformed-key/header failure was corrected privately. Historical failed collector remains FAIL with unknown exact cause; this is not 17-gate PASS or new full collector evidence.
 
 Added collector key-format preflight, metadata-only live-gate observer and offline regressions for classifier/header/provider503/authorized fallback. No runtime agent, endpoint, auth, model, dependency or retry-policy changes. Verify on Ubuntu after review/commit; preserve failed metadata, run clinical-summary contract, clinician authorization, observer tests and typecheck. No new full/live suite execution is claimed by this patch. G-02/RISK-001/007 and W0 OPEN; no owner acceptance, baseline tag, freeze or main merge.
+
+
+## G-02 current live collector evidence — 2026-10-05 (EC-012)
+
+Actual clean disposable Ubuntu checkout at 3f4b5cf ran the updated collector with --live. First 14 gates PASS; clinical-summary-gemini FAILED, child exit 1 / whole-gate 9962 ms. Diagnostics captured HTTP503 / UNAVAILABLE, response headers after 8034 ms, valid credential format and matching gemini-3.8-flash model. commandGatesPassed=false; typecheck/build not reached and sourceAfter absent in this run. No full-suite PASS or after-run clean-source claim.
+
+Original failed JSON preserved at evidence/w0/2026-10-05/hydra-w0-live-503-3f4b5cf-2026-10-05.json; 4490 bytes / SHA-256 7a931f0d1732b1222a964b78a97271873f3c43bdcd9cffc1d756fd224ffb3d05. Investigation: evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md. Prior targeted offline checks passed by owner report; Git local/remote matched at 3f4b5cf. Existing assigned-only 503 fallback was tested with mocks, not live UI fault injection.
+
+Historical failed collector retains FAIL and unknown exact cause. No automatic retry, model/timeout/token change, gap acceptance, risk closure or baseline/tag/freeze/main merge. G-02 / RISK-001 / RISK-007 and W0 OPEN; G-01/G-06 decisions unchanged.

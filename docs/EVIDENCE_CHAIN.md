@@ -255,3 +255,16 @@ JSON evidence binds the tested code candidate above. This documentation-only pat
 - Evidence: evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md and byte-preserved g02-diagnostic-after-key-fix.json. Historical FAIL remains; exact cause unavailable from retained historical metadata.
 - Change: collector preflight/metadata observer and targeted offline regressions; agent/endpoint/auth/model/dependencies unchanged. Phone execution of new tests and new collector results remain pending.
 - Human Decision: no G-02 acceptance; owner chose investigation. G-02, RISK-001/007 and W0 OPEN; no baseline/tag/freeze approval.
+
+
+### EC-012: Current committed collector HTTP503 failure — 2026-10-05
+
+Original JSON received from owner on 2026-10-05 18:18:21 Asia/Bangkok: 4490 bytes, SHA-256 7a931f0d1732b1222a964b78a97271873f3c43bdcd9cffc1d756fd224ffb3d05; bytes preserved. Run 2026-10-05T11:00:11.749Z through 11:03:31.773Z, sourceBefore clean=true, HEAD 3f4b5cf917c3edf39a7aba34f4811b5579317b3f, tracked source SHA-256 946b186911dd3536cf2bf7e46d4d8bdee6eab3d9db0f6a59bb9c50774441b417, lock SHA-256 83452ab15b8b7bf720b861a8abf720d153187a29f0387d5b751edcae0e02a8f0. Node v22.23.2 / npm 10.9.8; tagsAtHead empty.
+
+- Evidence: evidence/w0/2026-10-05/hydra-w0-live-503-3f4b5cf-2026-10-05.json; investigation: evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md. Byte-preserved original; no secret, generated text or raw provider message in this structured record.
+- Actual result: 14 gates PASS, fifteenth Gemini gate FAILED / child exit1 / failMarkers0 / duration9962ms. commandGatesPassed=false; typecheck/build not reached. No sourceAfter/sourceStable in this failed run.
+- Live diagnostics: one request HTTP503 / UNAVAILABLE / headers8034ms, credentialFormatValid=true, maxOutputTokens4096, request-body SHA256 db0ada67fb9c972f8fe2f4f209707860c6a6c1405f1ba0178c15db21a9d6250f; errors HTTP_503, checks0/0. Non-OK response caused exception before assertions.
+- Model/environment: gemini-3.8-flash, key present and format valid, child NODE_ENV=test / demoDisabled=true / modelMatches=true. Format acceptance is not a general authentication or provider-health certificate.
+- Continuity: owner-reported observer/contract/clinician-authorization/typecheck checks passed, G02_OFFLINE_CHECKS_EXIT=0; patch commit/push local and remote SHA matched 3f4b5cf. This append-only evidence update does not relabel older source results.
+- Limits: latest request unavailable; no specific Google internal cause/global outage proof, no historical-cause proof, no generated-summary/clinical review result. Failed evidence retained. Collector pending[] is generic and does not revoke separately recorded startup/UI/Git evidence.
+- Human Decision: none for G-02. RISK-001/007 and W0 OPEN; prior G-01/G-06 decisions unchanged. No baseline/tag/freeze/main merge.

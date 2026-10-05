@@ -275,3 +275,12 @@ This supplements historical pending startup/trace/dependency statements without 
 - Residual Risk: live provider may be unavailable; historical failed collector exact cause remains unrecoverable from its retained metadata. New success does not guarantee availability or clinical validity.
 - Mitigation verification: existing assignment-scoped fallback passed local injected-503 probe; permanent targeted tests and safe collector evidence capture added for verification on Ubuntu. No automatic retries or runtime policy changes.
 - Human Decision / Status: no new acceptance or closure. Owner requested deeper investigation; G-02 / RISK-001 / RISK-007 OPEN. Existing G-01/G-06 decisions and other risks remain as previously recorded.
+
+
+## G-02 investigation follow-up — 2026-10-05 (EC-012)
+
+Current clean-source collector at 3f4b5cf retained a real live failure: 14 gates PASS, Gemini HTTP503 / UNAVAILABLE / child exit1, correct effective model and accepted credential format. Updated safe metadata capture worked in the actual collector. Existing authorization regression for mocked provider503 passed on the phone by owner report; this is not live UI503 coverage.
+
+RISK-001 / RISK-007 and G-02 remain OPEN. Historical exact failure cause remains unknown; latest503 cannot establish it retroactively. Provider internal cause is unverified. No new generated-summary correctness/availability guarantee, automatic retries or human risk acceptance. Remaining typecheck/build were not reached in this collector run; prior targeted typecheck is separate.
+
+Evidence: evidence/w0/2026-10-05/hydra-w0-live-503-3f4b5cf-2026-10-05.json (4490 bytes, SHA256 7a931f0d1732b1222a964b78a97271873f3c43bdcd9cffc1d756fd224ffb3d05) and evidence/w0/2026-10-05/HYDRA_W0_G02_INVESTIGATION.md. Review before expanding beyond local synthetic demo, on repeated provider failure, or on source/model changes. Preserve the unavailable/source-data fallback and existing human authority. All preceding risk statuses and G-01/G-06 decisions unchanged; W0 OPEN, no baseline/tag/freeze approval.
