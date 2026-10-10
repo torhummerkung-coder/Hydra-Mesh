@@ -8,7 +8,7 @@
 // เก็บ totalScore ซ้ำเป็น plaintext แยกใน DB เพื่อลด attack surface
 
 import { prisma } from "../db";
-import { encryptForPatient, decryptForPatient } from "../patient-encryption";
+import { encryptForPatient, decryptManyForPatient } from "../patient-encryption";
 import type { QuestionnaireResponse } from "./screening-schema";
 
 export async function saveScreeningResponse(
@@ -32,10 +32,7 @@ export async function getScreeningHistory(
     where: { patientId, questionnaire },
     orderBy: { createdAt: "asc" },
   });
-  return Promise.all(
-    rows.map(
-      async (row) =>
-        JSON.parse(await decryptForPatient(patientId, row.encryptedShards)) as QuestionnaireResponse
-    )
-  );
+  // G-03 A: unwrap DEK ครั้งเดียวต่อการอ่าน (ไม่ใช่ทุกแถว) — ดู decryptManyForPatient
+  const plaintexts = await decryptManyForPatient(patientId, rows.map((row) => row.encryptedShards));
+  return plaintexts.map((plaintext) => JSON.parse(plaintext) as QuestionnaireResponse);
 }

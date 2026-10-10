@@ -12,7 +12,7 @@
 
 import { eventKey } from "../fallback/outbox";
 import { prisma } from "../db";
-import { encryptForPatient, decryptForPatient } from "../patient-encryption";
+import { encryptForPatient, decryptForPatient, decryptManyForPatient } from "../patient-encryption";
 
 export interface StoredMessage {
   role: "user" | "assistant";
@@ -65,13 +65,13 @@ export async function getConversationHistory(
     take: limit,
   });
   const chronological = rows.reverse();
-  return Promise.all(
-    chronological.map(async (row) => ({
-      role: row.role as "user" | "assistant",
-      content: await decryptForPatient(patientId, row.encryptedShards),
-      createdAt: row.createdAt.toISOString(),
-    }))
-  );
+  // G-03 A: unwrap DEK ครั้งเดียวต่อการอ่าน (ไม่ใช่ทุกแถว) — ดู decryptManyForPatient
+  const contents = await decryptManyForPatient(patientId, chronological.map((row) => row.encryptedShards));
+  return chronological.map((row, i) => ({
+    role: row.role as "user" | "assistant",
+    content: contents[i],
+    createdAt: row.createdAt.toISOString(),
+  }));
 }
 
 export async function getReceipt(patientId: string, messageId: string): Promise<{ message: string; metadata: import('../fallback/coordinator').MeshResponse } | null> {
