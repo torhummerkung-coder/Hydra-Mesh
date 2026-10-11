@@ -72,3 +72,28 @@ export async function decryptForPatient(patientId: string, shardsJson: string): 
   const { plaintext } = await hydraDecrypt(shards, dek);
   return plaintext;
 }
+
+// G-03 option A: unwrap DEK ของผู้ป่วย "ครั้งเดียวต่อการเรียก" แล้วใช้ถอดทุกแถวที่ส่งมา
+// แทนการเรียก decryptForPatient ทีละแถว (ซึ่ง unwrap DEK ใหม่ด้วย PBKDF2 ทุกแถว)
+//
+// ข้อกำหนดที่ห้ามเปลี่ยนโดยไม่ขออนุมัติ:
+//  - DEK อยู่ในตัวแปรท้องถิ่นของการเรียกนี้เท่านั้น ไม่มี cache/TTL/ตัวแปรระดับโมดูล
+//    (การเรียกครั้งถัดไปต้อง unwrap ใหม่เสมอ)
+//  - ไม่ทำ authorization ที่นี่ — ผู้เรียกต้องผ่านการตรวจสิทธิ์มาก่อนเหมือนเดิม
+//  - รายการว่าง = ไม่ unwrap และไม่สร้างคีย์ (พฤติกรรมเดิมของการอ่านผู้ป่วยที่ไม่มีแถว)
+//  - format ciphertext ไม่เปลี่ยน; ข้อผิดพลาดยัง reject เหมือนเดิม (ไม่คืนค่าผิดเงียบๆ)
+// คืนผลเรียงตามลำดับของ shardsJsonList
+export async function decryptManyForPatient(
+  patientId: string,
+  shardsJsonList: readonly string[]
+): Promise<string[]> {
+  if (shardsJsonList.length === 0) return [];
+  const dek = await getOrCreatePatientKey(patientId);
+  return Promise.all(
+    shardsJsonList.map(async (shardsJson) => {
+      const shards = JSON.parse(shardsJson) as HydraShard[];
+      const { plaintext } = await hydraDecrypt(shards, dek);
+      return plaintext;
+    })
+  );
+}
