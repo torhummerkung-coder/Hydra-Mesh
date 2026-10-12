@@ -37,7 +37,7 @@ export interface D05Start {
 }
 export interface D05Finish {
   attempt_id: string;
-  outcome: "PASSED" | "FAILED" | "TIMEOUT";
+  outcome: "PASS" | "FAIL" | "TIMEOUT";
 }
 export interface D05Unknown {
   attempt_id: string;
