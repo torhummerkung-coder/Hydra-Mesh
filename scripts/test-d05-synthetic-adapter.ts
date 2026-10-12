@@ -67,7 +67,7 @@ try {
   await check("START requires actual evidence digest", async () => {
     let called = false;
     globalThis.fetch = (async () => {called=true;return new Response("{}");}) as typeof fetch;
-    await assert.rejects(client().start({attempt_id:"A",single_use_token:"synthetic",receipt_sha256:"fake"}));
+    assert.throws(() => client().start({attempt_id:"A",single_use_token:"synthetic",receipt_sha256:"fake"}), /Invalid START/);
     assert.equal(called,false);
   });
   await check("finish matches exact gateway outcomes", async () => {
