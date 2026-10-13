@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   typescript-offline:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       NODE_ENV: test
@@ -39,7 +39,7 @@ jobs:
       - run: npm run test:d05-adapter
 
   python-gateway-smoke:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -57,7 +57,7 @@ jobs:
         run: python scripts/test-d05-python-gateway.py
 
   cross-language-loopback:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       NODE_ENV: test
