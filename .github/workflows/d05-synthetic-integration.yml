@@ -1,0 +1,52 @@
+name: D05 Synthetic Integration (Isolated Only)
+
+on:
+  pull_request:
+    paths:
+      - 'lib/d05/**'
+      - 'scripts/test-d05*'
+      - 'scripts/d05_*'
+      - 'tools/d05/**'
+      - 'docs/D05_SYNTHETIC_ADAPTER.md'
+      - '.github/workflows/d05-synthetic-integration.yml'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: d05-synthetic-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  isolated-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NODE_ENV: test
+      HYDRA_D05_SYNTHETIC_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install JS dependencies
+        run: npm ci
+      - name: Validate TypeScript
+        run: npm run typecheck
+      - name: Offline adapter checks (mock fetch only)
+        run: npm run test:d05-adapter
+      - name: Verify frozen Gateway source
+        run: python scripts/d05_unpack_verified.py --dest "${{ runner.temp }}/d05-gateway"
+      - name: Install isolated Gateway dependencies
+        run: python -m pip install -r "${{ runner.temp }}/d05-gateway/requirements-dev.txt"
+      - name: TypeScript client against real Python HTTP Gateway (synthetic only)
+        env:
+          HYDRA_D05_SOURCE_ROOT: ${{ runner.temp }}/d05-gateway
+          HYDRA_D05_PYTHON: python
+        run: npm run test:d05-live
