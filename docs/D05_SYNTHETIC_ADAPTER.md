@@ -1,6 +1,6 @@
 # D05 Synthetic Admission Adapter — Phase 1 (2026-10-13)
 
-**Status:** INTEGRATION_ADAPTER_PROPOSED — NOT production ready. D05 v1.0.40 is a separate Python/FastAPI **single-host SQLite prototype** and is **not bundled** by this PR.
+**Status:** INTEGRATION_ADAPTER_PROPOSED — NOT production ready. D05 v1.0.40 is a separate Python/FastAPI **single-host SQLite prototype** and its frozen Python runtime source is **staged as a checksum-verified ZIP** under `tools/d05/` in this PR; it is not wired to the clinical service.
 
 ## Purpose and boundaries
 
@@ -24,7 +24,7 @@ HYDRA_D05_RUNNER_ACTOR=synthetic-runner
 HYDRA_D05_RUNNER_KEY=<unique-secret-at-least-32-characters>
 ```
 
-Use a unique secret shared with only this runner's entry in the synthetic gateway's runner credential map; do not commit any real key. Start the v1.0.40 Python gateway separately according to its original runbook. `HYDRA_D05_GATEWAY_URL` must not point to a shared/remote PostgreSQL gateway.
+Use a unique secret shared with only this runner's entry in the synthetic gateway's runner credential map; do not commit any real key. Unpack the staged, checksum-verified v1.0.40 Python gateway into a disposable scratch directory using `python scripts/d05_unpack_verified.py --dest /tmp/d05-src`; start the gateway separately according to its original runbook. `HYDRA_D05_GATEWAY_URL` must not point to a shared/remote PostgreSQL gateway.
 
 ## Offline adapter checks
 
@@ -33,7 +33,7 @@ node --import tsx scripts/test-d05-synthetic-adapter.ts
 npm run typecheck
 ```
 
-These checks use a mocked `fetch` and cannot prove actual HTTP connectivity, D04 accounting atomicity, cross-runner concurrency, runtime tool enforcement, START authenticity, or clinical suitability. The pre-existing v1.0.40 local gateway has its own separate Python tests. **Do not convert this adapter test count into D04 case attempts.**
+The separate `HYDRA_D05_SOURCE_ROOT=/tmp/d05-src npm run test:d05-live` executes the actual TypeScript client against a temporary Python loopback Gateway with synthetic credentials. The offline checks use mocked `fetch`; neither mode proves D04 accounting atomicity, cross-runner concurrency, runtime tool enforcement, START authenticity, or clinical suitability. The pre-existing v1.0.40 local gateway has its own separate Python tests. **Do not convert this adapter test count into D04 case attempts.**
 
 ## Before future shared/production integration
 
