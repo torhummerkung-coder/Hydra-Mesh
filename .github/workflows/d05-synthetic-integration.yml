@@ -20,14 +20,52 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  isolated-contract:
+  typescript-offline:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     env:
       NODE_ENV: test
       HYDRA_D05_SYNTHETIC_ENABLED: 'false'
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run test:d05-adapter
+
+  python-gateway-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify source before installing Python dependencies
+        run: python scripts/d05_unpack_verified.py --dest "${{ runner.temp }}/d05-gateway"
+      - run: python -m pip install -r "${{ runner.temp }}/d05-gateway/requirements-dev.txt"
+      - name: Real FastAPI TestClient with isolated SQLite and synthetic fixtures
+        env:
+          PYTHONPATH: ${{ runner.temp }}/d05-gateway
+        run: python scripts/test-d05-python-gateway.py
+
+  cross-language-loopback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NODE_ENV: test
+      HYDRA_D05_SYNTHETIC_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -35,17 +73,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install JS dependencies
-        run: npm ci
-      - name: Validate TypeScript
-        run: npm run typecheck
-      - name: Offline adapter checks (mock fetch only)
-        run: npm run test:d05-adapter
-      - name: Verify frozen Gateway source
-        run: python scripts/d05_unpack_verified.py --dest "${{ runner.temp }}/d05-gateway"
-      - name: Install isolated Gateway dependencies
-        run: python -m pip install -r "${{ runner.temp }}/d05-gateway/requirements-dev.txt"
-      - name: TypeScript client against real Python HTTP Gateway (synthetic only)
+      - run: npm ci
+      - run: python scripts/d05_unpack_verified.py --dest "${{ runner.temp }}/d05-gateway"
+      - run: python -m pip install -r "${{ runner.temp }}/d05-gateway/requirements.txt"
+      - name: TypeScript client against actual Python HTTP Gateway
         env:
           HYDRA_D05_SOURCE_ROOT: ${{ runner.temp }}/d05-gateway
           HYDRA_D05_PYTHON: python
