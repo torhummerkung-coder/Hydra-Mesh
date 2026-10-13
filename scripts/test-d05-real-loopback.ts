@@ -39,6 +39,7 @@ async function freePort(): Promise<number> {
     });
   });
 }
+async function main(): Promise<void> {
 const temp=await mkdtemp(join(tmpdir(),"hydra-d05-real-ts-"));
 let child: ChildProcess|undefined;
 try {
@@ -164,3 +165,8 @@ try {
   }
   await rm(temp,{recursive:true,force:true});
 }
+}
+void main().catch((error: unknown) => {
+  console.error("D05 synthetic test failed", error);
+  process.exitCode = 1;
+});
