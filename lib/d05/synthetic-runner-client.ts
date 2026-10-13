@@ -86,7 +86,7 @@ export class D05RunnerClient {
     }
   }
 
-  private async post<T>(path: string, payload: Record<string, unknown>): Promise<T> {
+  private async post<T>(path: string, payload: object): Promise<T> {
     let response: Response;
     try {
       response = await fetch(this.origin + path, {
