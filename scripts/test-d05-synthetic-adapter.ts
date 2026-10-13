@@ -16,6 +16,7 @@ async function check(name: string, run: () => void | Promise<void>) {
   console.log("PASS " + name);
 }
 
+async function main(): Promise<void> {
 const originalFetch = globalThis.fetch;
 const originalEnabled = process.env.HYDRA_D05_SYNTHETIC_ENABLED;
 const originalNodeEnv = process.env.NODE_ENV;
@@ -87,3 +88,8 @@ try {
   else process.env.NODE_ENV = originalNodeEnv;
 }
 console.log("D05 SYNTHETIC ADAPTER " + passed + "/" + passed + " PASS (offline mocked; not runtime enforcement)");
+}
+void main().catch((error: unknown) => {
+  console.error("D05 synthetic test failed", error);
+  process.exitCode = 1;
+});
