@@ -27,7 +27,9 @@
     "test:fallback-storage": "node --import tsx scripts/test-fallback-storage.ts",
     "outbox:retry": "node --import tsx scripts/retry-outbox.ts",
     "typecheck": "tsc --noEmit",
-    "test:fallback-integration": "node --import tsx scripts/test-fallback-integration.ts"
+    "test:fallback-integration": "node --import tsx scripts/test-fallback-integration.ts",
+    "test:d05-adapter": "node --import tsx scripts/test-d05-synthetic-adapter.ts",
+    "test:d05-live": "node --import tsx scripts/test-d05-real-loopback.ts"
   },
   "dependencies": {
     "@next/env": "^15.0.0",
