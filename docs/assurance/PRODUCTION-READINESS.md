@@ -1,7 +1,7 @@
 # HYDRA-Mesh — Production Readiness — สถานะตามหลักฐาน
 
 Revision: R2 · 2026-10-15 · Asia/Bangkok
-Ledger SHA-256: `73e0fd439f8fa6648d4562e7063b589dc6f39ffdf55e572aa711ed85d7e4e299`
+Ledger SHA-256: `485a3a32f280291a321b7a189e159536d6a65d0ff79b5d2540526727ec326b58`
 
 **Overall: NOT_READY / RELEASE_NOT_GRANTED**
 
@@ -143,13 +143,13 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 
 ## GITHUB — Repository delivery
 
-**สถานะ: DOCS_ONLY_NO_RELEASE**
+**สถานะ: DOCS_PUBLISHED_NO_RELEASE**
 
-ข้อเท็จจริง: GitHub connected; main base inspected, public repo and push permission confirmed. Docs branch prepared; current main has not incorporated open G03/D05 Draft PRs.
+ข้อเท็จจริง: Published documentation branch and opened Draft PR #3. Initial content commit 0a9a0183eaff12d9dbe55cb1ad0972db7121845f; main is unchanged. Production and runtime code remain outside this change.
 
 หลักฐาน: `E-REMOTE-README-MD`, `E-REMOTE--GITHUB-WORKFLOWS-HYDRA-LIVE-TEST-YML`
 
-เกณฑ์จบ: No production claim from docs publication; release remains separately governed.
+เกณฑ์จบ: Production readiness and release approvals remain separately governed.
 
 ## D05-G01 — External D02 issuer/verifier operational trust
 
@@ -319,3 +319,5 @@ Hash ระบุ bytes ไม่ใช่ identity proof และไม่ไ�
   ผลต่อขอบเขตนี้: Original HOLD/OPEN gaps retained; no production approval.
 - **EV-R2-REMOTE-INSPECTION**: Inspected main HEAD/tree, seven pinned files and two open Draft PR metadata records; no AGENTS.md in complete inspected main tree; docs/assurance path absent; one manual-only workflow.
   ผลต่อขอบเขตนี้: Preserve historical records and unmerged PR boundaries; no production evidence promotion.
+- **EV-R2-GITHUB-PUBLISHED**: Draft PR #3 created from docs/demo-production-readiness-20261015 into main; 19 changed files; not merged. Initial tree contents checked against local Git blob identities.
+  ผลต่อขอบเขตนี้: Same publication recorded; no code merge, gate closure or release implied.

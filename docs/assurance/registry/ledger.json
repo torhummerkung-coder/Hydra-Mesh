@@ -425,20 +425,20 @@
     {
       "id": "GITHUB",
       "title": "Repository delivery",
-      "fact": "GitHub connected; main base inspected, public repo and push permission confirmed. Docs branch prepared; current main has not incorporated open G03/D05 Draft PRs.",
+      "fact": "Published documentation branch and opened Draft PR #3. Initial content commit 0a9a0183eaff12d9dbe55cb1ad0972db7121845f; main is unchanged. Production and runtime code remain outside this change.",
       "evidence_refs": [
         "E-REMOTE-README-MD",
         "E-REMOTE--GITHUB-WORKFLOWS-HYDRA-LIVE-TEST-YML"
       ],
       "demo": {
-        "status": "DOCS_BRANCH_PREPARED",
-        "exit_criterion": "Publish docs branch and Draft PR; verify resulting diff and repository delivery receipt."
+        "status": "DRAFT_PR_OPEN",
+        "exit_criterion": "Owner reviews/accepts the documentation; demo runtime acceptance is tracked separately."
       },
       "production": {
-        "status": "DOCS_ONLY_NO_RELEASE",
-        "exit_criterion": "No production claim from docs publication; release remains separately governed."
+        "status": "DOCS_PUBLISHED_NO_RELEASE",
+        "exit_criterion": "Production readiness and release approvals remain separately governed."
       },
-      "last_event": "EV-R2-REMOTE-INSPECTION"
+      "last_event": "EV-R2-GITHUB-PUBLISHED"
     },
     {
       "id": "D05-G01",
@@ -718,10 +718,22 @@
       ],
       "demo_impact": "Scope based on actual main tree; document delivery can proceed without auto-dispatching inspected workflow.",
       "production_impact": "Preserve historical records and unmerged PR boundaries; no production evidence promotion."
+    },
+    {
+      "id": "EV-R2-GITHUB-PUBLISHED",
+      "record_type": "GITHUB_PUBLICATION_RECEIPT",
+      "time": "2026-10-15T17:36:52+07:00",
+      "time_basis": "GitHub PR created_at 2026-10-15T10:36:52Z",
+      "fact": "Draft PR #3 created from docs/demo-production-readiness-20261015 into main; 19 changed files; not merged. Initial tree contents checked against local Git blob identities.",
+      "evidence_refs": [],
+      "decision_ref": "DEC-03",
+      "artifact_url": "https://github.com/torhummerkung-coder/Hydra-Mesh/pull/3",
+      "demo_impact": "Documents available for Owner review; no demo runtime PASS implied.",
+      "production_impact": "Same publication recorded; no code merge, gate closure or release implied."
     }
   ],
   "publication": {
-    "state": "DOCS_BRANCH_PREPARED",
+    "state": "DRAFT_PR_OPEN",
     "branch": "docs/demo-production-readiness-20261015",
     "base_branch": "main",
     "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
@@ -747,6 +759,11 @@
       }
     ],
     "agents_files_in_complete_main_tree": [],
-    "scope": "Documentation and report generation helper only; no runtime integration or merge"
+    "scope": "Documentation and report generation helper only; no runtime integration or merge",
+    "pr_number": 3,
+    "pr_url": "https://github.com/torhummerkung-coder/Hydra-Mesh/pull/3",
+    "initial_published_commit": "0a9a0183eaff12d9dbe55cb1ad0972db7121845f",
+    "merged": false,
+    "actual_head_note": "Read current head from PR; this ledger does not embed its own final commit hash."
   }
 }

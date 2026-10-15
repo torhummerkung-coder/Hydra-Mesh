@@ -20,3 +20,9 @@ Revision ต่อไปต้องเพิ่ม entry พร้อม event/
 - Added six existing-document navigation/traceability updates without changing historical results.
 - Recorded unmerged Draft PR #1/#2 boundaries and September baseline/later W0 reconciliation gap.
 - Regenerated both views from R2 ledger. Publication/PR receipt is verified separately after delivery.
+
+### R2 publication receipt
+
+- Opened Draft PR #3; initial content commit `0a9a0183eaff12d9dbe55cb1ad0972db7121845f`.
+- Appended the publication event to the common ledger and regenerated both views together.
+- No merge, workflow dispatch, candidate test run or production deployment.
