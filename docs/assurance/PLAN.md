@@ -55,3 +55,8 @@ WP-02: bounded corpus search completed; 24 method rows now carry search referenc
 WP-03: supplied G03 record index deduplicated and four accounting lineages separated; authoritative budget acceptance remains pending.
 Current standalone r4 artifact recovered from stored original; exact receipt hash/size and CRC of 889 members verified. Damaged copy preserved; no reruns.
 Next: obtain identified legacy identity/raw-accounting evidence, finalize Owner semantic decisions, and select exact demo walkthrough/host controls.
+
+## R4 demo plan preparation
+
+WP-04 now has a proposed 12-scenario checklist grounded in four inspected main files; exact demo artifact/source integration and final scope remain pending.
+See DEMO-ACCEPTANCE-PLAN.md. No application render/run was performed by preparing this checklist.

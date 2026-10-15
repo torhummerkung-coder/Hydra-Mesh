@@ -1,7 +1,7 @@
 # HYDRA-Mesh — Demo — สถานะและเกณฑ์รับ
 
-Revision: R3 · 2026-10-15 · Asia/Bangkok
-Ledger SHA-256: `9a34be1b48723b80875534b0ff880359955560d8d26f5b10b36336f4f35d01e9`
+Revision: R4 · 2026-10-15 · Asia/Bangkok
+Ledger SHA-256: `1fa5de6a8bf966db1874cea3b7ad376f968067fde9d8f601864012d00dc3a33a`
 
 **Overall: PREPARATION / NOT_ACCEPTED**
 
@@ -135,9 +135,9 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 
 **สถานะ: NOT_ACCEPTED_SCOPE_PENDING**
 
-ข้อเท็จจริง: main README identifies bootcamp capstone demo. Current tree has login/index, companion and clinician dashboard; a separate four-role UI prototype is not evidenced as merged here. End-to-end acceptance not performed.
+ข้อเท็จจริง: Inspected pinned main login/companion/dashboard source and scripts metadata. Proposed 12-scenario acceptance plan prepared; admin has no main destination. Four-role prototype integration and actual walkthrough remain unverified.
 
-หลักฐาน: `E-REMOTE-README-MD`, `E-SNAPSHOT`
+หลักฐาน: `E-REMOTE-README-MD`, `E-SNAPSHOT`, `E-DEMO-SOURCE-PAGES-INDEX-TSX`, `E-DEMO-SOURCE-PAGES-COMPANION-TSX`, `E-DEMO-SOURCE-PAGES-DASHBOARD-TSX`, `E-DEMO-SOURCE-PACKAGE-JSON`
 
 เกณฑ์จบ: ยืนยัน flows/mock boundaries และรับผลตามเกณฑ์ก่อนรัน
 
@@ -321,6 +321,10 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 | E-LEGACY-GATEWAY | PR2@1e69b249:tools/d05/synthetic-gateway-v1.0.40.zip | `7b012325bb8fbd9da9464ade922989863aac201c3250f39070f12ae2e730c88f` | 7960 |
 | E-LEGACY-REPORT | PR2@1e69b249:docs/D05_INTEGRATION_EVIDENCE_2026-10-13.md | `e13a910adb5b8caefd8bffac6cfa906fa84b30f9b5f30e557dc8dc26a1e45dcb` | 4303 |
 | E-G03-R4-RECOVERED | G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip | `42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234` | 41874399 |
+| E-DEMO-SOURCE-PAGES-INDEX-TSX | pages/index.tsx | `62837714e4a299efc6bbd1ac8aff190b00cf6ea3cb62d95d268bf39d8c94d27d` | 6307 |
+| E-DEMO-SOURCE-PAGES-COMPANION-TSX | pages/companion.tsx | `ee8b6050fa8d97529b63e8545e24e0f12f66031e76b4b48c56af081ca2f420f2` | 4702 |
+| E-DEMO-SOURCE-PAGES-DASHBOARD-TSX | pages/dashboard.tsx | `f3fcf12128d33f51d6466657e9505b7532aafdc1ee5ef0a3d5c966417affbef9` | 26481 |
+| E-DEMO-SOURCE-PACKAGE-JSON | package.json | `7b2211c0418b5b8ad4ef011d3ec1bb4eef2101f8931342067cb6bcb952d08f3c` | 2209 |
 
 Artifacts อ้างถึง supplied project files; raw/private evidence ไม่ถูกคัดลอกเข้า Repo โดยแพ็กนี้
 Hash ระบุ bytes ไม่ใช่ identity proof และไม่ได้รับรอง current GitHub HEAD
@@ -337,3 +341,5 @@ Hash ระบุ bytes ไม่ใช่ identity proof และไม่ไ�
   ผลต่อขอบเขตนี้: Documents available for Owner review; no demo runtime PASS implied.
 - **EV-R3-HISTORY-SEARCH**: Searched 40 inputs and bounded nested archives; indexed 139 start-record occurrences into 49 keys with zero same-key payload conflicts; separated four accounting lineages. Preserved unreadable copy and recovered exact original r4 artifact with full CRC verification.
   ผลต่อขอบเขตนี้: History preparation progressed and artifact availability resolved; no new dispatch, free rights or demo acceptance granted.
+- **EV-R4-DEMO-PLAN**: Prepared 12 proposed demo scenarios from pinned main source; identified absent admin destination and required stale-context negative path. No scenario executed.
+  ผลต่อขอบเขตนี้: Concrete acceptance matrix available for selected-artifact scope; NOT_RUN and not accepted.

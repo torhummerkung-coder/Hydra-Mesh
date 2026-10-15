@@ -34,3 +34,9 @@ Revision ต่อไปต้องเพิ่ม entry พร้อม event/
 - Added four-lineage accounting comparison and 24-row adjudication proposal/search results.
 - Preserved unreadable local r4 ZIP copy; recovered stored original matching 41,874,399-byte receipt/hash and verified CRC for 889 members.
 - Updated shared ledger and both reports together. No workload test/import/install or admission grant.
+
+## R4 — 2026-10-15 Asia/Bangkok
+
+- Inspected pinned main login, companion, clinician dashboard and package scripts without running the application.
+- Added 12 proposed demo acceptance scenarios and explicit source/prototype/admin boundaries.
+- Updated shared ledger and both views; all proposed scenarios remain NOT_RUN and create no free-case entitlement.
