@@ -92,3 +92,15 @@
 - **Human Decision:** <ใคร / วันที่ / ตัดสินว่าอย่างไร — มนุษย์กรอก>
 - **Status:** open | mitigated | accepted | closed
 -->
+
+
+## 2026-10-15 — Risk tracking across Demo / Production
+
+รายการ RISK-001–003 และ Human Decision เดิมคงตามประวัติ ไม่ใช้ขยายการยอมรับไปยัง source/workload ใหม่
+ติดตามความเสี่ยงและข้อจำกัดล่าสุดคู่กันใน [ทะเบียนกลาง](assurance/registry/ledger.json),
+[Demo](assurance/DEMO.md) และ [Production Readiness](assurance/PRODUCTION-READINESS.md)
+
+ชื่อ G03/RISK008/W0 ที่ปรากฏใน supplied October evidence เป็นรายการติดตามจากชุดนั้น
+เอกสารนี้ไม่ได้อ้างว่ามี RISK-008 entry อยู่แล้วใน main ฉบับ September หรือปิดรายการนั้นแทน Owner
+สถานะตาม supplied reconciliation ยังคง OPEN; ต้องเชื่อม lineage และหลักฐานก่อนเปลี่ยน gate
+ทุกการเปลี่ยนมี impact ทั้งสองขอบเขต และ safety defect ที่กระทบ demo ยังเป็น blocker

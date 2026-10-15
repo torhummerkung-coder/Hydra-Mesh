@@ -77,3 +77,27 @@
 - **Supersedes:** <EC-XXX หรือ none>
 - **Status:** open | implemented | verified | rejected | deferred
 -->
+
+
+### EC-ASSURANCE-20261015: Shared evidence / dual acceptance tracks
+- **Clinical Finding:** N/A — documentation/governance scope; no clinical logic change
+- **Source / Rationale:** Owner direction 2026-10-15: demo is current delivery goal; production readiness is recorded in parallel; see [DECISIONS](assurance/DECISIONS.md)
+- **Required Change:** Add shared ledger, generated demo/production views, source/oracle crosswalk and execution/host closure plans
+- **Safety Impact:** Preserve unresolved defects/history; demo evidence does not imply independent or production assurance
+- **Implementation:** `docs/assurance/` plus navigation/addenda in six existing documents
+- **Test:** Document generation/consistency, identity/hash metadata checks and link/diff review only; D05 workload suite NOT_RUN
+- **Version:** Documentation R2; inspected parent main `295893a7e4cc6f32839eb8a90d1ced5cae963866`; actual change commit available in Git history after publication
+- **Supersedes:** none — EC-000 remains historical; its September verified statement does not adjudicate later W0/G03 findings
+- **Evidence:** [Shared ledger](assurance/registry/ledger.json) and [Production Readiness](assurance/PRODUCTION-READINESS.md)
+- **Status:** open — documentation prepared; demo acceptance/runtime/production findings remain as reported in the shared ledger
+
+### EC-ASSURANCE-20261015-R3: Bounded history reconciliation
+- **Clinical Finding:** N/A — evidence/history preparation only
+- **Source / Rationale:** Continue dual-track work under existing Owner documentation authorization
+- **Required Change:** Index historical source references and G03 start records; distinguish legacy SQLite gateway, Postgres candidate, Manual Skill evaluations and G03 runtime
+- **Safety Impact:** Avoid duplicate counting, inferred zero budgets, retrospective admission and dependence on an unreadable current artifact copy
+- **Implementation:** `docs/assurance/HISTORY-RECONCILIATION.md`, `CASE-ADJUDICATION.md` and registry metadata; update both report views together
+- **Test:** Document QA/source-text/ZIP metadata reads only; no governed candidate workload execution
+- **Version:** Documentation R3, parent docs commit `f439f172e30281899474e467c8ba18468f042e9e`
+- **Supersedes:** none; original EC-000 and earlier R2 entry remain historical
+- **Status:** open — search completed for stated corpus; authoritative identity/budget and applicable runtime acceptance remain unresolved

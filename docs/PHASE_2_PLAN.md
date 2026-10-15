@@ -306,3 +306,15 @@ Phase 2 จบเมื่อ:
 3. ใครคือ "มนุษย์ผู้ตัดสิน" สำหรับ Residual Risk และ Human Decision ในทะเบียนความเสี่ยง
 4. ระดับ P0–P4 ใน `docs/FALLBACK_MESH.md` ตรงกับที่ใช้ใน W5 หรือไม่ และนิยาม pending/queued/acknowledged ตรงกับ durable outbox ปัจจุบันหรือไม่
 5. มี deadline ของโปรเจกต์ (เช่น วัน present) ที่ต้องกำหนด Stage A/B/C ให้พอดีหรือไม่
+
+
+## 2026-10-15 — Dual-track planning addendum
+
+Owner กำหนดเป้าหมายระยะนี้เป็น demo และให้จัดทำ production readiness ควบคู่กัน
+แผนเดิม W0–W9 คงประวัติ/เกณฑ์ production ไว้ เริ่มสถานะใหม่ที่
+[Demo](assurance/DEMO.md), [Production Readiness](assurance/PRODUCTION-READINESS.md),
+[แผนดำเนินงาน](assurance/PLAN.md) และ [กติกาข้อมูลร่วม](assurance/DUAL-TRACK-POLICY.md)
+
+Independent review เลื่อนสำหรับ demo โดยเปิดเผย; ไม่เปลี่ยน clinical thresholds หรือผลเดิมย้อนหลัง
+W0/G03/RISK008 ยัง OPEN ตาม supplied reconciliation และยังต้องประเมิน applicability กับ source ที่เลือก
+งานที่ต้องใช้ runtime/DB/credentials/network ต้องมี scope และ prerequisites ตรง operation

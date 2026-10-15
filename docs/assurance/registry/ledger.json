@@ -1,0 +1,973 @@
+{
+  "schema_version": 1,
+  "project": "HYDRA-Mesh",
+  "revision": "R5",
+  "as_of_date": "2026-10-15",
+  "timezone": "Asia/Bangkok",
+  "coverage": "Inspected main base + supplied D05/G03 evidence; open PR code not merged or audited by this docs change",
+  "target_repository": "https://github.com/torhummerkung-coder/Hydra-Mesh",
+  "live_repository_head": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+  "overall": {
+    "demo": "PREPARATION / NOT_ACCEPTED",
+    "production": "NOT_READY / RELEASE_NOT_GRANTED"
+  },
+  "authority": {
+    "dual_documentation": "OWNER_DIRECTED_DOCUMENTARY",
+    "independent_review_demo": "DEFERRED_BY_OWNER_DIRECTION",
+    "independent_review_production": "REQUIRED_BEFORE_RELEASE",
+    "manual_bootstrap_exception_granted": false,
+    "new_dispatch_authorized_by_this_package": false,
+    "budget_reset_granted": false
+  },
+  "gates": {
+    "G03": "OPEN",
+    "RISK008": "OPEN",
+    "W0": "OPEN"
+  },
+  "evidence": [
+    {
+      "id": "E-AOC",
+      "artifact_name": "18-HYDRA_Agent_Operating_Contract_v0.4_OWNER_SIGNED_2026-10-12.md",
+      "sha256": "848cbd16ab1626ccd1046d174c786054df14620fbe1bb18c21332e26164d34a4",
+      "bytes": 115456,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-ACCEPTANCE",
+      "artifact_name": "TEST-ACCEPTANCE-PLAN.md",
+      "sha256": "2c17502060bc073432e0e1abe995fc45fc6ff74a22e6e7540e2bb0e94201d6d6",
+      "bytes": 3826,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-MANIFEST",
+      "artifact_name": "manifest.json",
+      "sha256": "9c3958de8e89c57eb9c734cd809c339e99cf269783f0919def57cf1939bf715d",
+      "bytes": 23636,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-AMENDMENT",
+      "artifact_name": "HOLD-REVIEW-AMENDMENT.json",
+      "sha256": "71ae4d9cb5081d75424ca48607fb7512c664d9e6b4002ecf5d9d455ef6eb55e3",
+      "bytes": 11376,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-ACCOUNTING",
+      "artifact_name": "ACCOUNTING-REVIEW.json",
+      "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+      "bytes": 19957,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-REVIEW",
+      "artifact_name": "REVIEW-RESPONSE.json",
+      "sha256": "698f53a121b65382f0089573ec65d5e91091180397d008b933bb9945702a575a",
+      "bytes": 12692,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-INSTALL",
+      "artifact_name": "D05_PACKAGE_SETUP_RESULT_20261015T001837967196Z.zip",
+      "sha256": "598fb41a0e44397eee6109c87d35435516a2dc4e359544cc46e370448c648f6e",
+      "bytes": 33196,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-G03-RAW",
+      "artifact_name": "G03_CLINICAL_NFKC_RESULT_20261014T225727290052Z.zip",
+      "sha256": "01f7baa8c77929aba67723a4e29e68677d0b73ce4b463c9548614b4f26fe1514",
+      "bytes": 3779917,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-G03-REVIEW",
+      "artifact_name": "G03_CLINICAL_R3_VERIFIED_RESULT_TH_2026-10-15.md",
+      "sha256": "f94ded325ceb8a964ff9dcc67a0fcdfa2d3c1a82171e6f082f1b6232c4046d81",
+      "bytes": 5483,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-G03-HEAVY",
+      "artifact_name": "G03_R4_VERIFIED_REVIEW_PACKET_TH_2026-10-14.md",
+      "sha256": "8acd179c35dbc49c2eb55ea1564ef4bf83e0424174298b7be5127fe8aa3650fe",
+      "bytes": 21438,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-RUNNER",
+      "artifact_name": "run_bootstrap.py",
+      "sha256": "65f3e89c22d44a9cf74acf1d949ec01c58045deb440032273b065672ede0f83e",
+      "bytes": 6539,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-CHILD",
+      "artifact_name": "child.py",
+      "sha256": "3ea5a68416fc4b2e6bb83a0d917b0665f6ca28b24e45c6fc7ab531fb5fe89783",
+      "bytes": 2218,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-CANDIDATE-RUNNER",
+      "artifact_name": "runner.py",
+      "sha256": "7a85a0d2cbd8eabc49535901e17a55f1722b75b46ea3c34b3da9aa90570f1d89",
+      "bytes": 541,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-D05-ARCH",
+      "artifact_name": "ARCHITECTURE-AND-GAPS.md",
+      "sha256": "9e7f24b547d71826cb808d0819b84a3b35b218ee5735f44d326de7b778f7b687",
+      "bytes": 7201,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-SNAPSHOT",
+      "artifact_name": "15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip",
+      "sha256": "4f36a091155786de46c175f48b6e9ba20daae08eb10f75f0563215e53ae87370",
+      "bytes": 4025271,
+      "availability": "SUPPLIED_LOCAL_ARTIFACT_NOT_COMMITTED",
+      "limit": "Hash identifies supplied bytes; not authenticated authority or current GitHub HEAD."
+    },
+    {
+      "id": "E-REMOTE-README-MD",
+      "artifact_name": "README.md",
+      "sha256": "718c9d419388db11915dc2b28754657ed0c8f79973e83fd352ff587b5cebbe5a",
+      "bytes": 17173,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "bd7f867214b631b6da4b994b69749afd18640d27",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-REMOTE--GITHUB-WORKFLOWS-HYDRA-LIVE-TEST-YML",
+      "artifact_name": ".github/workflows/hydra-live-test.yml",
+      "sha256": "a84deaa35bb32d9cb8f3bfd0ba0773884f3c57ddd0e5e73a9f681ef6ac308ea8",
+      "bytes": 185,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "75f3e1cae668ded3df2e41d7ba90489e4ad79ed1",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-REMOTE-DOCS-RISK_REGISTER-MD",
+      "artifact_name": "docs/RISK_REGISTER.md",
+      "sha256": "9589c766a86d711fbfa3183445eb0e038877984f7b66833ff04e1550f9e9f352",
+      "bytes": 8936,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "e90dee3ecaec08b8984fa272467dfe1c8be91263",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-REMOTE-DOCS-PHASE_2_PLAN-MD",
+      "artifact_name": "docs/PHASE_2_PLAN.md",
+      "sha256": "0ad4be6450480875c04b90f54c2f8c0e87a9d7c5a51cb2b7515cbd0d6ac52a0c",
+      "bytes": 24651,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "448cf052887d0a4a7435b317319e1f0e1598983a",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-REMOTE-DOCS-EVIDENCE_CHAIN-MD",
+      "artifact_name": "docs/EVIDENCE_CHAIN.md",
+      "sha256": "cc114631fe820cb07cf5941d2aab26e5b28e494d101cf9816ebfe87f026ff024",
+      "bytes": 5255,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "f9db49b33a2fdaaa491bcac02c91b89b3ef9e6bb",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-REMOTE-PHASE1_FREEZE_RUNBOOK-MD",
+      "artifact_name": "PHASE1_FREEZE_RUNBOOK.md",
+      "sha256": "b7a5a662c56fbc8579bc87824f3b9d6bf3157e722835f91b7e5c2addbfcf6a5a",
+      "bytes": 2585,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "c28cb3be21807164e5a184216f64d2464f097cc2",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-REMOTE-PRODUCTION_ROADMAP-MD",
+      "artifact_name": "PRODUCTION_ROADMAP.md",
+      "sha256": "dcf40728b5144d01d771e1d8a8e97e63ea3e858f52e23ba30e259c0ab78ca9c5",
+      "bytes": 98635,
+      "availability": "LIVE_GITHUB_FILE_AT_INSPECTED_BASE",
+      "git_blob_sha": "3e85849c09c53201ff208cacb30c658e554aae17",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-HISTORY-SEARCH",
+      "artifact_name": "registry/history-reconciliation.json",
+      "sha256": "42a1506574d1ad01427d144922531a4299f51f503061c4a52866db06aaa18e32",
+      "bytes": 96317,
+      "availability": "COMMITTED_METADATA",
+      "limit": "Bounded text/metadata search; not complete global execution history or authority"
+    },
+    {
+      "id": "E-LEGACY-GATEWAY",
+      "artifact_name": "PR2@1e69b249:tools/d05/synthetic-gateway-v1.0.40.zip",
+      "sha256": "7b012325bb8fbd9da9464ade922989863aac201c3250f39070f12ae2e730c88f",
+      "bytes": 7960,
+      "availability": "PINNED_PUBLIC_SOURCE_OR_REPORT_INSPECTED",
+      "limit": "Pinned public source snapshot inspected only; no 55-test source/raw run transcripts in archive"
+    },
+    {
+      "id": "E-LEGACY-REPORT",
+      "artifact_name": "PR2@1e69b249:docs/D05_INTEGRATION_EVIDENCE_2026-10-13.md",
+      "sha256": "e13a910adb5b8caefd8bffac6cfa906fa84b30f9b5f30e557dc8dc26a1e45dcb",
+      "bytes": 4303,
+      "availability": "PINNED_PUBLIC_SOURCE_OR_REPORT_INSPECTED",
+      "limit": "Source report claims retained as reported; no D04 waiver inferred"
+    },
+    {
+      "id": "E-G03-R4-RECOVERED",
+      "artifact_name": "G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+      "sha256": "42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234",
+      "bytes": 41874399,
+      "availability": "PINNED_PUBLIC_SOURCE_OR_REPORT_INSPECTED",
+      "limit": "Recovered stored artifact; exact original receipt hash/size and all-member CRC verified; not independent runtime attestation"
+    },
+    {
+      "id": "E-DEMO-SOURCE-PAGES-INDEX-TSX",
+      "artifact_name": "pages/index.tsx",
+      "bytes": 6307,
+      "sha256": "62837714e4a299efc6bbd1ac8aff190b00cf6ea3cb62d95d268bf39d8c94d27d",
+      "git_blob_sha": "97e0e7e3ac947c220c4451c1ddaf24b30a31fbc4",
+      "availability": "LIVE_GITHUB_SOURCE_AT_PINNED_MAIN",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "Static source inspection only; does not prove rendered or runtime behavior."
+    },
+    {
+      "id": "E-DEMO-SOURCE-PAGES-COMPANION-TSX",
+      "artifact_name": "pages/companion.tsx",
+      "bytes": 4702,
+      "sha256": "ee8b6050fa8d97529b63e8545e24e0f12f66031e76b4b48c56af081ca2f420f2",
+      "git_blob_sha": "f6a03d63de4d0d6519101603f906ddfa642a9217",
+      "availability": "LIVE_GITHUB_SOURCE_AT_PINNED_MAIN",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "Static source inspection only; does not prove rendered or runtime behavior."
+    },
+    {
+      "id": "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX",
+      "artifact_name": "pages/dashboard.tsx",
+      "bytes": 26481,
+      "sha256": "f3fcf12128d33f51d6466657e9505b7532aafdc1ee5ef0a3d5c966417affbef9",
+      "git_blob_sha": "5f51dd916ee1c7ca131c5b6192f8b399f4783e8b",
+      "availability": "LIVE_GITHUB_SOURCE_AT_PINNED_MAIN",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "Static source inspection only; does not prove rendered or runtime behavior."
+    },
+    {
+      "id": "E-DEMO-SOURCE-PACKAGE-JSON",
+      "artifact_name": "package.json",
+      "bytes": 2209,
+      "sha256": "7b2211c0418b5b8ad4ef011d3ec1bb4eef2101f8931342067cb6bcb952d08f3c",
+      "git_blob_sha": "20873af293409dfc78b99068601eccd829de0d66",
+      "availability": "LIVE_GITHUB_SOURCE_AT_PINNED_MAIN",
+      "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "limit": "Static source inspection only; does not prove rendered or runtime behavior."
+    },
+    {
+      "id": "E-DEMO-SOURCE-CLI-WALKTHROUGH",
+      "artifact_name": "main scripts/demo-tier1-walkthrough.ts @ 295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "sha256": "081e607e0c6e27b66f3140e6f76603596d740f49b709d418c6f367582a8a6e8b",
+      "bytes": 6822,
+      "git_blob": "de2b1655ed06e1455025cb3f9bf7e8bff14fcfad",
+      "url": "https://github.com/torhummerkung-coder/Hydra-Mesh/blob/295893a7e4cc6f32839eb8a90d1ced5cae963866/scripts/demo-tier1-walkthrough.ts",
+      "basis": "Pinned source read only; not executed"
+    }
+  ],
+  "findings": [
+    {
+      "id": "H-01",
+      "title": "Canonical identity",
+      "fact": "Bounded 40-input search completed including recovered artifact. Five methods have exact v0.2.1 source ancestry; remaining 19 have review references in searched corpus. Legacy gateway objectives require adjudication; canonical identities remain unresolved.",
+      "evidence_refs": [
+        "E-ACCOUNTING",
+        "E-HISTORY-SEARCH",
+        "E-LEGACY-GATEWAY"
+      ],
+      "demo": {
+        "status": "HOLD",
+        "exit_criterion": "Owner ตัดสิน semantic crosswalk พร้อมประวัติ"
+      },
+      "production": {
+        "status": "HOLD",
+        "exit_criterion": "Accepted registry authority + independent check ตามเกณฑ์"
+      },
+      "last_event": "EV-R3-HISTORY-SEARCH"
+    },
+    {
+      "id": "H-02",
+      "title": "Group retry budget",
+      "fact": "Indexed 49 distinct supplied G03 start-record keys from 139 occurrences, without payload conflicts. This is not a D05 balance. Legacy gateway reported test counts and Manual Skill provisional accounting remain separate/unreconciled.",
+      "evidence_refs": [
+        "E-ACCOUNTING",
+        "E-HISTORY-SEARCH",
+        "E-LEGACY-REPORT"
+      ],
+      "demo": {
+        "status": "HOLD",
+        "exit_criterion": "กระทบยอด case/group/reservation/unknown ก่อนเริ่ม"
+      },
+      "production": {
+        "status": "HOLD",
+        "exit_criterion": "Shared authoritative balance + concurrent control"
+      },
+      "last_event": "EV-R3-HISTORY-SEARCH"
+    },
+    {
+      "id": "H-03",
+      "title": "Freeze and independence",
+      "fact": "Independent review เลื่อนสำหรับ demo; ยังไม่มี actual Owner freeze ของ tranche",
+      "evidence_refs": [
+        "E-AMENDMENT"
+      ],
+      "demo": {
+        "status": "DEFERRED_REVIEW_OWNER_FREEZE_PENDING",
+        "exit_criterion": "Owner freeze หลัง source/env/accounting/route ครบ"
+      },
+      "production": {
+        "status": "HOLD",
+        "exit_criterion": "Independent freeze exact artifact โดยผู้ตรวจแยกจากผู้จัดทำ"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "H-04",
+      "title": "Target environment and containment",
+      "fact": "Setup artifact มี crypto 47 อยู่ในช่วง; target isolation/exclusive control ยังไม่พิสูจน์",
+      "evidence_refs": [
+        "E-INSTALL"
+      ],
+      "demo": {
+        "status": "PARTIAL",
+        "exit_criterion": "หลักฐาน effective host/network/exclusive controls + pin"
+      },
+      "production": {
+        "status": "BLOCKED",
+        "exit_criterion": "Deployment controls และ actual runtime evidence"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "H-05",
+      "title": "Runner authority / admission",
+      "fact": "local documentary controller; Popen ก่อน START; candidate runner hard-HOLD",
+      "evidence_refs": [
+        "E-RUNNER"
+      ],
+      "demo": {
+        "status": "HOLD_ROUTE_DECISION_PENDING",
+        "exit_criterion": "เลือก/grant reviewed route แบบเจาะจง; รักษา UNKNOWN accounting"
+      },
+      "production": {
+        "status": "BLOCKED",
+        "exit_criterion": "Trusted admission + authenticated fenced runner"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "H-06",
+      "title": "Project gate invariants",
+      "fact": "G03 / RISK008 / W0 คง OPEN; ข้อนี้ไม่ใช่เหตุให้หยุดการจัดทำเอกสาร",
+      "evidence_refs": [
+        "E-AMENDMENT"
+      ],
+      "demo": {
+        "status": "INVARIANT_OPEN",
+        "exit_criterion": "แสดง gate ตามจริงตลอด demo"
+      },
+      "production": {
+        "status": "OPEN",
+        "exit_criterion": "Close แต่ละ gate ด้วย evidence/authority ของ gate นั้น"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-TESTS",
+      "title": "24-method bootstrap suite",
+      "fact": "มี test source และ static review; ยังไม่มี D05 execution results",
+      "evidence_refs": [
+        "E-MANIFEST"
+      ],
+      "demo": {
+        "status": "NOT_RUN",
+        "exit_criterion": "authorized bounded run ตาม prerequisites และรายงานผลจริง"
+      },
+      "production": {
+        "status": "NOT_RUN",
+        "exit_criterion": "เพิ่มเติม real integration / DB / TLS / cross-host / crash evidence"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "G03-R3",
+      "title": "Historical four original regressions",
+      "fact": "Supplied r3 review ระบุ security/fallback/fallback-integration/clinical 4/4 PASS; ไม่ใช่ independent runtime attestation",
+      "evidence_refs": [
+        "E-G03-REVIEW"
+      ],
+      "demo": {
+        "status": "HISTORICAL_PASS_BOUNDED",
+        "exit_criterion": "ตรวจ applicability กับ source ที่จะ demo ก่อน reuse"
+      },
+      "production": {
+        "status": "INSUFFICIENT_FOR_RELEASE",
+        "exit_criterion": "ยังขาด coverage/reviews/performance/integration ตาม gate"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "G03-CAPACITY",
+      "title": "Historical HTTP/heavy coverage and capacity",
+      "fact": "r4 correctness targets 10/10 PASS ใน supplied review; v1/S100 timeout และ c4 busy 75%; ไม่ใช่ performance SLA. r3 clinical continuation ใหม่กว่าแก้ blocker สี่ originals แต่ไม่ปิด capacity gap",
+      "evidence_refs": [
+        "E-G03-HEAVY"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "กำหนด workload demo และเปิดเผย legacy/concurrency limits; ไม่ใช้ fail-closed PASS แทน availability"
+      },
+      "production": {
+        "status": "OPEN",
+        "exit_criterion": "Preregistered workload/SLA และ representative capacity evidence"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "G03-LEGACY",
+      "title": "Legacy test contract and failure coverage",
+      "fact": "Historical review มี legacy contract/coverage ที่ต้องทบทวน; ยังไม่ยืนยัน current Repo",
+      "evidence_refs": [
+        "E-G03-HEAVY"
+      ],
+      "demo": {
+        "status": "OPEN",
+        "exit_criterion": "กำหนด compatibility ของ flow ที่ demo และเก็บ failed outcomes"
+      },
+      "production": {
+        "status": "OPEN",
+        "exit_criterion": "Complete applicable regression/compatibility evidence"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "G03-CRYPTO-OPS",
+      "title": "Crypto/dependencies/observability/integrity follow-up",
+      "fact": "Historical review มีข้อค้าง crypto/dependencies/OBS-1/D2/source identity; ไม่ใช่ scan ปัจจุบัน",
+      "evidence_refs": [
+        "E-G03-HEAVY"
+      ],
+      "demo": {
+        "status": "OPEN_SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "ประเมินผลต่อสิ่งสาธิตและตัดขอบเขต/แก้ตามหลักฐาน; ไม่ suppress findings"
+      },
+      "production": {
+        "status": "OPEN",
+        "exit_criterion": "Resolve applicable findings with current source/dependency/integrity evidence"
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "PROJECT-DEMO",
+      "title": "End-to-end demo completeness",
+      "fact": "Inspected pinned main login/companion/dashboard source and scripts metadata. Proposed 12-scenario acceptance plan prepared; admin has no main destination. Four-role prototype integration and actual walkthrough remain unverified.",
+      "evidence_refs": [
+        "E-REMOTE-README-MD",
+        "E-SNAPSHOT",
+        "E-DEMO-SOURCE-PAGES-INDEX-TSX",
+        "E-DEMO-SOURCE-PAGES-COMPANION-TSX",
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX",
+        "E-DEMO-SOURCE-PACKAGE-JSON"
+      ],
+      "demo": {
+        "status": "NOT_ACCEPTED_SCOPE_PENDING",
+        "exit_criterion": "ยืนยัน flows/mock boundaries และรับผลตามเกณฑ์ก่อนรัน"
+      },
+      "production": {
+        "status": "NOT_PRODUCTION",
+        "exit_criterion": "Production requirements/reviews/operations เพิ่มเติม"
+      },
+      "last_event": "EV-R4-DEMO-PLAN"
+    },
+    {
+      "id": "GITHUB",
+      "title": "Repository delivery",
+      "fact": "Published documentation branch and opened Draft PR #3. Initial content commit 0a9a0183eaff12d9dbe55cb1ad0972db7121845f; main is unchanged. Production and runtime code remain outside this change.",
+      "evidence_refs": [
+        "E-REMOTE-README-MD",
+        "E-REMOTE--GITHUB-WORKFLOWS-HYDRA-LIVE-TEST-YML"
+      ],
+      "demo": {
+        "status": "DRAFT_PR_OPEN",
+        "exit_criterion": "Owner reviews/accepts the documentation; demo runtime acceptance is tracked separately."
+      },
+      "production": {
+        "status": "DOCS_PUBLISHED_NO_RELEASE",
+        "exit_criterion": "Production readiness and release approvals remain separately governed."
+      },
+      "last_event": "EV-R2-GITHUB-PUBLISHED"
+    },
+    {
+      "id": "D05-G01",
+      "title": "External D02 issuer/verifier operational trust",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G02",
+      "title": "Runner attestation and fencing operational trust",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G03",
+      "title": "Authorized PostgreSQL provisioning and transaction evidence",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G04",
+      "title": "Canonical semantic registry / aliases",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G05",
+      "title": "Privileged reviewed UNKNOWN reconciliation",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G06",
+      "title": "Administrator-resistant audit storage",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G07",
+      "title": "Guarded integration at every runner / CI entrypoint",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G08",
+      "title": "Installed Skill identity and invocation evidence",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G09",
+      "title": "Global D04 history and capacity reconciliation",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G10",
+      "title": "Qualified security / privacy / clinical reviews",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G11",
+      "title": "Scope for DB / credentials / networking provisioning",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "D05-G12",
+      "title": "Verifier object provenance / service trust boundary",
+      "fact": "Known outstanding boundary in supplied D05 architecture; current deployed state not inspected.",
+      "evidence_refs": [
+        "E-D05-ARCH"
+      ],
+      "demo": {
+        "status": "SCOPE_ASSESSMENT_PENDING",
+        "exit_criterion": "Assess whether selected demo exercises this boundary; disclose mock/deferred behavior and any blocker."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Provide current operational evidence and qualified acceptance for this boundary."
+      },
+      "last_event": "EV-R1-BASELINE"
+    },
+    {
+      "id": "BASELINE-RECONCILIATION",
+      "title": "Historical Phase 1 baseline versus later W0 evidence",
+      "fact": "main EC-000 records Phase 1 baseline verified in September. Later supplied reconciliation requires G03/RISK008/W0 OPEN. Preserve original entry; do not infer current W0 closure or reclassify historical results.",
+      "evidence_refs": [
+        "E-REMOTE-DOCS-EVIDENCE_CHAIN-MD",
+        "E-AMENDMENT"
+      ],
+      "demo": {
+        "status": "OPEN_APPLICABILITY_RECONCILIATION",
+        "exit_criterion": "Bind demo to exact source version and assess historical evidence applicability."
+      },
+      "production": {
+        "status": "OPEN_BASELINE_NOT_ACCEPTED",
+        "exit_criterion": "Reconcile baseline/version/gate evidence and obtain applicable acceptance."
+      },
+      "last_event": "EV-R2-REMOTE-INSPECTION"
+    },
+    {
+      "id": "EVIDENCE-COPY-01",
+      "title": "Standalone r4 artifact recovered and byte-verified",
+      "fact": "Unreadable 10,707,968-byte local copy preserved separately. Recovered original stored artifact is 41,874,399 bytes, SHA-256 42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234; unique member names and CRC passed for 889 members. Historical outcomes were not rerun or reclassified.",
+      "evidence_refs": [
+        "E-HISTORY-SEARCH",
+        "E-G03-HEAVY",
+        "E-G03-R4-RECOVERED"
+      ],
+      "demo": {
+        "status": "RECOVERED_ARTIFACT_VERIFIED",
+        "exit_criterion": "Copy availability resolved; assess applicability to the selected demo source before reuse."
+      },
+      "production": {
+        "status": "ARTIFACT_AVAILABLE_NOT_RELEASE_PROOF",
+        "exit_criterion": "Recovered bytes available; runtime provenance/applicability and release review still apply."
+      },
+      "last_event": "EV-R3-HISTORY-SEARCH"
+    },
+    {
+      "id": "DEMO-UI-01",
+      "title": "Summary completion can outlive patient context",
+      "fact": "Pinned dashboard viewSummary has no generation check for result/finally; close clears state without invalidating pending request. Static defect candidate; no runtime reproduction yet.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX"
+      ],
+      "demo": {
+        "status": "REPAIR_DESIGN_READY_NOT_IMPLEMENTED",
+        "exit_criterion": "Implement context invalidation and verify selected flow on exact candidate with synthetic evidence."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval."
+      },
+      "last_event": "EV-R5-DEMO-FIRST"
+    },
+    {
+      "id": "DEMO-UI-02",
+      "title": "Trace completion can outlive selection",
+      "fact": "Pinned dashboard viewTrace uses unconditional post-await state updates and close does not invalidate pending request. Static defect candidate; no runtime reproduction yet.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX"
+      ],
+      "demo": {
+        "status": "REPAIR_DESIGN_READY_NOT_IMPLEMENTED",
+        "exit_criterion": "Implement context invalidation and verify selected flow on exact candidate with synthetic evidence."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval."
+      },
+      "last_event": "EV-R5-DEMO-FIRST"
+    },
+    {
+      "id": "DEMO-EVIDENCE-01",
+      "title": "CLI demo scope is simulated trace",
+      "fact": "demo:tier1 writes preselected event payloads and runs a simulated failing callback. It does not exercise full UI workflows and cannot alone establish demo acceptance.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-CLI-WALKTHROUGH"
+      ],
+      "demo": {
+        "status": "SIMULATION_BOUNDARY_DOCUMENTED",
+        "exit_criterion": "Provide observed walkthrough evidence for selected app flows; label simulated traces."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval."
+      },
+      "last_event": "EV-R5-DEMO-FIRST"
+    }
+  ],
+  "events": [
+    {
+      "id": "EV-OWNER-DIRECTION",
+      "record_type": "OWNER_DOCUMENTARY_DIRECTION",
+      "time": "2026-10-15T16:35:01+07:00",
+      "time_basis": "message context, not trusted timestamp",
+      "fact": "Owner delegated dual-track plans/documents and GitHub documentation update.",
+      "evidence_refs": [],
+      "decision_ref": "DEC-03",
+      "demo_impact": "Create demo-specific acceptance/status with shared facts.",
+      "production_impact": "Preserve all known readiness gaps and deferred review requirements."
+    },
+    {
+      "id": "EV-R1-BASELINE",
+      "record_type": "PREPARER_ARTIFACT_INSPECTION",
+      "time": null,
+      "time_basis": "R1 preparation date only; no invented exact timestamp",
+      "fact": "Read supplied review/source documents; normalized known findings without D05 runtime execution.",
+      "evidence_refs": [
+        "E-AOC",
+        "E-ACCEPTANCE",
+        "E-MANIFEST",
+        "E-AMENDMENT",
+        "E-ACCOUNTING",
+        "E-REVIEW",
+        "E-INSTALL",
+        "E-G03-RAW",
+        "E-G03-REVIEW",
+        "E-G03-HEAVY",
+        "E-RUNNER",
+        "E-CHILD",
+        "E-CANDIDATE-RUNNER",
+        "E-D05-ARCH",
+        "E-SNAPSHOT"
+      ],
+      "demo_impact": "No demo acceptance claimed; review deferral recorded and actual execution blockers retained.",
+      "production_impact": "Original HOLD/OPEN gaps retained; no production approval."
+    },
+    {
+      "id": "EV-R2-REMOTE-INSPECTION",
+      "record_type": "AUTHENTICATED_GITHUB_CONTENT_INSPECTION",
+      "time": null,
+      "time_basis": "2026-10-15 publication preparation; no invented exact timestamp",
+      "fact": "Inspected main HEAD/tree, seven pinned files and two open Draft PR metadata records; no AGENTS.md in complete inspected main tree; docs/assurance path absent; one manual-only workflow.",
+      "evidence_refs": [
+        "E-REMOTE-README-MD",
+        "E-REMOTE--GITHUB-WORKFLOWS-HYDRA-LIVE-TEST-YML",
+        "E-REMOTE-DOCS-RISK_REGISTER-MD",
+        "E-REMOTE-DOCS-PHASE_2_PLAN-MD",
+        "E-REMOTE-DOCS-EVIDENCE_CHAIN-MD",
+        "E-REMOTE-PHASE1_FREEZE_RUNBOOK-MD",
+        "E-REMOTE-PRODUCTION_ROADMAP-MD"
+      ],
+      "demo_impact": "Scope based on actual main tree; document delivery can proceed without auto-dispatching inspected workflow.",
+      "production_impact": "Preserve historical records and unmerged PR boundaries; no production evidence promotion."
+    },
+    {
+      "id": "EV-R2-GITHUB-PUBLISHED",
+      "record_type": "GITHUB_PUBLICATION_RECEIPT",
+      "time": "2026-10-15T17:36:52+07:00",
+      "time_basis": "GitHub PR created_at 2026-10-15T10:36:52Z",
+      "fact": "Draft PR #3 created from docs/demo-production-readiness-20261015 into main; 19 changed files; not merged. Initial tree contents checked against local Git blob identities.",
+      "evidence_refs": [],
+      "decision_ref": "DEC-03",
+      "artifact_url": "https://github.com/torhummerkung-coder/Hydra-Mesh/pull/3",
+      "demo_impact": "Documents available for Owner review; no demo runtime PASS implied.",
+      "production_impact": "Same publication recorded; no code merge, gate closure or release implied."
+    },
+    {
+      "id": "EV-R3-HISTORY-SEARCH",
+      "record_type": "BOUNDED_ARTIFACT_RECONCILIATION",
+      "time": null,
+      "time_basis": "2026-10-15 R3 preparation; no invented exact timestamp",
+      "fact": "Searched 40 inputs and bounded nested archives; indexed 139 start-record occurrences into 49 keys with zero same-key payload conflicts; separated four accounting lineages. Preserved unreadable copy and recovered exact original r4 artifact with full CRC verification.",
+      "evidence_refs": [
+        "E-HISTORY-SEARCH",
+        "E-LEGACY-GATEWAY",
+        "E-LEGACY-REPORT",
+        "E-G03-R4-RECOVERED"
+      ],
+      "demo_impact": "History preparation progressed and artifact availability resolved; no new dispatch, free rights or demo acceptance granted.",
+      "production_impact": "Recovered original evidence available; global budget/identity/independent verification remain unresolved and historical records are not reclassified."
+    },
+    {
+      "id": "EV-R4-DEMO-PLAN",
+      "record_type": "STATIC_SOURCE_AND_ACCEPTANCE_PREPARATION",
+      "time": null,
+      "time_basis": "2026-10-15 documentation continuation; exact time not asserted",
+      "fact": "Prepared 12 proposed demo scenarios from pinned main source; identified absent admin destination and required stale-context negative path. No scenario executed.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-INDEX-TSX",
+        "E-DEMO-SOURCE-PAGES-COMPANION-TSX",
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX",
+        "E-DEMO-SOURCE-PACKAGE-JSON"
+      ],
+      "demo_impact": "Concrete acceptance matrix available for selected-artifact scope; NOT_RUN and not accepted.",
+      "production_impact": "Same source facts recorded; unit/demo plans do not certify production or resolve deferred reviews."
+    },
+    {
+      "id": "EV-R5-DEMO-FIRST",
+      "record_type": "OWNER_PRIORITY_AND_STATIC_DEFECT_PREPARATION",
+      "time": null,
+      "time_basis": "2026-10-15 conversation; exact message timestamp not asserted",
+      "decision_ref": "DEC-04",
+      "fact": "Owner prioritized completing Demo while retaining a Production direction. Prepared operation-specific critical path and summary/trace stale-response repair design from pinned main. CLI walkthrough is simulation, not end-to-end acceptance. No app execution or runtime source edit.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX",
+        "E-DEMO-SOURCE-CLI-WALKTHROUGH"
+      ],
+      "demo_impact": "Demo completion prioritized; D05 HOLD applies to dependent operations, not a blanket block on all demo preparation. Current demo remains NOT_ACCEPTED.",
+      "production_impact": "Same facts retained; production review/admission gaps remain open; later review can require rework."
+    }
+  ],
+  "publication": {
+    "state": "DRAFT_PR_OPEN",
+    "branch": "docs/demo-production-readiness-20261015",
+    "base_branch": "main",
+    "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
+    "base_tree_sha": "9dca6b8cd5763ac990c14b02e9a60a1b42447cd6",
+    "repository_visibility": "public",
+    "workflow_effect": "Inspected main workflow is workflow_dispatch only; no automatic push/PR trigger",
+    "open_prs_at_inspection": [
+      {
+        "number": 2,
+        "title": "feat(d05): stage isolated synthetic admission adapter (no clinical wiring)",
+        "head": "feature/d05-ledger-integration-20261013",
+        "head_sha": "1e69b249136b0489b422b70c65ea23aeb658a87a",
+        "base": "main",
+        "draft": true
+      },
+      {
+        "number": 1,
+        "title": "fix(g03): unwrap patient DEK once per clinical read (option A) [DRAFT — G-03 remains OPEN]",
+        "head": "g03/option-a-decrypt-once",
+        "head_sha": "d20eb22b9b5c7a58e2c05890020a084d6109f4bc",
+        "base": "fix/w0-reconciliation",
+        "draft": true
+      }
+    ],
+    "agents_files_in_complete_main_tree": [],
+    "scope": "Documentation and report generation helper only; no runtime integration or merge",
+    "pr_number": 3,
+    "pr_url": "https://github.com/torhummerkung-coder/Hydra-Mesh/pull/3",
+    "initial_published_commit": "0a9a0183eaff12d9dbe55cb1ad0972db7121845f",
+    "merged": false,
+    "actual_head_note": "Read current head from PR; this ledger does not embed its own final commit hash."
+  },
+  "delivery_priority": "DEMO_FIRST_WITH_PRODUCTION_DIRECTION"
+}

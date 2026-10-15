@@ -1,3 +1,9 @@
+> **2026-10-15 — แยก Demo acceptance จาก Production readiness**
+> แผนและ engineering log เดิมด้านล่างคงไว้ตามประวัติ ใช้
+> [เอกสารคู่และทะเบียนกลาง](docs/assurance/README.md) สำหรับสถานะติดตามใหม่
+> [Demo](docs/assurance/DEMO.md) และ [Production Readiness](docs/assurance/PRODUCTION-READINESS.md)
+> แสดงข้อเท็จจริงเดียวกันแต่มีเกณฑ์รับต่างกัน การผ่าน demo ไม่รับรอง clinical/production readiness
+
 # Hydra Mesh — Production Roadmap
 
 เอกสารนี้คือวิสัยทัศน์ระยะยาวของ Hydra Mesh แนบคู่กับ demo ที่ใช้งานได้จริงใน repo นี้ ไม่ใช่ spec ที่ต้อง build ให้ครบก่อน — MVP ที่อยู่ใน repo คือ vertical slice แรกที่ยึดหลักการเดียวกับที่นี่ทุกข้อ แค่ตัด infra ระดับ enterprise ออกเพื่อให้ทันเวลา bootcamp
