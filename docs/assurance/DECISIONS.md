@@ -31,3 +31,9 @@ GitHub connected in the continuation of DEC-03. Docs branch publication is withi
 instruction to update project plans/documents in this repository. The app connection notice itself is
 not a new authorization. Repository is public; only reviewed documentation/metadata is included.
 Base main: `295893a7e4cc6f32839eb8a90d1ced5cae963866`. No runtime source, workflow, credential or production changes are included.
+
+## DEC-04 — Demo-first
+
+Owner direction on 2026-10-15: “เป้าหมายหลักคือ Demo ก่อน แต่ก็ต้องพัฒนาในทิศทางของ production เผื่ออนาคต และเราจะปิดจบในขอบเขตของ Demo”
+กำหนดลำดับส่งมอบให้ Demo มาก่อน; จัดแผนที่ DEMO-CLOSEOUT.md และแบบแก้ที่ DEMO-DEFECTS.md
+ยังไม่ใช่ผลรับ Demo, production release, independent certification หรือการเปลี่ยน accounting cap

@@ -40,3 +40,10 @@ Revision ต่อไปต้องเพิ่ม entry พร้อม event/
 - Inspected pinned main login, companion, clinician dashboard and package scripts without running the application.
 - Added 12 proposed demo acceptance scenarios and explicit source/prototype/admin boundaries.
 - Updated shared ledger and both views; all proposed scenarios remain NOT_RUN and create no free-case entitlement.
+
+## R5 — Demo-first closeout preparation
+
+- Record Owner priority; separate Demo critical path from conditional D05 dispatch prerequisites.
+- Add source-grounded summary/trace lifecycle defect designs and disclose CLI simulation scope.
+- Update both reports from the same ledger; preserve all historical gates and results.
+- Documentation QA only; no app tests, source edits, installs, workflow dispatch or merge.

@@ -1,7 +1,7 @@
 # HYDRA-Mesh — Production Readiness — สถานะตามหลักฐาน
 
-Revision: R4 · 2026-10-15 · Asia/Bangkok
-Ledger SHA-256: `1fa5de6a8bf966db1874cea3b7ad376f968067fde9d8f601864012d00dc3a33a`
+Revision: R5 · 2026-10-15 · Asia/Bangkok
+Ledger SHA-256: `f4f7b97c5eaceb27563f80944c89a7a400a9e689a6b3787c9d9e3587a2c4ce15`
 
 **Overall: NOT_READY / RELEASE_NOT_GRANTED**
 
@@ -291,6 +291,36 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 
 เกณฑ์จบ: Recovered bytes available; runtime provenance/applicability and release review still apply.
 
+## DEMO-UI-01 — Summary completion can outlive patient context
+
+**สถานะ: OPEN_UNVERIFIED**
+
+ข้อเท็จจริง: Pinned dashboard viewSummary has no generation check for result/finally; close clears state without invalidating pending request. Static defect candidate; no runtime reproduction yet.
+
+หลักฐาน: `E-DEMO-SOURCE-PAGES-DASHBOARD-TSX`
+
+เกณฑ์จบ: Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval.
+
+## DEMO-UI-02 — Trace completion can outlive selection
+
+**สถานะ: OPEN_UNVERIFIED**
+
+ข้อเท็จจริง: Pinned dashboard viewTrace uses unconditional post-await state updates and close does not invalidate pending request. Static defect candidate; no runtime reproduction yet.
+
+หลักฐาน: `E-DEMO-SOURCE-PAGES-DASHBOARD-TSX`
+
+เกณฑ์จบ: Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval.
+
+## DEMO-EVIDENCE-01 — CLI demo scope is simulated trace
+
+**สถานะ: OPEN_UNVERIFIED**
+
+ข้อเท็จจริง: demo:tier1 writes preselected event payloads and runs a simulated failing callback. It does not exercise full UI workflows and cannot alone establish demo acceptance.
+
+หลักฐาน: `E-DEMO-SOURCE-CLI-WALKTHROUGH`
+
+เกณฑ์จบ: Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval.
+
 ## Evidence index
 
 | ID | Artifact | SHA-256 | Bytes |
@@ -325,6 +355,7 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 | E-DEMO-SOURCE-PAGES-COMPANION-TSX | pages/companion.tsx | `ee8b6050fa8d97529b63e8545e24e0f12f66031e76b4b48c56af081ca2f420f2` | 4702 |
 | E-DEMO-SOURCE-PAGES-DASHBOARD-TSX | pages/dashboard.tsx | `f3fcf12128d33f51d6466657e9505b7532aafdc1ee5ef0a3d5c966417affbef9` | 26481 |
 | E-DEMO-SOURCE-PACKAGE-JSON | package.json | `7b2211c0418b5b8ad4ef011d3ec1bb4eef2101f8931342067cb6bcb952d08f3c` | 2209 |
+| E-DEMO-SOURCE-CLI-WALKTHROUGH | main scripts/demo-tier1-walkthrough.ts @ 295893a7e4cc6f32839eb8a90d1ced5cae963866 | `081e607e0c6e27b66f3140e6f76603596d740f49b709d418c6f367582a8a6e8b` | 6822 |
 
 Artifacts อ้างถึง supplied project files; raw/private evidence ไม่ถูกคัดลอกเข้า Repo โดยแพ็กนี้
 Hash ระบุ bytes ไม่ใช่ identity proof และไม่ได้รับรอง current GitHub HEAD
@@ -343,3 +374,5 @@ Hash ระบุ bytes ไม่ใช่ identity proof และไม่ไ�
   ผลต่อขอบเขตนี้: Recovered original evidence available; global budget/identity/independent verification remain unresolved and historical records are not reclassified.
 - **EV-R4-DEMO-PLAN**: Prepared 12 proposed demo scenarios from pinned main source; identified absent admin destination and required stale-context negative path. No scenario executed.
   ผลต่อขอบเขตนี้: Same source facts recorded; unit/demo plans do not certify production or resolve deferred reviews.
+- **EV-R5-DEMO-FIRST**: Owner prioritized completing Demo while retaining a Production direction. Prepared operation-specific critical path and summary/trace stale-response repair design from pinned main. CLI walkthrough is simulation, not end-to-end acceptance. No app execution or runtime source edit.
+  ผลต่อขอบเขตนี้: Same facts retained; production review/admission gaps remain open; later review can require rework.

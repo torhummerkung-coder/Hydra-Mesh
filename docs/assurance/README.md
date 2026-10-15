@@ -1,6 +1,6 @@
 # HYDRA-Mesh — Demo / Production Readiness
 
-วันที่จัดทำ: 15 ตุลาคม 2026 · Asia/Bangkok · Revision R4
+วันที่จัดทำ: 15 ตุลาคม 2026 · Asia/Bangkok · Revision R5
 
 ชุดเอกสารนี้ใช้ทะเบียนข้อเท็จจริงกลาง แล้วสร้างรายงาน Demo และ Production Readiness ควบคู่กัน
 Owner มอบหมายให้จัดทำและอัปเดตเอกสารใน GitHub เมื่อ 2026-10-15 16:35+07:00 ตามบริบทข้อความที่ได้รับ
@@ -47,3 +47,7 @@ R2 ตรวจ main base `295893a7e4cc6f32839eb8a90d1ced5cae963866` และ w
 ## เกณฑ์สาธิตที่เสนอ
 
 [Demo acceptance plan](DEMO-ACCEPTANCE-PLAN.md) มี 12 scenarios จาก source main ที่อ่านจริง ทุก scenario ยัง NOT_RUN
+
+## งานถัดไป — Demo-first
+
+อ่าน [แผนปิด Demo](DEMO-CLOSEOUT.md) และ [แบบแก้จาก source](DEMO-DEFECTS.md)

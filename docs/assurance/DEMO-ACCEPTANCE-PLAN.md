@@ -45,3 +45,9 @@ Source ที่อ่าน: main `295893a7e4cc6f32839eb8a90d1ced5cae963866` �
 ไม่เปลี่ยน clinical thresholds, auth/revocation, crypto/ciphertext, deadlines หรือ UI foundation เพื่อทำให้ demo ผ่าน
 Admin implementation, source integration, provider credentials, provisioning และ actual dispatch ยังต้องตรง work package/สิทธิ์ที่ระบุ
 Independent review เลื่อนสำหรับ demo ได้ตาม direction; ไม่ทำให้ unknown budget หรือ missing isolation/admission ผ่านเอง
+
+## R5 priority clarification
+
+ใช้ [Demo closeout](DEMO-CLOSEOUT.md) กำหนดลำดับ และ [defect design](DEMO-DEFECTS.md) สำหรับ context-switch work
+ก่อน workload ที่มี accounting/admission บังคับ ต้องทำตามเงื่อนไขของ workload นั้น; ไม่ใช้ prerequisites ของ D05 เป็นข้อห้ามจัดทำ Demo ทุกส่วน
+Scenario เดิมยัง NOT_RUN; ไม่ลดขอบเขตเงียบ ๆ และไม่ใช้ demo:tier1 CLI simulation แทนการรับงาน UI

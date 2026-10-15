@@ -60,3 +60,9 @@ Next: obtain identified legacy identity/raw-accounting evidence, finalize Owner 
 
 WP-04 now has a proposed 12-scenario checklist grounded in four inspected main files; exact demo artifact/source integration and final scope remain pending.
 See DEMO-ACCEPTANCE-PLAN.md. No application render/run was performed by preparing this checklist.
+
+## R5 — ลำดับปัจจุบัน: Demo ก่อน
+
+[DEMO-CLOSEOUT.md](DEMO-CLOSEOUT.md) เป็นลำดับดำเนินงานล่าสุด แทนการตีความ WP-02/03/06 ว่าต้องเสร็จก่อนงาน Demo ทุกประเภท
+งาน D05 เดิมยังติดตามคู่ขนานและบังคับกับ operation ที่ใช้จริง; งานเตรียม Demo ที่ไม่ขึ้นกับมันเดินต่อได้
+[DEMO-DEFECTS.md](DEMO-DEFECTS.md) มี source findings และแบบแก้ summary/trace พร้อม negative paths; implementation/runtime validation ยังไม่เกิด

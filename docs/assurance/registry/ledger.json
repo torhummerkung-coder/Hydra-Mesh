@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "HYDRA-Mesh",
-  "revision": "R4",
+  "revision": "R5",
   "as_of_date": "2026-10-15",
   "timezone": "Asia/Bangkok",
   "coverage": "Inspected main base + supplied D05/G03 evidence; open PR code not merged or audited by this docs change",
@@ -286,6 +286,15 @@
       "availability": "LIVE_GITHUB_SOURCE_AT_PINNED_MAIN",
       "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
       "limit": "Static source inspection only; does not prove rendered or runtime behavior."
+    },
+    {
+      "id": "E-DEMO-SOURCE-CLI-WALKTHROUGH",
+      "artifact_name": "main scripts/demo-tier1-walkthrough.ts @ 295893a7e4cc6f32839eb8a90d1ced5cae963866",
+      "sha256": "081e607e0c6e27b66f3140e6f76603596d740f49b709d418c6f367582a8a6e8b",
+      "bytes": 6822,
+      "git_blob": "de2b1655ed06e1455025cb3f9bf7e8bff14fcfad",
+      "url": "https://github.com/torhummerkung-coder/Hydra-Mesh/blob/295893a7e4cc6f32839eb8a90d1ced5cae963866/scripts/demo-tier1-walkthrough.ts",
+      "basis": "Pinned source read only; not executed"
     }
   ],
   "findings": [
@@ -760,6 +769,57 @@
         "exit_criterion": "Recovered bytes available; runtime provenance/applicability and release review still apply."
       },
       "last_event": "EV-R3-HISTORY-SEARCH"
+    },
+    {
+      "id": "DEMO-UI-01",
+      "title": "Summary completion can outlive patient context",
+      "fact": "Pinned dashboard viewSummary has no generation check for result/finally; close clears state without invalidating pending request. Static defect candidate; no runtime reproduction yet.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX"
+      ],
+      "demo": {
+        "status": "REPAIR_DESIGN_READY_NOT_IMPLEMENTED",
+        "exit_criterion": "Implement context invalidation and verify selected flow on exact candidate with synthetic evidence."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval."
+      },
+      "last_event": "EV-R5-DEMO-FIRST"
+    },
+    {
+      "id": "DEMO-UI-02",
+      "title": "Trace completion can outlive selection",
+      "fact": "Pinned dashboard viewTrace uses unconditional post-await state updates and close does not invalidate pending request. Static defect candidate; no runtime reproduction yet.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX"
+      ],
+      "demo": {
+        "status": "REPAIR_DESIGN_READY_NOT_IMPLEMENTED",
+        "exit_criterion": "Implement context invalidation and verify selected flow on exact candidate with synthetic evidence."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval."
+      },
+      "last_event": "EV-R5-DEMO-FIRST"
+    },
+    {
+      "id": "DEMO-EVIDENCE-01",
+      "title": "CLI demo scope is simulated trace",
+      "fact": "demo:tier1 writes preselected event payloads and runs a simulated failing callback. It does not exercise full UI workflows and cannot alone establish demo acceptance.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-CLI-WALKTHROUGH"
+      ],
+      "demo": {
+        "status": "SIMULATION_BOUNDARY_DOCUMENTED",
+        "exit_criterion": "Provide observed walkthrough evidence for selected app flows; label simulated traces."
+      },
+      "production": {
+        "status": "OPEN_UNVERIFIED",
+        "exit_criterion": "Verify behavior on release candidate with required independent/security reviews; demo evidence is not release approval."
+      },
+      "last_event": "EV-R5-DEMO-FIRST"
     }
   ],
   "events": [
@@ -859,6 +919,20 @@
       ],
       "demo_impact": "Concrete acceptance matrix available for selected-artifact scope; NOT_RUN and not accepted.",
       "production_impact": "Same source facts recorded; unit/demo plans do not certify production or resolve deferred reviews."
+    },
+    {
+      "id": "EV-R5-DEMO-FIRST",
+      "record_type": "OWNER_PRIORITY_AND_STATIC_DEFECT_PREPARATION",
+      "time": null,
+      "time_basis": "2026-10-15 conversation; exact message timestamp not asserted",
+      "decision_ref": "DEC-04",
+      "fact": "Owner prioritized completing Demo while retaining a Production direction. Prepared operation-specific critical path and summary/trace stale-response repair design from pinned main. CLI walkthrough is simulation, not end-to-end acceptance. No app execution or runtime source edit.",
+      "evidence_refs": [
+        "E-DEMO-SOURCE-PAGES-DASHBOARD-TSX",
+        "E-DEMO-SOURCE-CLI-WALKTHROUGH"
+      ],
+      "demo_impact": "Demo completion prioritized; D05 HOLD applies to dependent operations, not a blanket block on all demo preparation. Current demo remains NOT_ACCEPTED.",
+      "production_impact": "Same facts retained; production review/admission gaps remain open; later review can require rework."
     }
   ],
   "publication": {
@@ -894,5 +968,6 @@
     "initial_published_commit": "0a9a0183eaff12d9dbe55cb1ad0972db7121845f",
     "merged": false,
     "actual_head_note": "Read current head from PR; this ledger does not embed its own final commit hash."
-  }
+  },
+  "delivery_priority": "DEMO_FIRST_WITH_PRODUCTION_DIRECTION"
 }
