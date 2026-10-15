@@ -90,3 +90,14 @@
 - **Supersedes:** none — EC-000 remains historical; its September verified statement does not adjudicate later W0/G03 findings
 - **Evidence:** [Shared ledger](assurance/registry/ledger.json) and [Production Readiness](assurance/PRODUCTION-READINESS.md)
 - **Status:** open — documentation prepared; demo acceptance/runtime/production findings remain as reported in the shared ledger
+
+### EC-ASSURANCE-20261015-R3: Bounded history reconciliation
+- **Clinical Finding:** N/A — evidence/history preparation only
+- **Source / Rationale:** Continue dual-track work under existing Owner documentation authorization
+- **Required Change:** Index historical source references and G03 start records; distinguish legacy SQLite gateway, Postgres candidate, Manual Skill evaluations and G03 runtime
+- **Safety Impact:** Avoid duplicate counting, inferred zero budgets, retrospective admission and dependence on an unreadable current artifact copy
+- **Implementation:** `docs/assurance/HISTORY-RECONCILIATION.md`, `CASE-ADJUDICATION.md` and registry metadata; update both report views together
+- **Test:** Document QA/source-text/ZIP metadata reads only; no governed candidate workload execution
+- **Version:** Documentation R3, parent docs commit `f439f172e30281899474e467c8ba18468f042e9e`
+- **Supersedes:** none; original EC-000 and earlier R2 entry remain historical
+- **Status:** open — search completed for stated corpus; authoritative identity/budget and applicable runtime acceptance remain unresolved

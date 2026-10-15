@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "HYDRA-Mesh",
-  "revision": "R2",
+  "revision": "R3",
   "as_of_date": "2026-10-15",
   "timezone": "Asia/Bangkok",
   "coverage": "Inspected main base + supplied D05/G03 evidence; open PR code not merged or audited by this docs change",
@@ -214,15 +214,49 @@
       "git_blob_sha": "3e85849c09c53201ff208cacb30c658e554aae17",
       "base_sha": "295893a7e4cc6f32839eb8a90d1ced5cae963866",
       "limit": "File content inspected at exact base; prose claims inside are not independently verified runtime evidence."
+    },
+    {
+      "id": "E-HISTORY-SEARCH",
+      "artifact_name": "registry/history-reconciliation.json",
+      "sha256": "42a1506574d1ad01427d144922531a4299f51f503061c4a52866db06aaa18e32",
+      "bytes": 96317,
+      "availability": "COMMITTED_METADATA",
+      "limit": "Bounded text/metadata search; not complete global execution history or authority"
+    },
+    {
+      "id": "E-LEGACY-GATEWAY",
+      "artifact_name": "PR2@1e69b249:tools/d05/synthetic-gateway-v1.0.40.zip",
+      "sha256": "7b012325bb8fbd9da9464ade922989863aac201c3250f39070f12ae2e730c88f",
+      "bytes": 7960,
+      "availability": "PINNED_PUBLIC_SOURCE_OR_REPORT_INSPECTED",
+      "limit": "Pinned public source snapshot inspected only; no 55-test source/raw run transcripts in archive"
+    },
+    {
+      "id": "E-LEGACY-REPORT",
+      "artifact_name": "PR2@1e69b249:docs/D05_INTEGRATION_EVIDENCE_2026-10-13.md",
+      "sha256": "e13a910adb5b8caefd8bffac6cfa906fa84b30f9b5f30e557dc8dc26a1e45dcb",
+      "bytes": 4303,
+      "availability": "PINNED_PUBLIC_SOURCE_OR_REPORT_INSPECTED",
+      "limit": "Source report claims retained as reported; no D04 waiver inferred"
+    },
+    {
+      "id": "E-G03-R4-RECOVERED",
+      "artifact_name": "G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+      "sha256": "42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234",
+      "bytes": 41874399,
+      "availability": "PINNED_PUBLIC_SOURCE_OR_REPORT_INSPECTED",
+      "limit": "Recovered stored artifact; exact original receipt hash/size and all-member CRC verified; not independent runtime attestation"
     }
   ],
   "findings": [
     {
       "id": "H-01",
       "title": "Canonical identity",
-      "fact": "24 methods ยังไม่มี canonical_case ที่ adjudicate แล้ว",
+      "fact": "Bounded 40-input search completed including recovered artifact. Five methods have exact v0.2.1 source ancestry; remaining 19 have review references in searched corpus. Legacy gateway objectives require adjudication; canonical identities remain unresolved.",
       "evidence_refs": [
-        "E-ACCOUNTING"
+        "E-ACCOUNTING",
+        "E-HISTORY-SEARCH",
+        "E-LEGACY-GATEWAY"
       ],
       "demo": {
         "status": "HOLD",
@@ -232,14 +266,16 @@
         "status": "HOLD",
         "exit_criterion": "Accepted registry authority + independent check ตามเกณฑ์"
       },
-      "last_event": "EV-R1-BASELINE"
+      "last_event": "EV-R3-HISTORY-SEARCH"
     },
     {
       "id": "H-02",
       "title": "Group retry budget",
-      "fact": "verified_group_balance ยัง null; prior starts สำหรับงานนี้เป็น Owner-reported เท่านั้น",
+      "fact": "Indexed 49 distinct supplied G03 start-record keys from 139 occurrences, without payload conflicts. This is not a D05 balance. Legacy gateway reported test counts and Manual Skill provisional accounting remain separate/unreconciled.",
       "evidence_refs": [
-        "E-ACCOUNTING"
+        "E-ACCOUNTING",
+        "E-HISTORY-SEARCH",
+        "E-LEGACY-REPORT"
       ],
       "demo": {
         "status": "HOLD",
@@ -249,7 +285,7 @@
         "status": "HOLD",
         "exit_criterion": "Shared authoritative balance + concurrent control"
       },
-      "last_event": "EV-R1-BASELINE"
+      "last_event": "EV-R3-HISTORY-SEARCH"
     },
     {
       "id": "H-03",
@@ -661,6 +697,25 @@
         "exit_criterion": "Reconcile baseline/version/gate evidence and obtain applicable acceptance."
       },
       "last_event": "EV-R2-REMOTE-INSPECTION"
+    },
+    {
+      "id": "EVIDENCE-COPY-01",
+      "title": "Standalone r4 artifact recovered and byte-verified",
+      "fact": "Unreadable 10,707,968-byte local copy preserved separately. Recovered original stored artifact is 41,874,399 bytes, SHA-256 42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234; unique member names and CRC passed for 889 members. Historical outcomes were not rerun or reclassified.",
+      "evidence_refs": [
+        "E-HISTORY-SEARCH",
+        "E-G03-HEAVY",
+        "E-G03-R4-RECOVERED"
+      ],
+      "demo": {
+        "status": "RECOVERED_ARTIFACT_VERIFIED",
+        "exit_criterion": "Copy availability resolved; assess applicability to the selected demo source before reuse."
+      },
+      "production": {
+        "status": "ARTIFACT_AVAILABLE_NOT_RELEASE_PROOF",
+        "exit_criterion": "Recovered bytes available; runtime provenance/applicability and release review still apply."
+      },
+      "last_event": "EV-R3-HISTORY-SEARCH"
     }
   ],
   "events": [
@@ -730,6 +785,21 @@
       "artifact_url": "https://github.com/torhummerkung-coder/Hydra-Mesh/pull/3",
       "demo_impact": "Documents available for Owner review; no demo runtime PASS implied.",
       "production_impact": "Same publication recorded; no code merge, gate closure or release implied."
+    },
+    {
+      "id": "EV-R3-HISTORY-SEARCH",
+      "record_type": "BOUNDED_ARTIFACT_RECONCILIATION",
+      "time": null,
+      "time_basis": "2026-10-15 R3 preparation; no invented exact timestamp",
+      "fact": "Searched 40 inputs and bounded nested archives; indexed 139 start-record occurrences into 49 keys with zero same-key payload conflicts; separated four accounting lineages. Preserved unreadable copy and recovered exact original r4 artifact with full CRC verification.",
+      "evidence_refs": [
+        "E-HISTORY-SEARCH",
+        "E-LEGACY-GATEWAY",
+        "E-LEGACY-REPORT",
+        "E-G03-R4-RECOVERED"
+      ],
+      "demo_impact": "History preparation progressed and artifact availability resolved; no new dispatch, free rights or demo acceptance granted.",
+      "production_impact": "Recovered original evidence available; global budget/identity/independent verification remain unresolved and historical records are not reclassified."
     }
   ],
   "publication": {

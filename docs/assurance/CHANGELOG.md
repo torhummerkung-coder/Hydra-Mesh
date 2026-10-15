@@ -26,3 +26,11 @@ Revision ต่อไปต้องเพิ่ม entry พร้อม event/
 - Opened Draft PR #3; initial content commit `0a9a0183eaff12d9dbe55cb1ad0972db7121845f`.
 - Appended the publication event to the common ledger and regenerated both views together.
 - No merge, workflow dispatch, candidate test run or production deployment.
+
+## R3 — 2026-10-15 Asia/Bangkok
+
+- Continued WP-02/WP-03 preparation; searched bounded current inputs, nested archives and pinned legacy source/report metadata.
+- Deduplicated 139 G03 start-record occurrences into 49 keys after recovery; kept ordinal maxima separate from retry balances.
+- Added four-lineage accounting comparison and 24-row adjudication proposal/search results.
+- Preserved unreadable local r4 ZIP copy; recovered stored original matching 41,874,399-byte receipt/hash and verified CRC for 889 members.
+- Updated shared ledger and both reports together. No workload test/import/install or admission grant.

@@ -1,0 +1,2395 @@
+{
+  "schema_version": 1,
+  "status": "BOUNDED_HISTORY_SEARCH_COMPLETED_NOT_ACCOUNTING_AUTHORITY",
+  "scope": "Current supplied project_sources/upload files and four fetched PR2 artifacts; no terminal history/private host DB/all GitHub run logs",
+  "limits": {
+    "max_member_bytes": 2097152,
+    "max_nested_zip_bytes": 8388608,
+    "max_nested_depth": 4,
+    "max_total_text_bytes": 268435456,
+    "max_members": 100000
+  },
+  "statistics": {
+    "text_bytes": 39622907,
+    "text_members_scanned": 2838,
+    "members_seen": 4885
+  },
+  "skips": {
+    "unselected_extension": 1898,
+    "member_size_limit": 15,
+    "duplicate_archive_bytes": 97
+  },
+  "inputs": [
+    {
+      "location": "project_sources/01-HYDRA_PHASE2_W0_RECONCILIATION_2026-09-24-1-.md",
+      "bytes": 12394,
+      "sha256": "3869d9276dce8d288e1e60adbeed0fcd15967c864ce170d7f9d65ce2a35a0459"
+    },
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip",
+      "bytes": 885856,
+      "sha256": "d46b4905ca0addc9608770191091ec3bce5c00cdb190a1a3ca2575d7216f9d08"
+    },
+    {
+      "location": "project_sources/03-HYDRA_W0_GAP_CLASSIFICATION_2026-10-05-1-.md",
+      "bytes": 133178,
+      "sha256": "7bb9d08531c8cfa3252762c364ca89e77e1988bf7aebfa7f718258ae390099ee"
+    },
+    {
+      "location": "project_sources/04-hydra-w0-g03-temporary-acceptance-2026-10-05-1-.zip",
+      "bytes": 113143,
+      "sha256": "c7cea9d240261a041842e003faadff4bfda91b153781b42ebb8da703af7ca63f"
+    },
+    {
+      "location": "project_sources/05-hydra-w0-g03-review-evidence-2026-10-05-1-.zip",
+      "bytes": 49220,
+      "sha256": "9175d08a97eff57c00248638a2e43f69af6087f4af52a310e93a6de04f6c181b"
+    },
+    {
+      "location": "project_sources/06-hydra-w0-g03-c286c18-2026-10-05.json",
+      "bytes": 9386,
+      "sha256": "76264914135efdd759318e8d3dd5b9fbe476c7237b5cc9d436d1239d7811ff89"
+    },
+    {
+      "location": "project_sources/07-hydra-w0-g03-slow-read-diagnostic-2026-10-05-1-.zip",
+      "bytes": 9865,
+      "sha256": "87405d00210b655953fa9fa599ed8894914521bd2b82f555c2814865581b1123"
+    },
+    {
+      "location": "project_sources/08-hydra-w0-g02-temporary-approval-2026-10-05-1-.zip",
+      "bytes": 53701,
+      "sha256": "c15c68cf436b80d54f90534b5223ad226ae44709fd9d5f4139b01aed04099107"
+    },
+    {
+      "location": "project_sources/09-g03-bench-kit-2026-10-09-2-.zip",
+      "bytes": 19873,
+      "sha256": "0f497893f5f1ce7f9feac0e44ec8a57669b4dee5da4ce91bd5808e9ab02b68cc"
+    },
+    {
+      "location": "project_sources/10-g03-bench-kit-v2-2026-10-10.zip",
+      "bytes": 23512,
+      "sha256": "6995abedb2724732cb04ed7be0eb5f418464239a5a0c8689cca30890bc082655"
+    },
+    {
+      "location": "project_sources/11-HYDRA_G03_OPTION_A_REVIEW_2026-10-10.zip",
+      "bytes": 380947,
+      "sha256": "9375b4d5daa648303984a9c1c8e5c06d350817cc0ba2c6dcaa5b62777365ce25"
+    },
+    {
+      "location": "project_sources/12-G03_OPTION_A_VERIFICATION_2026-10-10.md",
+      "bytes": 17855,
+      "sha256": "3121cb48c6c26296c4300a015ee8e94b0b122b169c58982123c00bd3293c5853"
+    },
+    {
+      "location": "project_sources/13-CODEX_4DAY_CLOSEOUT.md",
+      "bytes": 8819,
+      "sha256": "9c75f2a36b0f9f094d743544eb5180a8a405f6212738080e09b31e2ea751b0e2"
+    },
+    {
+      "location": "project_sources/14-HYDRA_Agent_Operating_Contract_v0.2.md",
+      "bytes": 21997,
+      "sha256": "de646a021aafedde5c4ddb762f5d4d915356d186f556df095ee67ffbb928294e"
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip",
+      "bytes": 4025271,
+      "sha256": "4f36a091155786de46c175f48b6e9ba20daae08eb10f75f0563215e53ae87370"
+    },
+    {
+      "location": "project_sources/16-G03_CONTINUATION_2026-10-11.zip",
+      "bytes": 76858,
+      "sha256": "261d2260c0987e6cc74c4080ee0186f3cf28a00c3ebd283b4b8ee709cd536b04"
+    },
+    {
+      "location": "project_sources/17-G03_B1_RESULT.md",
+      "bytes": 22909,
+      "sha256": "dd7dff1a9583b5d8d342a4cd2a4f3e1a39c6edfa49f10783ccfd7a303fc730ed"
+    },
+    {
+      "location": "project_sources/18-HYDRA_Agent_Operating_Contract_v0.4_OWNER_SIGNED_2026-10-12.md",
+      "bytes": 115456,
+      "sha256": "848cbd16ab1626ccd1046d174c786054df14620fbe1bb18c21332e26164d34a4"
+    },
+    {
+      "location": "project_sources/19-G03_CLOSEOUT_CANDIDATE_PACKAGE_DRAFT_TH_2026-10-13.md",
+      "bytes": 20641,
+      "sha256": "e1f02cb57bc02747af03a2df3f954fc1a35ae709a852a0a176f2e81d712be7b9"
+    },
+    {
+      "location": "upload/ACCOUNTING-REVIEW.json",
+      "bytes": 19957,
+      "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326"
+    },
+    {
+      "location": "upload/D05_ENVIRONMENT_CANDIDATE .json",
+      "bytes": 644,
+      "sha256": "705b9d64d5f996a5d8a2dbd430b93cdf193a1e0f48a81d8c8cbb20f472aacf43"
+    },
+    {
+      "location": "upload/D05_PACKAGE_SETUP_RESULT_20261014T234505632724Z.zip",
+      "bytes": 4464,
+      "sha256": "bd19fd9b5dce417c5f7dbb6de09168e0e4261ad956f77f4ff352330e6154def3"
+    },
+    {
+      "location": "upload/D05_PACKAGE_SETUP_RESULT_20261015T001837967196Z.zip",
+      "bytes": 33196,
+      "sha256": "598fb41a0e44397eee6109c87d35435516a2dc4e359544cc46e370448c648f6e"
+    },
+    {
+      "location": "upload/G03_CLINICAL_NFKC_RESULT_20261014T171431091299Z.zip",
+      "bytes": 868293,
+      "sha256": "c0e7744ae0e661d40459587e7a52321947f0b9904e3ab371fe7ab793b72476f3"
+    },
+    {
+      "location": "upload/G03_CLINICAL_NFKC_RESULT_20261014T174056603494Z.zip",
+      "bytes": 3647789,
+      "sha256": "e37546283ee36d4828609d0f9ade6c73d31d4a36f54cb561d7a766d7d2efa4aa"
+    },
+    {
+      "location": "upload/G03_CLINICAL_NFKC_RESULT_20261014T225727290052Z.zip",
+      "bytes": 3779917,
+      "sha256": "01f7baa8c77929aba67723a4e29e68677d0b73ce4b463c9548614b4f26fe1514"
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_EXPORT_RECOVERY_20261014T061642906745Z_9815.zip",
+      "bytes": 41738853,
+      "sha256": "85693e2cbfc9b63db0c565e8dae903347b0afd873f190761ce4bb65b1480396e"
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip",
+      "bytes": 18490056,
+      "sha256": "4509ed79ae41ac928c766cee557bab360a349bb1b21986133e58d1b2817a8ce2"
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RETRY_RESULT_20261014T073152932506Z.zip",
+      "bytes": 20940131,
+      "sha256": "2dfd1cdf927b2cdd406a5fe1955cee22366befc5a3e3d5fe4ef263f0ee9e9a75"
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+      "bytes": 10707968,
+      "sha256": "9d0d4f885f89aa8b332a245e7cd4a4255c8659980952397e6fc74498c3d7f06c"
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_STATE_20261014T010353487077Z_24315.zip",
+      "bytes": 1774081,
+      "sha256": "e8d0828ba7b062e2f7189c0a0bc1323cc63b9e2c61b8e19e6bc0bfaf21be081b"
+    },
+    {
+      "location": "upload/HOLD-REVIEW-AMENDMENT.json",
+      "bytes": 11376,
+      "sha256": "71ae4d9cb5081d75424ca48607fb7512c664d9e6b4002ecf5d9d455ef6eb55e3"
+    },
+    {
+      "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip",
+      "bytes": 45809,
+      "sha256": "806501793ae9c7cc82c5a48bda44fef09346d8288cafb6b764963d70e41a61ec"
+    },
+    {
+      "location": "upload/REVIEW-RESPONSE.json",
+      "bytes": 12692,
+      "sha256": "698f53a121b65382f0089573ec65d5e91091180397d008b933bb9945702a575a"
+    },
+    {
+      "location": "upload/VERIFICATION.txt",
+      "bytes": 2675,
+      "sha256": "aeef19a5459ef3a54818ec0e08529ae37a9fb19ff6cb9aa156353b273fc549cc"
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+      "bytes": 41874399,
+      "sha256": "42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234"
+    },
+    {
+      "location": "GITHUB_PR2@1e69b249/docs/D05_INTEGRATION_EVIDENCE_2026-10-13.md",
+      "bytes": 4303,
+      "sha256": "e13a910adb5b8caefd8bffac6cfa906fa84b30f9b5f30e557dc8dc26a1e45dcb"
+    },
+    {
+      "location": "GITHUB_PR2@1e69b249/scripts/test-d05-python-gateway.py",
+      "bytes": 4185,
+      "sha256": "0d89ae8e1ee1bd746572cbb1562f4eb9b135ea4a21e4fa73fc99fc8aac07fac3"
+    },
+    {
+      "location": "GITHUB_PR2@1e69b249/scripts/test-d05-synthetic-adapter.ts",
+      "bytes": 4650,
+      "sha256": "107f2098056243e1b9d53e949354803d6cb1f66abc6f5284cf50378ed347604a"
+    },
+    {
+      "location": "GITHUB_PR2@1e69b249/synthetic-gateway-v1.0.40.zip",
+      "bytes": 7960,
+      "sha256": "7b012325bb8fbd9da9464ade922989863aac201c3250f39070f12ae2e730c88f"
+    }
+  ],
+  "archives": [
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip",
+      "bytes": 885856,
+      "sha256": "d46b4905ca0addc9608770191091ec3bce5c00cdb190a1a3ca2575d7216f9d08",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 180
+    },
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip!hydra-mesh-debug-34d9862/references/11-hydra-step4-doctor-trace-ui-1-.zip",
+      "bytes": 7053,
+      "sha256": "c89b40565da87eb1ef0587f202fed7031a60ea06d14af37b42653fb1a7ac9abe",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 2
+    },
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip!hydra-mesh-debug-34d9862/references/12-hydra-phase1-freeze-docs-2026-09-22-1-.zip",
+      "bytes": 12795,
+      "sha256": "d2d6ab09e8cb01d2c4423aa86d413d91dc26666519d159c1e743ebd2903f508c",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 4
+    },
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip!hydra-mesh-debug-34d9862/references/13-hydra-phase1-freeze-reconciliation-review-v0.1.1-2-.zip",
+      "bytes": 4976,
+      "sha256": "667999603821a008f1042be1f85d50612c1dbd3d8d2a11986051b8163112afc8",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 2
+    },
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip!hydra-mesh-debug-34d9862/references/14-HYDRA_PHASE2_v0.2_docs.zip",
+      "bytes": 17039,
+      "sha256": "85fd55ae7076a46e78396d524281d73360a4bc10683ff53567a370724fa5bcb0",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 4
+    },
+    {
+      "location": "project_sources/02-hydra-mesh-full-debug-34d9862-2026-10-05-1-.zip!hydra-mesh-debug-34d9862/references/15-hydra-phase1-corrective-fixes-reconciled-2026-10-04.zip",
+      "bytes": 121893,
+      "sha256": "ba7f41b51a47bd213ba5bebeaff179e074727ab7634b73b7e1fc09a97f47959d",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 33
+    },
+    {
+      "location": "project_sources/04-hydra-w0-g03-temporary-acceptance-2026-10-05-1-.zip",
+      "bytes": 113143,
+      "sha256": "c7cea9d240261a041842e003faadff4bfda91b153781b42ebb8da703af7ca63f",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/05-hydra-w0-g03-review-evidence-2026-10-05-1-.zip",
+      "bytes": 49220,
+      "sha256": "9175d08a97eff57c00248638a2e43f69af6087f4af52a310e93a6de04f6c181b",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 11
+    },
+    {
+      "location": "project_sources/07-hydra-w0-g03-slow-read-diagnostic-2026-10-05-1-.zip",
+      "bytes": 9865,
+      "sha256": "87405d00210b655953fa9fa599ed8894914521bd2b82f555c2814865581b1123",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 5
+    },
+    {
+      "location": "project_sources/08-hydra-w0-g02-temporary-approval-2026-10-05-1-.zip",
+      "bytes": 53701,
+      "sha256": "c15c68cf436b80d54f90534b5223ad226ae44709fd9d5f4139b01aed04099107",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 12
+    },
+    {
+      "location": "project_sources/09-g03-bench-kit-2026-10-09-2-.zip",
+      "bytes": 19873,
+      "sha256": "0f497893f5f1ce7f9feac0e44ec8a57669b4dee5da4ce91bd5808e9ab02b68cc",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 5
+    },
+    {
+      "location": "project_sources/10-g03-bench-kit-v2-2026-10-10.zip",
+      "bytes": 23512,
+      "sha256": "6995abedb2724732cb04ed7be0eb5f418464239a5a0c8689cca30890bc082655",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 5
+    },
+    {
+      "location": "project_sources/11-HYDRA_G03_OPTION_A_REVIEW_2026-10-10.zip",
+      "bytes": 380947,
+      "sha256": "9375b4d5daa648303984a9c1c8e5c06d350817cc0ba2c6dcaa5b62777365ce25",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 94
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip",
+      "bytes": 4025271,
+      "sha256": "4f36a091155786de46c175f48b6e9ba20daae08eb10f75f0563215e53ae87370",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 273
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/evidence/G03/G03_B1_ISOLATED_PROTOTYPE_REVIEW_2026-10-11.zip",
+      "bytes": 1016817,
+      "sha256": "9cf1430a0f3d3da3782a925fe64a319df875abcc2cef3d1023ab0b5ac82c821d",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 72
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/evidence/G03/G03_CONTINUATION_2026-10-11(1).zip",
+      "bytes": 76858,
+      "sha256": "261d2260c0987e6cc74c4080ee0186f3cf28a00c3ebd283b4b8ee709cd536b04",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 21
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/evidence/G03/G03_CORRECTIONS_2026-10-11.zip",
+      "bytes": 61397,
+      "sha256": "9b9ccb993fa35101faded288ce4981da35d465ea808c0aae094b92d3a1be8f37",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 33
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/evidence/G03/G03_RECONCILIATION_2026-10-11.zip",
+      "bytes": 100330,
+      "sha256": "97c5fb652079a01a0249e6c31dedf0ad93661fc0e467a609dd310b48bae85d77",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 46
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/evidence/G03/HYDRA_G03_ASTRA_REVIEW.zip",
+      "bytes": 387106,
+      "sha256": "1ec59ca08978b05e506db28e26d3d9b177b9d8899edfae53fcc81432e182ac77",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 76
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-14-SKILLS-RESPONSE-EVAL-CLOSEOUT-v0.5.0-OWNER-REVIEW.zip",
+      "bytes": 7584,
+      "sha256": "08ba03deb97a7433ae5a492a0c747ef40abbdadfb5f33fe9dc39290d835c0da2",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 5
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-GOVERNANCE-RECONCILIATION-v0.6.0-DESIGN-ONLY-OWNER-REVIEW.zip",
+      "bytes": 29675,
+      "sha256": "a868c701a2e945bf5179ae59fa6cdd8c8abf635c776d6c186ab30e38149f652b",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 13
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip",
+      "bytes": 363425,
+      "sha256": "1a26896dc5003abe5d89a492dcdaa1fcef2b0527991d25dd1303d11a17b84d9a",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 22
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-api-fhir-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21579,
+      "sha256": "a2a21828e44469f7ad36b53077fca6db1a0cb402ee2345aa10a44c21c8aed8c6",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-clinical-workflow-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 22142,
+      "sha256": "4a81a4b271e0bac5a708cd7f386db9f7e3ef7e2624e1166b67dcb4c073a54ded",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-database-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21652,
+      "sha256": "72573c0b82792924bb1e5f6827fa3d36240c39decf701b3956aabbcc5615efa2",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-devops-infrastructure-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 22106,
+      "sha256": "8433b02b3c781f95447c5e1b99f36466e158175566a346f64d3d4f607222a775",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-memory-rag-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21613,
+      "sha256": "279a2f166752e60bd76f9e731c15a090e27acc918f9f895ba32cdda6a42d5514",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-multi-agent-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21848,
+      "sha256": "3da93a6c11bf26537e37bb72ee3fc4f21630fe502f410c9fe64b2a79d1599859",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-privacy-consent-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21956,
+      "sha256": "7c810fdfa80964ac822d804c49fd99d85226757d98b3fa918724c1e85387a168",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-resilience-concurrency-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 22199,
+      "sha256": "6bb76fdd74af685c20fbb4ff88afcfb33428de3f11fa8839f008ee60481b6b45",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-secure-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21749,
+      "sha256": "55a91d9e71249db74d553b30329bc658b7591b855404fdc8c28692a344b05858",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-test-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21612,
+      "sha256": "54aec8afa298e2b6720f5181141e26231ad32aa0acdfbdb2b5a008dde3427fbf",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!coding-candidates-v0.2.1/hydra-ui-ux-code-engineer-v0.2.1-candidate.zip",
+      "bytes": 21912,
+      "sha256": "7970d28f1d67eb749fab816f3be2623fc470be650a65c59d6117998fa85408e5",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!proposed-legacy-patched-copies/hydra-change-control-v0.1.1-PROPOSED-PATCHED-COPY.zip",
+      "bytes": 33886,
+      "sha256": "78ffccca2d1265c0b217eb1c9606fabb5b01ab5f4a15725020adb9bef8be45c8",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 15
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!proposed-legacy-patched-copies/hydra-code-engineer-v0.1.1-PROPOSED-PATCHED-COPY.zip",
+      "bytes": 40958,
+      "sha256": "b51ddb3754d98242b42bd4b70b26a3c7cc0aeaf9a1f3d5b51973cf3cfb1910b7",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 18
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/HYDRA-SKILLS-ISOLATED-PATCHSET-v0.7.1-14-PACKAGES-OWNER-REVIEW.zip!proposed-legacy-patched-copies/hydra-system-integration-engineer-v0.1.1-PROPOSED-PATCHED-COPY.zip",
+      "bytes": 37956,
+      "sha256": "0e8950702e3e78fe22b657ccb4baeb763e0df67cd10714557859c4d21af13ed3",
+      "depth": 2,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 19
+    },
+    {
+      "location": "project_sources/15-HYDRA-MESH-CURRENT-SNAPSHOT-2026-10-11.zip!HYDRA-MESH-CURRENT-2026-10-11/skills/review-only/hydra-context-budget-orchestrator-v1.0.0-rc1.zip",
+      "bytes": 38077,
+      "sha256": "591b3f9cbbd49adce11d0277a46e98eead52fadd29bf8b08e1d439a8db55c257",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 21
+    },
+    {
+      "location": "upload/D05_PACKAGE_SETUP_RESULT_20261014T234505632724Z.zip",
+      "bytes": 4464,
+      "sha256": "bd19fd9b5dce417c5f7dbb6de09168e0e4261ad956f77f4ff352330e6154def3",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 5
+    },
+    {
+      "location": "upload/D05_PACKAGE_SETUP_RESULT_20261015T001837967196Z.zip",
+      "bytes": 33196,
+      "sha256": "598fb41a0e44397eee6109c87d35435516a2dc4e359544cc46e370448c648f6e",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 35
+    },
+    {
+      "location": "upload/G03_CLINICAL_NFKC_RESULT_20261014T171431091299Z.zip",
+      "bytes": 868293,
+      "sha256": "c0e7744ae0e661d40459587e7a52321947f0b9904e3ab371fe7ab793b72476f3",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 140
+    },
+    {
+      "location": "upload/G03_CLINICAL_NFKC_RESULT_20261014T174056603494Z.zip",
+      "bytes": 3647789,
+      "sha256": "e37546283ee36d4828609d0f9ade6c73d31d4a36f54cb561d7a766d7d2efa4aa",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 171
+    },
+    {
+      "location": "upload/G03_CLINICAL_NFKC_RESULT_20261014T225727290052Z.zip",
+      "bytes": 3779917,
+      "sha256": "01f7baa8c77929aba67723a4e29e68677d0b73ce4b463c9548614b4f26fe1514",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 261
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_EXPORT_RECOVERY_20261014T061642906745Z_9815.zip",
+      "bytes": 41738853,
+      "sha256": "85693e2cbfc9b63db0c565e8dae903347b0afd873f190761ce4bb65b1480396e",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 4
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip",
+      "bytes": 18490056,
+      "sha256": "4509ed79ae41ac928c766cee557bab360a349bb1b21986133e58d1b2817a8ce2",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 558
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/candidate-typecheck/compiled-server.zip",
+      "bytes": 22,
+      "sha256": "8739c76e681f900923b900c9df0ef75cf421d39cabb54650c4b9ad19b6a76d85",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 0
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v1-s10-c1/compiled-server.zip",
+      "bytes": 420801,
+      "sha256": "dd0a073506123334041029a6a42bebdb4b37ccab409673c78f23c691a6625f70",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v1-s10-c4/compiled-server.zip",
+      "bytes": 420803,
+      "sha256": "6810ef44edb13388d4f994b3bfb889c2059a17b78bda6cbd69366e66fb0b5d83",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v1-s100-c1/compiled-server.zip",
+      "bytes": 420787,
+      "sha256": "708c1f033765662e9e1cba2b83e9e8bb14105de01b3d4108d2fb9cd772540c01",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v1-s100-c4/compiled-server.zip",
+      "bytes": 420786,
+      "sha256": "b898a3c7c88cf7ea054624c839a9be1de3df9a7da7daec5fa752e43b8b37c8c5",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v2-s10-c1/compiled-server.zip",
+      "bytes": 420799,
+      "sha256": "15dfa7597290bb697f3f8026616966ae35bd7dfcea7536f15e97722f0a887536",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v2-s10-c4/compiled-server.zip",
+      "bytes": 420801,
+      "sha256": "f9d7082f29f27c552a9f622990a788b3faa9c884b2a46192305d3626b251a919",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v2-s100-c1/compiled-server.zip",
+      "bytes": 420787,
+      "sha256": "27645995b8a5aa99951e971efa10aee3aae6e6ea829ef89f721d04edd5a876c2",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/heavy-v2-s100-c4/compiled-server.zip",
+      "bytes": 420785,
+      "sha256": "c224ea7abd809c78bd2a973d61c18e0b2bf094752e57cb424e3c40d38403f6bf",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/framework/http/compiled-server.zip",
+      "bytes": 420742,
+      "sha256": "13e2b80ffd3788705d83cf22067400022a2dce9af079a3aa7419bccdc1357253",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 6
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/revisions/host-guard-r1-source.zip",
+      "bytes": 280885,
+      "sha256": "a27353b35387148b8218d380f000c82f070a968940545e4a494705a34a0fd7ed",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 128
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/revisions/host-guard-r2-source.zip",
+      "bytes": 556661,
+      "sha256": "82c9400ecd3518368732db96d7825e303209ab00f25327faf612cf14afb2e1d3",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 135
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/revisions/host-guard-r3-source.zip",
+      "bytes": 1112445,
+      "sha256": "bcdfbccecdc3c12a45bd8cb86f0ed209f6c087e516615f08e93c081e371c8777",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 142
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/revisions/host-guard-r4-source.zip",
+      "bytes": 2218874,
+      "sha256": "346d35368005165572c132ba937dc9c4617fc7ab90f70109e243743f2e542027",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 147
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RESULT_20261014T030959Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/revisions/host-guard-r5-source.zip",
+      "bytes": 4443660,
+      "sha256": "257da984cfded2acd50100ac3f8232b5f00d166cce4e509153b85581ff328fab",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 161
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RETRY_RESULT_20261014T073152932506Z.zip",
+      "bytes": 20940131,
+      "sha256": "2dfd1cdf927b2cdd406a5fe1955cee22366befc5a3e3d5fe4ef263f0ee9e9a75",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 673
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RETRY_RESULT_20261014T073152932506Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r2/framework/http/compiled-server.zip",
+      "bytes": 1144156,
+      "sha256": "bf176435a6bbb2884bbfa3ac01b1cf732854e1644a8d808974999ef352b569b5",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+      "bytes": 10707968,
+      "sha256": "9d0d4f885f89aa8b332a245e7cd4a4255c8659980952397e6fc74498c3d7f06c",
+      "depth": 0,
+      "status": "UNREADABLE_ZIP_CURRENT_COPY",
+      "error_type": "BadZipFile"
+    },
+    {
+      "location": "upload/G03_HTTP_HEAVY_STATE_20261014T010353487077Z_24315.zip",
+      "bytes": 1774081,
+      "sha256": "e8d0828ba7b062e2f7189c0a0bc1323cc63b9e2c61b8e19e6bc0bfaf21be081b",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 17
+    },
+    {
+      "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip",
+      "bytes": 45809,
+      "sha256": "806501793ae9c7cc82c5a48bda44fef09346d8288cafb6b764963d70e41a61ec",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 29
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+      "bytes": 41874399,
+      "sha256": "42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 889
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v1-s10-c1/compiled-server.zip",
+      "bytes": 1144264,
+      "sha256": "437d9d1f15d8f3e1622c5417efa09e76f1af3ad6f0a812addc2683801a3719e9",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v1-s10-c4/compiled-server.zip",
+      "bytes": 1144245,
+      "sha256": "feab89dbe91da1025264f815c18c9dcd29dfb693185fd12df756db40041b26b5",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v1-s100-c1/compiled-server.zip",
+      "bytes": 1144630,
+      "sha256": "2b9bd9a2c2ed79e286a415de0332c3123f764c63bbb7bc739af64171d60c4911",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v1-s100-c4/compiled-server.zip",
+      "bytes": 1144626,
+      "sha256": "e936ed175b5e6150fc3bc2b429975a88c76af274d0f07c176dbe21a6404eee47",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v2-s10-c1/compiled-server.zip",
+      "bytes": 1144227,
+      "sha256": "d29ebdfd5c9a530d1a9f294389710056512f98549290289c890a4678f7f497e5",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v2-s10-c4/compiled-server.zip",
+      "bytes": 1144210,
+      "sha256": "f0a89a1311b338c5335ef7c736bd6a00d4826301d4d22db3bad4b7776fd69dd3",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v2-s100-c1/compiled-server.zip",
+      "bytes": 1144583,
+      "sha256": "1aec2671ada95d10499df747dbf5dc73e2261bddb1dfcba5778fd0a94a20a372",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/heavy-v2-s100-c4/compiled-server.zip",
+      "bytes": 1144582,
+      "sha256": "b1501a3b8f5c87b3850e55e55a0c2f5760b31a646cf6371d63d8a2dca5979398",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip!G03_HTTP_HEAVY_2026-10-14/evidence/http-retry-r4/framework/http/compiled-server.zip",
+      "bytes": 1144161,
+      "sha256": "61a1303ada3a6fa7ced6f2718a285175d699bb3cdccb55d5baea63d9a0e48b2b",
+      "depth": 1,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 16
+    },
+    {
+      "location": "GITHUB_PR2@1e69b249/synthetic-gateway-v1.0.40.zip",
+      "bytes": 7960,
+      "sha256": "7b012325bb8fbd9da9464ade922989863aac201c3250f39070f12ae2e730c88f",
+      "depth": 0,
+      "status": "DIRECTORY_READABLE_BOUNDED_MEMBER_SCAN",
+      "members": 5
+    }
+  ],
+  "method_search": [
+    {
+      "method": "test_candidate_unit.CandidatePolicyTests.test_unconfigured_gateway_is_hold",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            4
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        },
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6",
+          "lines": [
+            24
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6"
+        }
+      ],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_candidate_unit.CandidatePolicyTests.test_operation_must_be_synthetic",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            18
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        },
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6",
+          "lines": [
+            28
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6"
+        }
+      ],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_candidate_unit.CandidatePolicyTests.test_default_readiness_never_claims_ready",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            32
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        },
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6",
+          "lines": [
+            33
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6"
+        }
+      ],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_candidate_unit.CandidatePolicyTests.test_unpinned_keys_hold",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            46
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        },
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6",
+          "lines": [
+            37
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6"
+        }
+      ],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_candidate_unit.CandidatePolicyTests.test_unsigned_envelope_hold",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            60
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        },
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6",
+          "lines": [
+            41
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [
+        {
+          "location": "upload/HYDRA_D05_INTEGRATION_STAGING_v0.2.1.zip!tests/test_candidate_unit.py",
+          "sha256": "e0b0bce5ad208323dfa99a106a041c8fa2b6b86538911724f988e73efb4acde6"
+        }
+      ],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_signature_boundary_candidate.SignatureBoundaryCandidate.test_correct_shape_invalid_signature_reaches_crypto_rejection",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            74
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_signature_boundary_candidate.SignatureBoundaryCandidate.test_wrong_hex_encoding_is_distinct_from_shape_error",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            88
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_signature_boundary_candidate.SignatureBoundaryCandidate.test_short_signature_rejected_before_crypto",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            102
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_signature_boundary_candidate.SignatureBoundaryCandidate.test_missing_signed_verdict_rejected_before_crypto",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            116
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_signature_boundary_candidate.SignatureBoundaryCandidate.test_extra_signed_claim_rejected_before_crypto",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            130
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_signature_boundary_candidate.SignatureBoundaryCandidate.test_unknown_signer_rejected_before_crypto",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            144
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_signed_fail_caller_pass_holds",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            158,
+            168
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_signed_matching_verdicts",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            172,
+            182
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_hash_mismatch_holds",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            186,
+            196
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_old_domain_rejected",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            200
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_missing_verdict_holds",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            214,
+            224
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_start_and_unknown_reject_result_claims",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            228,
+            238
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.FinishBindingCandidate.test_verdict_denial_precedes_db_access",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            242,
+            252
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.TlsPolicyCandidate.test_policy_and_successful_probe",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            256
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.TlsPolicyCandidate.test_socket_multihost_and_service_overrides_hold",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            270
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.TlsPolicyCandidate.test_missing_false_or_ambiguous_tls_closes",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            284
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.TlsPolicyCandidate.test_probe_exception_closes",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            298
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.TlsPolicyCandidate.test_environment_change_before_connect_holds",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            312
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    },
+    {
+      "method": "test_v022_policy_candidate.TlsPolicyCandidate.test_invalid_types_and_targets_hold_before_driver",
+      "reference_hits": [
+        {
+          "location": "upload/ACCOUNTING-REVIEW.json",
+          "sha256": "9bab5db0c2f22f5c6412b210b4a600980b383c901aa596c9f90097e8dcce4326",
+          "lines": [
+            326
+          ],
+          "interpretation": "REFERENCE_OR_SOURCE_MATCH_NOT_PROOF_OF_EXECUTION"
+        }
+      ],
+      "exact_source_hash_matches": [],
+      "canonical_case": null,
+      "verified_group_balance": null,
+      "decision": "PENDING_OWNER_ADJUDICATION_AND_COMPLETE_HISTORY"
+    }
+  ],
+  "execution": {
+    "candidate_imported": false,
+    "test_suite_run": false,
+    "workload_started": false
+  },
+  "g03_start_record_index": {
+    "unique_record_keys": 49,
+    "observed_record_occurrences": 139,
+    "same_key_payload_conflicts": 0,
+    "max_reported_group_ordinal": {
+      "B1-existing-regression-Minor": 44,
+      "new-admission-native-handler-boundary": 21,
+      "new-auth-lookup-ownership": 6,
+      "D2-payload-cost-comparison": 17,
+      "verification-runner-failure-accounting": 39
+    },
+    "max_reported_case_ordinal": {
+      "typecheck": 14,
+      "legacy-security": 6,
+      "runner-accounting": 37,
+      "legacy-fallback": 2,
+      "legacy-fallback-integration": 2,
+      "legacy-clinical": 2
+    },
+    "records": [
+      {
+        "event": "start",
+        "at": "2026-10-14T02:30:52.808737+00:00",
+        "attempt": "candidate-typecheck-target-2",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 15
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "45a69ad3813fb82ef2bcb09b1dae39b7c787e11a9ddcfe48a6dffb46467618e9",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:31:48.694462+00:00",
+        "attempt": "tools-typecheck-target-1",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 16
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "2600f8cab8221d8bb0878ac3691d36067572bc7e9baf2eb850d7f7ac86e1b5d6",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:32:27.202617+00:00",
+        "attempt": "http-target-1",
+        "canonicalCase": "native-handlers",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "new-admission-native-handler-boundary",
+          "new-auth-lookup-ownership"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "new-admission-native-handler-boundary": 18,
+          "new-auth-lookup-ownership": 3
+        },
+        "retryDebit": {
+          "new-admission-native-handler-boundary": 1,
+          "new-auth-lookup-ownership": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "48c40e54955abdd4d6f2d8549401e56ced470b0c13605b07ea2704c14a4300df",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:33:02.259947+00:00",
+        "attempt": "heavy-v1-s10-c1-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 2
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "27c86cc280cefd53e859532a66ead1e16c17df307dba0cf8eb5cc11864dd2d0c",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:33:57.826555+00:00",
+        "attempt": "heavy-v1-s10-c4-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 3
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "45fb6096eeee96fe696f6c4b5af20509f4f6025f876487ec43ec7a78c563f587",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:36:26.841386+00:00",
+        "attempt": "heavy-v1-s100-c1-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 4
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "9ed107adba44b6fd3e22bdb4715e0450ddab6768a4b15d1323d38832a3c860a2",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:38:40.676059+00:00",
+        "attempt": "heavy-v1-s100-c4-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 5
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "89ca81afa823ba14f9eecdab32c669c9de59e43bfd0e8d0e69e674526ec9fe32",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:41:02.288256+00:00",
+        "attempt": "heavy-v2-s10-c1-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 6
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "e4fb7348463ee16ad333ad19f20d0b5dc4bf235800bf2dfdb6e07ae9f3e8dfaa",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:43:13.759764+00:00",
+        "attempt": "heavy-v2-s10-c4-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 7
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "7a6fb3ec7b3a47fbb10abc9d7f203873a8422753ccbd1a4dd232581f8ade85c1",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:45:34.438748+00:00",
+        "attempt": "heavy-v2-s100-c1-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 8
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "45451f014a19b057db208276262e73c277ade669ceb229e5b92fdafda5d5fe75",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:48:05.578735+00:00",
+        "attempt": "heavy-v2-s100-c4-target-1",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 9
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "d703e4475a21657c5a9039a059c0b995b551c98b9d05f9afbda6084afd76be23",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:50:29.385660+00:00",
+        "attempt": "legacy-g03-read-scope-target-1",
+        "canonicalCase": "legacy-g03-read-scope",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 17
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "1240ad2f689e7eb0a4f9b2f1e5cc7d2a664824fd26a8ed2df7c44e4300c99868",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:53:02.636745+00:00",
+        "attempt": "legacy-patient-encryption-target-1",
+        "canonicalCase": "legacy-patient-encryption",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 18
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "a9eba0f2babeb442582f9dedebf57822f4619d3b96cc853b8079466a87d67afe",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:54:23.797823+00:00",
+        "attempt": "legacy-clinical-data-encryption-target-1",
+        "canonicalCase": "legacy-clinical-data-encryption",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 19
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "15dfd372dde2be00ef0c90ac334dfb589b5e10b4c5712082fef1e2b206318772",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:56:10.123807+00:00",
+        "attempt": "legacy-auth-and-security-queue-target-1",
+        "canonicalCase": "legacy-auth-and-security-queue",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 20
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "40cfcc5d08734839b67219310a697a317eebdd882465efd988ec5a2321714ab6",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:57:25.805562+00:00",
+        "attempt": "legacy-clinician-authorization-target-1",
+        "canonicalCase": "legacy-clinician-authorization",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 21
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "e9017c957e1ff36689fa6f2b9030e93c6984e8ea910f9f8c224e032ecd2f8b40",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T02:58:59.031758+00:00",
+        "attempt": "legacy-clinical-summary-contract-target-1",
+        "canonicalCase": "legacy-clinical-summary-contract",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 22
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "341a4c5df88e3008b659b5d842f9f96096d5337fcd808f7c3c9698b4530ddcad",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:00:05.365671+00:00",
+        "attempt": "legacy-fallback-integration-target-1",
+        "canonicalCase": "legacy-fallback-integration",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 23
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "1eef0d5f60896a49af6c185c4d2a99fcd22b8ad42f02cc50f9b1ccb5a86fa75f",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:02:22.018540+00:00",
+        "attempt": "legacy-g03-deadline-isolation-target-1",
+        "canonicalCase": "legacy-g03-deadline-isolation",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 24
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "989b9ae9d9a80839b4c1a11791ca0c910b77fd6bc9e925f7457d45d07d55da84",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:04:03.510596+00:00",
+        "attempt": "legacy-security-target-1",
+        "canonicalCase": "legacy-security",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 25
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "3cc8e2227ffe8e33b3d2a4f530c84f74b51b3f291a0ad16d5dbc033f81d5b9f2",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:05:10.719795+00:00",
+        "attempt": "legacy-fallback-target-1",
+        "canonicalCase": "legacy-fallback",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 26
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "17905931741da010037e3450003abd0721008165cbdf25ae0c38dfcddc802115",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:05:59.816818+00:00",
+        "attempt": "legacy-clinical-target-1",
+        "canonicalCase": "legacy-clinical",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 27
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "0d78b9bf2874cee6a77cbf77f7a4d1163cf4ad3d9b7d862be0278d8939dab8fe",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:06:58.482969+00:00",
+        "attempt": "legacy-audit-target-1",
+        "canonicalCase": "legacy-audit",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 28
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "ec7a6dc0948f594c9b5e6d38673a4b787771048cdaaf3d13c5c451c3d5c3f9ba",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:07:51.728669+00:00",
+        "attempt": "legacy-db-target-1",
+        "canonicalCase": "legacy-db",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 29
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "c5ddbfff9aa7e37a594e7129a6f9f82d9b13a3df4f07ceed58d38f1b79a42495",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T03:08:53.712710+00:00",
+        "attempt": "legacy-fallback-storage-target-1",
+        "canonicalCase": "legacy-fallback-storage",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 30
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "fab171f2550e5182a2e5685e56dc65ed3639254e508cccd2e732bae293e1b4d0",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T05:19:52.408166+00:00",
+        "attempt": "tools-typecheck-target-2",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 32
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "45810752e2bce98b1efff21c9e4f73f965ec75eca599a864dface3e14e9d0ff8",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T05:20:39.285446+00:00",
+        "attempt": "http-target-2",
+        "canonicalCase": "native-handlers",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "new-admission-native-handler-boundary",
+          "new-auth-lookup-ownership"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "new-admission-native-handler-boundary": 19,
+          "new-auth-lookup-ownership": 4
+        },
+        "retryDebit": {
+          "new-admission-native-handler-boundary": 1,
+          "new-auth-lookup-ownership": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "1c67a4ddaf57dd5314f2d3fcf0db69ae710a10e28939e50a3ae1012f65b830d3",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T05:22:51.908113+00:00",
+        "attempt": "legacy-g03-deadline-isolation-target-2",
+        "canonicalCase": "legacy-g03-deadline-isolation",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 33
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "d0f7e6f9393e81f987c81a1c2e328f6e9a9a6260e07be8e7de8e3d5b4176734a",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T07:30:27.804058+00:00",
+        "attempt": "tools-typecheck-target-3",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 34
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "caa07a31a028c74bc4e1af009bc25185dff4e5480b1e159157e07238cfb1dc59",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T07:31:09.638410+00:00",
+        "attempt": "http-target-3",
+        "canonicalCase": "native-handlers",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "new-admission-native-handler-boundary",
+          "new-auth-lookup-ownership"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "new-admission-native-handler-boundary": 20,
+          "new-auth-lookup-ownership": 5
+        },
+        "retryDebit": {
+          "new-admission-native-handler-boundary": 1,
+          "new-auth-lookup-ownership": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "ab72f3e943098f0b3f81bcfb6289e4da22c1ce57a692384b5446a82102375b2f",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:32:46.581201+00:00",
+        "attempt": "tools-typecheck-target-4",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 35
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "dc8fdb7c63e0b28a863b974691b55a315e655546eda12e9cac6ab4bf92392009",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:33:06.926431+00:00",
+        "attempt": "http-target-4",
+        "canonicalCase": "native-handlers",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "new-admission-native-handler-boundary",
+          "new-auth-lookup-ownership"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "new-admission-native-handler-boundary": 21,
+          "new-auth-lookup-ownership": 6
+        },
+        "retryDebit": {
+          "new-admission-native-handler-boundary": 1,
+          "new-auth-lookup-ownership": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "1a73095e97e210632a43b2d6ba9fa28464e6c16998e95a3e5ed93519b2ff5f01",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:34:30.333490+00:00",
+        "attempt": "heavy-v1-s10-c1-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 10
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "d8d5d70528f8e91e0760ee08599f386692fc7432b2c6452c27d11a712f19f059",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:35:26.757701+00:00",
+        "attempt": "heavy-v1-s10-c4-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 11
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "ff819fa32d06f0c80c2b999a35535144e3f3f4dbc6a57440377b75cee6468b82",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:36:37.283844+00:00",
+        "attempt": "heavy-v1-s100-c1-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 12
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "873c3b3ea1bee18909767181bcf4f59c71babdc505fdebe7822ae9a4184b74c5",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:38:35.852659+00:00",
+        "attempt": "heavy-v1-s100-c4-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 13
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "051798befa754de16493644de5b71f2e561ff583f60545572830191bae31f8d5",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:40:38.810845+00:00",
+        "attempt": "heavy-v2-s10-c1-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 14
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "b99fc70c015895792f1861825a71f751b6ed95869b855fb15e7796860173c381",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:41:38.342594+00:00",
+        "attempt": "heavy-v2-s10-c4-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 15
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "d8ac413fe78252c93efff7397beac8a0c951c9d0e489480df9f7a4171cb3cf0a",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:42:37.871445+00:00",
+        "attempt": "heavy-v2-s100-c1-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 16
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "0f27cbe7ba69f382c9dc5570a1398bd8b74d790842138d459e87572784e69bee",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T08:43:48.550662+00:00",
+        "attempt": "heavy-v2-s100-c4-target-2",
+        "canonicalCase": "benchmark",
+        "caseOrdinalIncludingHistory": null,
+        "groups": [
+          "D2-payload-cost-comparison"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "D2-payload-cost-comparison": 17
+        },
+        "retryDebit": {
+          "D2-payload-cost-comparison": 1
+        },
+        "dispatchSha256": "a6a5ede8bce323e71ed78d2c1620e7fa00aa4a64519987fc101a0b26572b5f86",
+        "wp": null,
+        "raw_payload_sha256": "0704462b75e89f7f79057008bb66c4f37d0e5fa00fffcb1eab581036bc3c81ca",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 4
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T17:14:12.409704+00:00",
+        "attempt": "clinical-typecheck-clinical-nfkc-1",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": 13,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 37
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "2873c512794335e33b830c6544d8d893e3cdaeff3a9c13555b97bfd52ed4f6ca",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "5a16e917c14d4b0f3bdf3a591f8ced91a85a44ee1c71f9ca6b8cf25a6ee85eb8",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 3
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T17:40:23.183821+00:00",
+        "attempt": "clinical-typecheck-clinical-nfkc-2",
+        "canonicalCase": "typecheck",
+        "caseOrdinalIncludingHistory": 14,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 38
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "0e9a70d0f5ffbce28da9a1fd03373abe1eb1e22da0a3e8d42364c296e4acf199",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "350a0ccce6e5da62d9d9003b996e92942f342d12dfdaddfa8913422ee84389b4",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T17:40:41.012074+00:00",
+        "attempt": "nfkc-regression-clinical-nfkc-1",
+        "canonicalCase": "legacy-security",
+        "caseOrdinalIncludingHistory": 4,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 39
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "0e9a70d0f5ffbce28da9a1fd03373abe1eb1e22da0a3e8d42364c296e4acf199",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "aac32653249a3388d74ce91efc60c7001984e0b0e5fdc0d2405eef5ef344b5b8",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T17:40:47.549296+00:00",
+        "attempt": "legacy-security-clinical-nfkc-1",
+        "canonicalCase": "legacy-security",
+        "caseOrdinalIncludingHistory": 5,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 40
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "0e9a70d0f5ffbce28da9a1fd03373abe1eb1e22da0a3e8d42364c296e4acf199",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "26f731f232b48f1bcadac81d06095765ed7d3dcedc7859252ad1e2d2533284f8",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 2
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T18:09:19.702793+00:00",
+        "attempt": "runner-accounting-clinical-temp-r3-1",
+        "canonicalCase": "runner-accounting",
+        "caseOrdinalIncludingHistory": 37,
+        "groups": [
+          "verification-runner-failure-accounting"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "verification-runner-failure-accounting": 39
+        },
+        "retryDebit": {
+          "verification-runner-failure-accounting": 1
+        },
+        "dispatchSha256": "76f9e5121bb5a2959e8eba50c8d570dd24af93b1f9cb52f37b7eb2c23b424d9b",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "f7c22187692a716229ee68cd51a9a5c6133c6622b3b6cc45a30501d76668f925",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 1
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T18:09:26.733763+00:00",
+        "attempt": "legacy-security-clinical-nfkc-2",
+        "canonicalCase": "legacy-security",
+        "caseOrdinalIncludingHistory": 6,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 41
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "76f9e5121bb5a2959e8eba50c8d570dd24af93b1f9cb52f37b7eb2c23b424d9b",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "6f6f89b74916bf50abe4b5d34b3a820a0ebc87067ba15a79780602d6a18e6bbd",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 1
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T18:09:45.367635+00:00",
+        "attempt": "legacy-fallback-clinical-nfkc-1",
+        "canonicalCase": "legacy-fallback",
+        "caseOrdinalIncludingHistory": 2,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 42
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "76f9e5121bb5a2959e8eba50c8d570dd24af93b1f9cb52f37b7eb2c23b424d9b",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "e19e37f795f2a5abb6c97a0e7a67d6c06cd4a1c733ee34bc2396f95c0837d6a9",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 1
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T18:10:03.258811+00:00",
+        "attempt": "legacy-fallback-integration-clinical-nfkc-1",
+        "canonicalCase": "legacy-fallback-integration",
+        "caseOrdinalIncludingHistory": 2,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 43
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "76f9e5121bb5a2959e8eba50c8d570dd24af93b1f9cb52f37b7eb2c23b424d9b",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "d3843b74a58614418b0dbefae268c3e323d4bf5fca3c1b0b059720caabdd4d76",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 1
+      },
+      {
+        "event": "start",
+        "at": "2026-10-14T18:10:58.136510+00:00",
+        "attempt": "legacy-clinical-clinical-nfkc-1",
+        "canonicalCase": "legacy-clinical",
+        "caseOrdinalIncludingHistory": 2,
+        "groups": [
+          "B1-existing-regression-Minor"
+        ],
+        "groupOrdinalIncludingHistory": {
+          "B1-existing-regression-Minor": 44
+        },
+        "retryDebit": {
+          "B1-existing-regression-Minor": 1
+        },
+        "dispatchSha256": "76f9e5121bb5a2959e8eba50c8d570dd24af93b1f9cb52f37b7eb2c23b424d9b",
+        "wp": "G03-CLINICAL-NFKC-ISOLATED-20261014-R1",
+        "raw_payload_sha256": "11f17134b8591b677882d0267742183a2394a8fae2b064d9a6468f38a50aceb3",
+        "provenance": "SUPPLIED_START_RECORD_NOT_AUTHENTICATED_D05_START",
+        "occurrences": 1
+      }
+    ],
+    "interpretation": "Deduplicated supplied record keys only; not all mission starts, not retry balances, no free rights or admission inferred."
+  },
+  "historical_reference_counts": {
+    "Manual D05": 42,
+    "PY-01": 3,
+    "PY-02": 3,
+    "PY-03": 4,
+    "PY-06": 2,
+    "SR-01": 2,
+    "SEC-03": 3
+  },
+  "privacy": "Metadata and synthetic accounting fields only. No file bodies, signatures, clinical payloads, auth keys or command lines included.",
+  "recovery_receipt": {
+    "recovered_path": "hydra_reconciliation_20261015/recovered/G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip",
+    "sha256": "42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234",
+    "bytes": 41874399,
+    "members": 889,
+    "crc": "PASS",
+    "damaged_copy_preserved": true,
+    "status": "ORIGINAL_RECEIPT_MATCHED"
+  }
+}

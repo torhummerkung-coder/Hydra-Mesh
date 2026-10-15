@@ -48,3 +48,10 @@ R2 tree/README พบ index/login, companion และ dashboard; ยังไ�
 
 พบ secret/PHI, source/manifest mismatch, unknown accounting, isolation failure หรือสิทธิ์ไม่ตรง operation
 ให้หยุดเฉพาะ lane ที่ได้รับผลและเก็บเหตุการณ์ งานเอกสาร/วิเคราะห์ที่ได้รับอนุญาตยังเดินต่อได้
+
+## R3 continuation — completed preparation work
+
+WP-02: bounded corpus search completed; 24 method rows now carry search references and proposed adjudication rationale.
+WP-03: supplied G03 record index deduplicated and four accounting lineages separated; authoritative budget acceptance remains pending.
+Current standalone r4 artifact recovered from stored original; exact receipt hash/size and CRC of 889 members verified. Damaged copy preserved; no reruns.
+Next: obtain identified legacy identity/raw-accounting evidence, finalize Owner semantic decisions, and select exact demo walkthrough/host controls.

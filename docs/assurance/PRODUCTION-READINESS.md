@@ -1,7 +1,7 @@
 # HYDRA-Mesh — Production Readiness — สถานะตามหลักฐาน
 
-Revision: R2 · 2026-10-15 · Asia/Bangkok
-Ledger SHA-256: `485a3a32f280291a321b7a189e159536d6a65d0ff79b5d2540526727ec326b58`
+Revision: R3 · 2026-10-15 · Asia/Bangkok
+Ledger SHA-256: `9a34be1b48723b80875534b0ff880359955560d8d26f5b10b36336f4f35d01e9`
 
 **Overall: NOT_READY / RELEASE_NOT_GRANTED**
 
@@ -25,9 +25,9 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 
 **สถานะ: HOLD**
 
-ข้อเท็จจริง: 24 methods ยังไม่มี canonical_case ที่ adjudicate แล้ว
+ข้อเท็จจริง: Bounded 40-input search completed including recovered artifact. Five methods have exact v0.2.1 source ancestry; remaining 19 have review references in searched corpus. Legacy gateway objectives require adjudication; canonical identities remain unresolved.
 
-หลักฐาน: `E-ACCOUNTING`
+หลักฐาน: `E-ACCOUNTING`, `E-HISTORY-SEARCH`, `E-LEGACY-GATEWAY`
 
 เกณฑ์จบ: Accepted registry authority + independent check ตามเกณฑ์
 
@@ -35,9 +35,9 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 
 **สถานะ: HOLD**
 
-ข้อเท็จจริง: verified_group_balance ยัง null; prior starts สำหรับงานนี้เป็น Owner-reported เท่านั้น
+ข้อเท็จจริง: Indexed 49 distinct supplied G03 start-record keys from 139 occurrences, without payload conflicts. This is not a D05 balance. Legacy gateway reported test counts and Manual Skill provisional accounting remain separate/unreconciled.
 
-หลักฐาน: `E-ACCOUNTING`
+หลักฐาน: `E-ACCOUNTING`, `E-HISTORY-SEARCH`, `E-LEGACY-REPORT`
 
 เกณฑ์จบ: Shared authoritative balance + concurrent control
 
@@ -281,6 +281,16 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 
 เกณฑ์จบ: Reconcile baseline/version/gate evidence and obtain applicable acceptance.
 
+## EVIDENCE-COPY-01 — Standalone r4 artifact recovered and byte-verified
+
+**สถานะ: ARTIFACT_AVAILABLE_NOT_RELEASE_PROOF**
+
+ข้อเท็จจริง: Unreadable 10,707,968-byte local copy preserved separately. Recovered original stored artifact is 41,874,399 bytes, SHA-256 42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234; unique member names and CRC passed for 889 members. Historical outcomes were not rerun or reclassified.
+
+หลักฐาน: `E-HISTORY-SEARCH`, `E-G03-HEAVY`, `E-G03-R4-RECOVERED`
+
+เกณฑ์จบ: Recovered bytes available; runtime provenance/applicability and release review still apply.
+
 ## Evidence index
 
 | ID | Artifact | SHA-256 | Bytes |
@@ -307,6 +317,10 @@ Gates: G03=OPEN · RISK008=OPEN · W0=OPEN
 | E-REMOTE-DOCS-EVIDENCE_CHAIN-MD | docs/EVIDENCE_CHAIN.md | `cc114631fe820cb07cf5941d2aab26e5b28e494d101cf9816ebfe87f026ff024` | 5255 |
 | E-REMOTE-PHASE1_FREEZE_RUNBOOK-MD | PHASE1_FREEZE_RUNBOOK.md | `b7a5a662c56fbc8579bc87824f3b9d6bf3157e722835f91b7e5c2addbfcf6a5a` | 2585 |
 | E-REMOTE-PRODUCTION_ROADMAP-MD | PRODUCTION_ROADMAP.md | `dcf40728b5144d01d771e1d8a8e97e63ea3e858f52e23ba30e259c0ab78ca9c5` | 98635 |
+| E-HISTORY-SEARCH | registry/history-reconciliation.json | `42a1506574d1ad01427d144922531a4299f51f503061c4a52866db06aaa18e32` | 96317 |
+| E-LEGACY-GATEWAY | PR2@1e69b249:tools/d05/synthetic-gateway-v1.0.40.zip | `7b012325bb8fbd9da9464ade922989863aac201c3250f39070f12ae2e730c88f` | 7960 |
+| E-LEGACY-REPORT | PR2@1e69b249:docs/D05_INTEGRATION_EVIDENCE_2026-10-13.md | `e13a910adb5b8caefd8bffac6cfa906fa84b30f9b5f30e557dc8dc26a1e45dcb` | 4303 |
+| E-G03-R4-RECOVERED | G03_HTTP_HEAVY_RETRY_RESULT_20261014T084516423639Z.zip | `42bbbad61bb181fd7e505e2d4fa2467936a503585da2f583bd072285e13bc234` | 41874399 |
 
 Artifacts อ้างถึง supplied project files; raw/private evidence ไม่ถูกคัดลอกเข้า Repo โดยแพ็กนี้
 Hash ระบุ bytes ไม่ใช่ identity proof และไม่ได้รับรอง current GitHub HEAD
@@ -321,3 +335,5 @@ Hash ระบุ bytes ไม่ใช่ identity proof และไม่ไ�
   ผลต่อขอบเขตนี้: Preserve historical records and unmerged PR boundaries; no production evidence promotion.
 - **EV-R2-GITHUB-PUBLISHED**: Draft PR #3 created from docs/demo-production-readiness-20261015 into main; 19 changed files; not merged. Initial tree contents checked against local Git blob identities.
   ผลต่อขอบเขตนี้: Same publication recorded; no code merge, gate closure or release implied.
+- **EV-R3-HISTORY-SEARCH**: Searched 40 inputs and bounded nested archives; indexed 139 start-record occurrences into 49 keys with zero same-key payload conflicts; separated four accounting lineages. Preserved unreadable copy and recovered exact original r4 artifact with full CRC verification.
+  ผลต่อขอบเขตนี้: Recovered original evidence available; global budget/identity/independent verification remain unresolved and historical records are not reclassified.

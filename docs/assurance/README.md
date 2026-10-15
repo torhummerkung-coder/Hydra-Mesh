@@ -1,6 +1,6 @@
 # HYDRA-Mesh — Demo / Production Readiness
 
-วันที่จัดทำ: 15 ตุลาคม 2026 · Asia/Bangkok · Revision R2
+วันที่จัดทำ: 15 ตุลาคม 2026 · Asia/Bangkok · Revision R3
 
 ชุดเอกสารนี้ใช้ทะเบียนข้อเท็จจริงกลาง แล้วสร้างรายงาน Demo และ Production Readiness ควบคู่กัน
 Owner มอบหมายให้จัดทำและอัปเดตเอกสารใน GitHub เมื่อ 2026-10-15 16:35+07:00 ตามบริบทข้อความที่ได้รับ
@@ -38,3 +38,8 @@ R2 ตรวจ main base `295893a7e4cc6f32839eb8a90d1ced5cae963866` และ w
 ตรวจความสอดคล้องด้วย `python3 docs/assurance/tools/render_views.py --check`
 ทั้งสองรายงานต้องเปลี่ยนใน commit เดียวกันเมื่อทะเบียนเปลี่ยน แม้สถานะขอบเขตหนึ่งจะไม่เปลี่ยน
 คำสั่งนี้สร้าง/ตรวจเอกสารเท่านั้น ไม่ import candidate ไม่ dispatch tests และไม่เพิ่มสิทธิ์รัน
+
+## R3 — งานกระทบยอดที่ทำต่อแล้ว
+
+อ่าน [ผลค้นประวัติ](HISTORY-RECONCILIATION.md), [ข้อเสนอราย method](CASE-ADJUDICATION.md) และ [lineage บัญชี](registry/accounting-lineages.json)
+ผลค้นไม่ใช่ authoritative balance; สถานะ H-01/H-02 ยังแยกจากความสำเร็จของงานค้นเอกสาร
