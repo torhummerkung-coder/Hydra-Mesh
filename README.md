@@ -1,3 +1,10 @@
+> **2026-10-15 — Demo / Production Readiness เดินคู่ขนาน**
+> เริ่มที่ [ทะเบียนกลางและแผนงาน](docs/assurance/README.md),
+> [สถานะ Demo](docs/assurance/DEMO.md) และ [Production Readiness](docs/assurance/PRODUCTION-READINESS.md)
+> ทั้งสองฉบับใช้ facts/evidence เดียวกันและแยกเกณฑ์รับงาน Independent review เลื่อนสำหรับ demo;
+> ยังไม่ใช่ production approval และ G03 / RISK008 / W0 คง OPEN ตามหลักฐานติดตามล่าสุด
+> โค้ดใน Draft PR G03/D05 ไม่ถูก merge จากการอัปเดตเอกสารนี้ บันทึกด้านล่างคงเป็นประวัติตามวันที่เดิม
+
 > **2026-09-16 — ปิดช่องสิทธิ์ข้อมูลระดับผู้ป่วยใน Phase 1 แล้ว**
 > Doctor/Staff เห็นรายชื่อ สรุป และคิวเฉพาะผู้ป่วยที่ได้รับมอบหมายผ่าน `CareAssignment`
 > พร้อม capability check, assignment expiry/revocation และหลักฐานว่าใครรับทราบเคสเมื่อใด

@@ -1,3 +1,8 @@
+> **2026-10-15 — ขอบเขตการใช้ runbook**
+> คำสั่งเดิมด้านล่างเป็น runbook ตาม scope เดิม ไม่ใช่คำสั่งให้เริ่มรันจากการอ่านเอกสารนี้
+> งาน Demo/Production ติดตามแยกที่ [ทะเบียนและแผนคู่](docs/assurance/README.md)
+> การอนุญาตเริ่มต้องตรง source/environment/accounting/admission ของ operation; งานเอกสารนี้ไม่ได้รันคำสั่งเหล่านั้น
+
 # HYDRA Mesh — Phase 1 Freeze Runbook
 
 อ้างอิง: `PHASE_2_PLAN.md` Workstream W0, `EVIDENCE_CHAIN.md` entry EC-000 และ `RISK_REGISTER.md` RISK-001/RISK-003
