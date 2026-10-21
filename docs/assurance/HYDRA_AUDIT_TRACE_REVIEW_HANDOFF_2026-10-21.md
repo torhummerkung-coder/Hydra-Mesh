@@ -92,3 +92,40 @@ These are narrow local checks only. They do not demonstrate production readiness
 This handoff intentionally omits credentials, patient and account identifiers, local filesystem paths, and detailed per-record assignment data. Detailed operational evidence should remain in the owner's private records and should not be added to this public repository.
 
 The review was based on selected source excerpts and previously reported local test outcomes. It did not modify application source, database records, care assignments, or running services during the review summarized here.
+
+## Focused source-review update — 2026-10-21
+
+This addendum records findings from inspecting event producers and the Security dashboard on branch `fix/trace-patient-ownership-invariant`. These are source-review findings, not runtime-confirmed disclosures.
+
+### Finding A — Patient context is present in payload but omitted from the ownership field
+
+The ownership helper reads the top-level `HydraEvent.patientId`; it does not inspect arbitrary payload properties. The following producers place a patient identifier in payload data but do not pass it as the fifth `logEvent(..., patientId)` argument:
+
+- `pages/api/doctor/patient-summary.ts`: `clinical_data_decrypted` and `clinical_access_denied`.
+- `pages/api/doctor/review-queue.ts`: `human_review_acknowledged`.
+- `pages/api/admin/care-assignments.ts`: `care_assignment_changed`.
+
+Consequently, these events are unscoped for the current ownership helper even when the payload includes a patient identifier. This does not by itself establish cross-patient disclosure, but it means the current invariant cannot use those payload fields to detect patient-context disagreement. Review each event's intended trace semantics before changing it: some events use a fresh correlation ID and may intentionally be separate operational traces.
+
+**Required follow-up:** define event-type context requirements; decide whether these event types should pass a verified top-level patient ID or remain explicitly unscoped; add tests that assert the intended behavior without relying on payload inspection.
+
+### Finding B — Security trace view does not explicitly render the ownership-conflict marker
+
+The API response includes `patientOwnershipConflict`, and the authorization regression test asserts that Security can receive the marker for a mixed-patient trace. However, `pages/security.tsx` declares a local `EventChain` interface without that property and the inspected trace view renders event steps/payload rather than an explicit conflict status. Thus source inspection does not establish that a Security operator is clearly shown the conflict marker in the UI.
+
+**Required follow-up:** add an explicit conflict indicator to the Security trace UI and a focused UI/test assertion before claiming the marker is surfaced to the operator. Do not change production UI in this review without a separately tracked implementation step.
+
+### Finding C — Security trace UI renders event payload JSON
+
+The inspected `pages/security.tsx` renders `JSON.stringify(s.payload, null, 2)` for trace steps. Several reviewed event payloads can include patient, clinician, or actor identifiers (for example clinical-access and care-assignment events). This is broader than the sanitized event-step view used in the Doctor dashboard and should be reviewed against the intended Security role's least-privilege and data-minimization policy.
+
+**Required follow-up:** classify allowed fields per event type and minimize/redact payload fields in the Security UI/API as approved. Do not copy raw trace payloads into public evidence or backup packages.
+
+### Updated disposition
+
+- PR #5 remains open and unmerged.
+- The ownership helper's mixed-explicit-patient regression test is present, but does not cover the payload-only context cases above.
+- Security's API-level conflict marker is covered by assertions in the authorization test source; the UI presentation is not verified and appears not to show the marker explicitly.
+- Authorization integration tests remain blocked in the reported Termux environment, and GitHub Actions remains blocked by the reported billing lock.
+- These findings require review and regression coverage before the Merge gate can be considered satisfied.
+
