@@ -45,6 +45,20 @@ function testAuditLog() {
   console.log(
     `[${orderingOk ? "PASS" : "FAIL"}] getRecentTraces sorts by real recency even when timestamps tie`
   );
+
+  const mixedOwnershipId = crypto.randomUUID();
+  logEvent("message_received", "orchestrator", mixedOwnershipId, {}, "synthetic-patient-a");
+  logEvent("companion_reply", "orchestrator", mixedOwnershipId, {}, "synthetic-patient-b");
+  const mixedChain = buildEventChain(mixedOwnershipId);
+  const mixedSummary = getRecentTraces(100).find((trace) => trace.correlationId === mixedOwnershipId);
+  const conflictFlagged =
+    mixedChain?.patientOwnershipConflict === true &&
+    mixedChain.patientId === undefined &&
+    mixedSummary?.patientOwnershipConflict === true &&
+    mixedSummary.patientId === undefined;
+  console.log(
+    `[${conflictFlagged ? "PASS" : "FAIL"}] mixed-patient trace is flagged and never assigned to one patient`
+  );
 }
 
 async function testCircuitBreaker() {
