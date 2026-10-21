@@ -4,6 +4,7 @@
 
 import { getEventsByCorrelationId } from "./audit-log";
 import type { HydraEvent } from "../types/event";
+import { deriveTracePatientOwnership } from "./trace-ownership";
 
 export interface EventChainStep {
   agentId: string;
@@ -15,9 +16,10 @@ export interface EventChainStep {
 export interface EventChain {
   correlationId: string;
   totalDurationMs: number;
-  // เจ้าของสายนี้ ถ้ามี event ใดผูก patientId ไว้ — ใช้ตรวจ CareAssignment
-  // ก่อนให้แพทย์เห็น chain นี้ (ดู pages/api/doctor/event-trace.ts)
+  // ตั้งค่าเฉพาะเมื่อทุก patientId ที่พบใน trace ตรงกัน
   patientId?: string;
+  // true หมายถึง correlationId นี้มี event ที่ผูกกับผู้ป่วยมากกว่าหนึ่งคน
+  patientOwnershipConflict: boolean;
   steps: EventChainStep[];
 }
 
@@ -27,12 +29,13 @@ export function buildEventChain(correlationId: string): EventChain | null {
 
   const startedAt = chainEvents[0].timestamp;
   const endedAt = chainEvents[chainEvents.length - 1].timestamp;
-  const patientId = chainEvents.find((e) => e.patientId)?.patientId;
+  const ownership = deriveTracePatientOwnership(chainEvents);
 
   return {
     correlationId,
     totalDurationMs: endedAt - startedAt,
-    ...(patientId ? { patientId } : {}),
+    ...(ownership.patientId ? { patientId: ownership.patientId } : {}),
+    patientOwnershipConflict: ownership.conflict,
     steps: chainEvents.map((e) => ({
       agentId: e.source.agentId,
       type: e.type,
