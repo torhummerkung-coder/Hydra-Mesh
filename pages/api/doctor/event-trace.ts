@@ -61,14 +61,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!chain) return res.status(404).json({ success: false, error: "ไม่พบ trace นี้" });
 
     if (!isSecurity) {
-      const assigned = chain.patientId
+      // Mixed ownership must never be authorized using just one patientId.
+      const assigned = !chain.patientOwnershipConflict && chain.patientId
         ? await hasActiveCareAssignment(session.sub, chain.patientId).catch(() => false)
         : false;
       if (!assigned) {
         logEvent("clinical_access_denied", "clinical-access", correlationId, {
           requestedBy: session.sub,
           role: session.role,
-          reason: chain.patientId ? "no_active_assignment" : "trace_not_patient_scoped",
+          reason: chain.patientOwnershipConflict
+            ? "conflicting_patient_context"
+            : chain.patientId
+              ? "no_active_assignment"
+              : "trace_not_patient_scoped",
         });
         // ข้อความเดียวกับตอน trace ไม่พบเลย กัน enumerate ว่า correlationId มีจริง
         // แต่เป็นของผู้ป่วยคนอื่น (หลักการเดียวกับ patient-summary.ts)
@@ -86,7 +91,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const assignedPatientIds = new Set(await getActiveAssignedPatientIds(session.sub));
     const traces = getRecentTraces(200)
-      .filter((t) => t.patientId && assignedPatientIds.has(t.patientId))
+      .filter((t) => !t.patientOwnershipConflict && t.patientId && assignedPatientIds.has(t.patientId))
       .slice(0, 20);
     return res.status(200).json({ success: true, data: traces });
   } catch {

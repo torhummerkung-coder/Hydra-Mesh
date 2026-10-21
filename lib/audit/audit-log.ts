@@ -13,6 +13,7 @@
 // และ system-health.ts — ย้ายไป database/log pipeline จริงใน Phase 2 (observability stack)
 
 import type { HydraEvent, HydraEventType } from "../types/event";
+import { deriveTracePatientOwnership } from "./trace-ownership";
 
 const MAX_EVENTS_IN_MEMORY = 5000; // กัน memory leak บน long-running process แบบ demo
 
@@ -59,10 +60,10 @@ export interface TraceSummary {
   startedAt: number;
   stepCount: number;
   lastEventType: string;
-  // เจ้าของ trace นี้ ถ้ามี event ใดในสายผูก patientId ไว้ (ดู comment ใน
-  // lib/types/event.ts) — undefined แปลว่าไม่มี event ไหนในสายนี้ผูกผู้ป่วย
-  // คนใดคนหนึ่งเลย (เช่น trace ระดับระบบล้วนๆ)
+  // patientId จะถูกตั้งค่าเมื่อทุก patientId ที่พบใน trace ตรงกันเท่านั้น
+  // ถ้ามีหลาย patientId ให้ทำเครื่องหมาย conflict และไม่กำหนดเจ้าของคนเดียว
   patientId?: string;
+  patientOwnershipConflict: boolean;
 }
 
 // สรุป event ทั้งหมดเป็นรายการ trace แยกตาม correlationId — ใช้โชว์เป็น list
@@ -81,16 +82,16 @@ export function getRecentTraces(limit = 20): TraceSummary[] {
   const summaries: TraceSummary[] = [];
   for (const [correlationId, evs] of byCorrelation.entries()) {
     const sorted = [...evs].sort((a, b) => a.timestamp - b.timestamp);
-    // event แรกในสายที่ผูก patientId ไว้ ถือเป็นเจ้าของ trace นี้ — พอสำหรับ
-    // scope สิทธิ์เพราะ message_received/companion_reply ของ chat.ts ผูกไว้
-    // ทุกข้อความจริงจากผู้ป่วยอยู่แล้ว
-    const patientId = sorted.find((e) => e.patientId)?.patientId;
+    // ห้ามเลือกเจ้าของจาก event เดียว: correlationId ที่มี patientId ขัดแย้ง
+    // ต้องถูกระบุว่า conflict และถูกซ่อนจาก Doctor/Staff (fail closed)
+    const ownership = deriveTracePatientOwnership(evs);
     summaries.push({
       correlationId,
       startedAt: sorted[0].timestamp,
       stepCount: sorted.length,
       lastEventType: sorted[sorted.length - 1].type,
-      ...(patientId ? { patientId } : {}),
+      ...(ownership.patientId ? { patientId: ownership.patientId } : {}),
+      patientOwnershipConflict: ownership.conflict,
     });
   }
 
