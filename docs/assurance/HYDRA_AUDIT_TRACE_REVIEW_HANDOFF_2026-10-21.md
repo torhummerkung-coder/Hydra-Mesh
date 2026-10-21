@@ -8,7 +8,7 @@
 
 The inspected implementation has session checks and role/capability checks around the reviewed clinical and trace endpoints. The patient-summary route also checks current clinical capability and an active care assignment before returning a summary. The trace endpoint applies role and patient-assignment scoping for non-security users.
 
-Several areas need further verification before relying on audit traces for assurance: trace-wide patient ownership, correlation of pipeline events, audit-log persistence, integrity verification, and frontend integration.
+Several areas need further verification before relying on audit traces for assurance: trace-wide patient ownership, correlation of pipeline events, audit-log persistence, integrity verification, and end-to-end frontend behavior.
 
 ## Findings and follow-up
 
@@ -38,11 +38,11 @@ The reviewed call sites show correlation IDs being used for some companion-flow 
 
 **Follow-up:** Inspect the event logger signature and every event producer. Document required fields by event type and add validation/tests for absent or inconsistent context.
 
-### 5. Frontend integration remains unverified
+### 5. Dashboard API wiring exists; end-to-end behavior remains unverified
 
-In the frontend files inspected during this review, a connection to the patient-summary and event-trace endpoints was not found. This is a limited source inspection, not proof that no integration exists elsewhere.
+The current `pages/dashboard.tsx` calls the doctor patient-list, review-queue, system-health, event-trace, and patient-summary endpoints. This confirms that API calls are wired in that dashboard source, but it does not establish that the running UI behaves correctly across authentication, authorization changes, timeout/error cases, or real deployment configuration. A separate `frontend/src/connected` slice inspected earlier did not establish equivalent clinical/trace integration there.
 
-**Follow-up:** Search the complete frontend and verify intended user flows end-to-end without exposing clinical payloads in logs or test output.
+**Follow-up:** Exercise the intended dashboard flows end-to-end with synthetic accounts and records. Verify authorization failures, timeout/retry behavior, and that clinical payloads are not written to logs or shared artifacts.
 
 ## Previously reported local checks
 
@@ -62,7 +62,7 @@ These are narrow local checks only. They do not demonstrate production readiness
 3. Add negative tests for conflicting or missing context and verify fail-closed behavior.
 4. Verify endpoint authorization with synthetic data, keeping clinical response bodies out of logs and shared artifacts.
 5. Decide on durable audit storage, retention, integrity, and monitoring as a separate design review.
-6. Verify frontend wiring and user-visible error handling.
+6. Verify dashboard and any separate connected frontend end-to-end, including user-visible error handling.
 7. Re-run the checks after changes and retain the evidence privately where it contains sensitive identifiers.
 
 ## Evidence and privacy boundary
