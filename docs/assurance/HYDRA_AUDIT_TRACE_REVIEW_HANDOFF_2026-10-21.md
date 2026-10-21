@@ -20,11 +20,13 @@ The reviewed audit logger stores events in process memory with a bounded event h
 
 ### 2. Trace ownership must be consistent
 
-The reviewed trace builder derives a trace's patient association from the first event carrying a patient identifier. The inspected event type does not itself enforce that every event sharing a correlation ID has the same patient association.
+At the time of the initial review, the trace builder derived a trace's patient association from the first event carrying a patient identifier. The implementation did not verify that every event sharing a correlation ID had the same patient association.
 
 **Risk to verify:** If events from different patient contexts can share a correlation ID, selecting one patient from the trace may not safely represent every event in that trace. This is a potential invariant gap, not a confirmed cross-patient disclosure.
 
-**Follow-up:** Establish and enforce a trace invariant: a correlation ID must belong to one permitted context, and mixed-context traces must fail closed or be split safely. Add tests for missing, conflicting, and reassigned patient context.
+**Remediation under review:** [PR #5](https://github.com/torhummerkung-coder/Hydra-Mesh/pull/5) proposes a shared ownership invariant: conflicting patient IDs leave the trace without a single owner, Doctor/Staff access fails closed, and Security retains visibility with an explicit conflict marker. Synthetic regression assertions were added; execution and CI remain unverified.
+
+**Follow-up:** Run the audit and clinician-authorization tests, verify the fail-closed behavior, and review the change before merging.
 
 ### 3. Timeline construction is not integrity verification
 
