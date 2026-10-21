@@ -46,7 +46,23 @@ The current `pages/dashboard.tsx` calls the doctor patient-list, review-queue, s
 
 **Follow-up:** Exercise the intended dashboard flows end-to-end with synthetic accounts and records. Verify authorization failures, timeout/retry behavior, and that clinical payloads are not written to logs or shared artifacts.
 
-## Previously reported local checks
+## Test and CI status — 2026-10-21
+
+The owner currently has access to an Android phone with Termux; a Mac is not yet available. Tests that depend on a compatible Linux/Prisma engine should be rerun in a suitable environment when available.
+
+| Check | Reported status | Interpretation |
+|---|---|---|
+| `npm run typecheck` on Termux | PASS | TypeScript typecheck completed successfully in the reported local run. |
+| `npm run test:audit` on Termux | PASS | Audit/resilience assertions completed successfully in the reported local run, including mixed-patient trace conflict handling. |
+| `npm run test:clinician-authorization` on Termux | BLOCKED | Prisma schema-engine response failed before authorization assertions; Termux reported Android, while the selected Prisma engine was Linux x86-64. This is an environment/platform blocker, not a test pass and not by itself proof of an application-code defect. |
+| GitHub Actions run [#2](https://github.com/torhummerkung-coder/Hydra-Mesh/actions/runs/39552988299) | BLOCKED before job execution | GitHub displayed: “The job was not started because your account is locked due to a billing issue.” Job logs/steps were not available from the workflow-run inspection. This is a billing/account execution blocker, not evidence that the test assertions failed. |
+| Frontend end-to-end tests | NOT RUN / UNVERIFIED | No end-to-end runtime result is established by the checks above. |
+
+The Ubuntu runner-image migration notice is informational and is separate from the reported billing lock. Do not attribute the blocked run to the runner-image notice without further evidence.
+
+**Evidence limitation:** The Termux results above are previously reported outcomes, not a fresh rerun performed by this document update. Preserve raw logs privately if they contain account, credential, or clinical information; do not publish those details in this repository.
+
+## Previously reported local authorization checks
 
 The following results were reported from testing with synthetic local accounts and synthetic records:
 
@@ -59,13 +75,17 @@ These are narrow local checks only. They do not demonstrate production readiness
 
 ## Recommended next steps
 
-1. Inspect the complete audit logger contract and all event producers.
-2. Specify trace context and patient-ownership invariants.
-3. Add negative tests for conflicting or missing context and verify fail-closed behavior.
+1. Inspect the complete audit logger contract and all event producers, especially the semantics of unscoped events sharing a correlation ID with patient-scoped events.
+2. Specify trace context and patient-ownership invariants, including how missing patient context is treated.
+3. Add negative tests for conflicting or missing context and verify fail-closed behavior for Doctor/Staff and explicit conflict visibility for Security.
 4. Verify endpoint authorization with synthetic data, keeping clinical response bodies out of logs and shared artifacts.
-5. Decide on durable audit storage, retention, integrity, and monitoring as a separate design review.
-6. Verify dashboard and any separate connected frontend end-to-end, including user-visible error handling.
-7. Re-run the checks after changes and retain the evidence privately where it contains sensitive identifiers.
+5. When a compatible Linux environment is available, run `npm ci`, `npm run typecheck`, `npm run test:audit`, and `npm run test:clinician-authorization`; record exact results and environment details.
+6. Resolve the GitHub billing lock before relying on Actions checks; then rerun the workflow and retain its successful run link.
+7. Decide on durable audit storage, retention, integrity, and monitoring as a separate design review.
+8. Verify dashboard and any separate connected frontend end-to-end, including user-visible error handling.
+9. Re-run the checks after changes and retain the evidence privately where it contains sensitive identifiers.
+
+**Merge gate:** Keep PR #5 open and unmerged until the missing-context/correlation call-site review is resolved, the authorization integration tests have executed successfully in a compatible environment, and CI/equivalent independent evidence is available for the relevant regression checks.
 
 ## Evidence and privacy boundary
 
