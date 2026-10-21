@@ -1,0 +1,71 @@
+name: Trace Ownership CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/trace-ownership-ci.yml"
+      - "lib/audit/**"
+      - "pages/api/doctor/event-trace.ts"
+      - "pages/api/doctor/**"
+      - "pages/api/admin/care-assignments.ts"
+      - "scripts/test-audit-and-resilience.ts"
+      - "scripts/test-clinician-authorization.ts"
+      - "prisma/**"
+      - "lib/db.ts"
+      - "lib/session.ts"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+  push:
+    branches: [fix/trace-patient-ownership-invariant]
+    paths:
+      - ".github/workflows/trace-ownership-ci.yml"
+      - "lib/audit/**"
+      - "pages/api/doctor/event-trace.ts"
+      - "pages/api/doctor/**"
+      - "pages/api/admin/care-assignments.ts"
+      - "scripts/test-audit-and-resilience.ts"
+      - "scripts/test-clinician-authorization.ts"
+      - "prisma/**"
+      - "lib/db.ts"
+      - "lib/session.ts"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trace-ownership-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  trace-ownership:
+    name: Typecheck and authorization regression tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript typecheck
+        run: npm run typecheck
+
+      - name: Audit and resilience tests
+        run: npm run test:audit
+
+      - name: Clinician authorization integration tests
+        run: npm run test:clinician-authorization
