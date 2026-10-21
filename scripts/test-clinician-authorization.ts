@@ -180,16 +180,20 @@ async function main() {
     const { logEvent } = await import("../lib/audit/audit-log");
     const patientATraceId = crypto.randomUUID();
     const patientBTraceId = crypto.randomUUID();
+    const mixedPatientTraceId = crypto.randomUUID();
     logEvent("message_received", "orchestrator", patientATraceId, { length: 10 }, "patient-a");
     logEvent("companion_reply", "orchestrator", patientATraceId, { mode: "normal" }, "patient-a");
     logEvent("message_received", "orchestrator", patientBTraceId, { length: 12 }, "patient-b");
     logEvent("companion_reply", "orchestrator", patientBTraceId, { mode: "normal" }, "patient-b");
+    logEvent("message_received", "orchestrator", mixedPatientTraceId, {}, "patient-a");
+    logEvent("companion_reply", "orchestrator", mixedPatientTraceId, {}, "patient-b");
 
     const doctorTraceList = await call(traceHandler, { method: "GET", token: tokens.doctorA });
     assert.equal(doctorTraceList.status, 200);
     assert(doctorTraceList.body.data.every((t: any) => t.patientId === "patient-a"));
     assert(doctorTraceList.body.data.some((t: any) => t.correlationId === patientATraceId));
     assert(!doctorTraceList.body.data.some((t: any) => t.correlationId === patientBTraceId));
+    assert(!doctorTraceList.body.data.some((t: any) => t.correlationId === mixedPatientTraceId));
 
     const doctorOwnChain = await call(traceHandler, {
       method: "GET",
@@ -206,6 +210,13 @@ async function main() {
     });
     assert.equal(doctorCrossChain.status, 404);
 
+    const doctorMixedChain = await call(traceHandler, {
+      method: "GET",
+      token: tokens.doctorA,
+      query: { correlationId: mixedPatientTraceId },
+    });
+    assert.equal(doctorMixedChain.status, 404);
+
     const patientCannotTrace = await call(traceHandler, { method: "GET", token: tokens.patientA });
     assert.equal(patientCannotTrace.status, 403);
 
@@ -213,7 +224,17 @@ async function main() {
     assert.equal(securityTrace.status, 200);
     assert(securityTrace.body.data.some((t: any) => t.correlationId === patientATraceId));
     assert(securityTrace.body.data.some((t: any) => t.correlationId === patientBTraceId));
-    console.log("PASS event trace is patient-scoped for clinicians (least privilege) and unrestricted for security");
+    const securityMixedSummary = securityTrace.body.data.find((t: any) => t.correlationId === mixedPatientTraceId);
+    assert.equal(securityMixedSummary?.patientOwnershipConflict, true);
+    assert.equal(securityMixedSummary?.patientId, undefined);
+    const securityMixedChain = await call(traceHandler, {
+      method: "GET",
+      token: tokens.securityA,
+      query: { correlationId: mixedPatientTraceId },
+    });
+    assert.equal(securityMixedChain.status, 200);
+    assert.equal(securityMixedChain.body.data.patientOwnershipConflict, true);
+    console.log("PASS event trace is patient-scoped for clinicians; mixed ownership fails closed while security can inspect");
 
     const doctorCannotAssign = await call(assignmentHandler, {
       method: "POST",
