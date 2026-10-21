@@ -1,6 +1,6 @@
-// Event chain — ต่อ HydraEvent ที่มี correlationId เดียวกันให้เป็น timeline อ่านง่าย
-// ใช้ตอน debug หรือโชว์ trace ใน Doctor dashboard ในอนาคต (ยังไม่ต่อ UI/endpoint
-// ใดๆ ในรอบนี้ — แค่ฟังก์ชัน pure ที่พร้อมให้ endpoint เรียกใช้ทีหลัง)
+// Event chain — ต่อ HydraEvent ที่มี correlationId เดียวกันให้เป็น timeline อ่านง่าย.
+// Doctor/Staff access is guarded by the API's current CareAssignment check and the
+// shared trace-patient ownership invariant; mixed-patient traces fail closed.
 
 import { getEventsByCorrelationId } from "./audit-log";
 import type { HydraEvent } from "../types/event";
